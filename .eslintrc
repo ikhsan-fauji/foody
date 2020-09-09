@@ -34,6 +34,7 @@
     "no-underscore-dangle": 0,
     "no-console": "warn",
     "no-process-exit": "off",
+    "no-useless-constructor": "off",
     "prettier/prettier": [
       "error",
       {
