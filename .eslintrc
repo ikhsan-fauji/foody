@@ -1,0 +1,44 @@
+{
+  "plugins": ["prettier", "jasmine"],
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jasmine": true
+  },
+  "extends": ["airbnb-base", "prettier"],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly",
+    "describe": true,
+    "it": true,
+    "true": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "ignorePatterns": ["dist"],
+  "rules": {
+    "linebreak-style": 0,
+    "comma-dangle": ["error", "never"],
+    "class-methods-use-this": "off",
+    "indent": ["error", 2],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
+    "max-lines-per-function": ["warn"],
+    "max-len": "off",
+    "no-underscore-dangle": 0,
+    "no-console": "warn",
+    "no-process-exit": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
+  }
+}

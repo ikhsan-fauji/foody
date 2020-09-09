@@ -1,0 +1,49 @@
+{
+  "name": "foody",
+  "version": "1.0.0",
+  "description": "Restaurant catalogue apps",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.prod.js",
+    "dev": "webpack-dev-server --config webpack.dev.js",
+    "test": "karma start",
+    "lint": "eslint --ignore-path .gitignore . --fix"
+  },
+  "keywords": [],
+  "author": "Ikhsan Fauji <ikhsanfauji.dev@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "copy-webpack-plugin": "^6.1.0",
+    "css-loader": "^3.6.0",
+    "eslint": "^7.4.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jasmine": "^4.1.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "html-webpack-plugin": "^4.4.1",
+    "jasmine-ajax": "^4.0.0",
+    "jasmine-core": "^3.5.0",
+    "karma": "^5.1.0",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-firefox-launcher": "^1.3.0",
+    "karma-jasmine": "^3.3.1",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^4.0.2",
+    "prettier": "^2.1.1",
+    "sass": "^1.26.10",
+    "sass-loader": "^10.0.2",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.1.3",
+    "whatwg-fetch": "^3.2.0"
+  },
+  "dependencies": {
+    "regenerator-runtime": "^0.13.5"
+  }
+}
