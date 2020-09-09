@@ -1,2 +1,10 @@
 import 'regenerator-runtime';
-import '../scss/main.scss';
+import '../styles/main.scss';
+
+import navigation from './navigation';
+
+const main = () => {
+  navigation.init();
+};
+
+document.addEventListener('DOMContentLoaded', main);
