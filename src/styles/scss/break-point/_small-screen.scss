@@ -1,0 +1,14 @@
+@media screen and (min-width: 576px) {
+  nav {
+    overflow: hidden;
+    background-color: $white-color;
+
+    .brand-logo {
+      margin-left: 30%;
+    }
+
+    #nav-bar {
+      display: none;
+    }
+  }
+}

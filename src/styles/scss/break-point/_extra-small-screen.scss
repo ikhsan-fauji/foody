@@ -1,0 +1,14 @@
+@media screen and (max-width: 575.9px) {
+  nav {
+    overflow: hidden;
+    background-color: $white-color;
+
+    .brand-logo {
+      margin-left: 25%;
+    }
+
+    #nav-bar {
+      display: none;
+    }
+  }
+}
