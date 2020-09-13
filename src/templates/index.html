@@ -9,47 +9,429 @@
     <title>Foody | Home</title>
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
     <header>
-      <div id="menu-bar"></div>
-      <section id="jumbotron">
-        <div id="hero">
-          <div class="hero-gradient"></div>
-          <div class="hero-image">
-            <img src="./images/heros/hero-image_1.jpg" alt="Hero" />
+      <div id="menu-bar">
+        <div class="container">
+          <div class="brand-logo">
+            <button id="drawer-menu">
+              <span class="material-icons"> menu </span>
+            </button>
+            <a href="/">Foody</a>
           </div>
-          <div class="hero-content">
-            <p>Discover the great places to eat around you!</p>
-            <h1>
-              Find your favourite <span class="primary-text">Resto</span> and
-              <span class="primary-text">Food</span>.
-            </h1>
 
-            <div class="search-form"></div>
-          </div>
+          <nav id="drawer">
+            <ul class="nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="#home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#favourite">Favourite</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+            </ul>
+          </nav>
         </div>
-      </section>
+      </div>
+
+      <div class="hero">
+        <div class="hero-gradient"></div>
+        <img
+          src="./images/heros/hero-image.webp"
+          alt="Hero Image"
+          class="hero-image"
+        />
+        <div class="hero-content container">
+          <p class="hero-tagline" tabindex="0">
+            Discover the great places to eat around you!
+          </p>
+          <h1 class="hero-title" tabindex="0">
+            Find your favourite <span class="primary-text">Resto</span> and
+            <span class="primary-text">Food</span>.
+          </h1>
+          <form action="#" class="search-form">
+            <div class="left-group">
+              <div class="form-icon left-icon">
+                <span class="material-icons">place</span>
+              </div>
+              <div class="form-input">
+                <select name="city" id="city-options" aria-label="City options">
+                  <option value="">Select City...</option>
+                </select>
+              </div>
+            </div>
+            <div class="right-group">
+              <div class="form-input">
+                <input
+                  type="text"
+                  aria-label="Search input"
+                  placeholder="Search for restaurant or food..."
+                />
+              </div>
+              <div class="form-icon">
+                <button class="search-button" type="button">
+                  <span class="material-icons">search</span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </header>
-    <main>
-      <section id="explore-restaurant">
+    <main id="main-content">
+      <section id="explore">
         <div class="container">
           <div class="section-header">
-            <h2 class="section-title">Explore Restaurant</h2>
+            <h2 class="section-title" tabindex="0">Explore Restaurant</h2>
           </div>
-          <div class="restaurants"></div>
+          <div class="restaurants">
+            <article class="card restaurant">
+              <p class="restaurant-place" tabindex="0">Kota Bandung</p>
+              <img
+                class="card-image restaurant-thumbnail"
+                src="./images/heros/hero-image_4.jpg"
+                alt="Gambar dua orang wanita sedang memegang laptop"
+              />
+              <div class="card-body restaurant-content">
+                <h1 class="restaurant-title">
+                  <a href="#">Selera Minang</a>
+                </h1>
+                <div class="restaurant-rating">
+                  <span
+                    id="rating-icon"
+                    class="material-icons"
+                    tabindex="0"
+                    aria-label="Star icon for restaurant rating"
+                  >
+                    grade
+                  </span>
+                  <label
+                    for="rating-icon"
+                    tabindex="0"
+                    aria-label="Restaurant rating point is 4.8"
+                    >4.8</label
+                  >
+                </div>
+                <p class="restaurant-description" tabindex="0">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  est dolor, faucibus et iaculis a, lacinia eu mi.
+                </p>
+              </div>
+            </article>
+
+            <article class="card restaurant">
+              <p class="restaurant-place" tabindex="0">Kota Bandung</p>
+              <img
+                class="card-image restaurant-thumbnail"
+                src="./images/heros/hero-image_4.jpg"
+                alt="Gambar dua orang wanita sedang memegang laptop"
+              />
+              <div class="card-body restaurant-content">
+                <h1 class="restaurant-title">
+                  <a href="#">Selera Minang</a>
+                </h1>
+                <div class="restaurant-rating">
+                  <span
+                    id="rating-icon"
+                    class="material-icons"
+                    tabindex="0"
+                    aria-label="Star icon for restaurant rating"
+                  >
+                    grade
+                  </span>
+                  <label
+                    for="rating-icon"
+                    tabindex="0"
+                    aria-label="Restaurant rating point is 4.8"
+                    >4.8</label
+                  >
+                </div>
+                <p class="restaurant-description" tabindex="0">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  est dolor, faucibus et iaculis a, lacinia eu mi.
+                </p>
+              </div>
+            </article>
+
+            <article class="card restaurant">
+              <p class="restaurant-place" tabindex="0">Kota Bandung</p>
+              <img
+                class="card-image restaurant-thumbnail"
+                src="./images/heros/hero-image_4.jpg"
+                alt="Gambar dua orang wanita sedang memegang laptop"
+              />
+              <div class="card-body restaurant-content">
+                <h1 class="restaurant-title">
+                  <a href="#">Selera Minang</a>
+                </h1>
+                <div class="restaurant-rating">
+                  <span
+                    id="rating-icon"
+                    class="material-icons"
+                    tabindex="0"
+                    aria-label="Star icon for restaurant rating"
+                  >
+                    grade
+                  </span>
+                  <label
+                    for="rating-icon"
+                    tabindex="0"
+                    aria-label="Restaurant rating point is 4.8"
+                    >4.8</label
+                  >
+                </div>
+                <p class="restaurant-description" tabindex="0">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  est dolor, faucibus et iaculis a, lacinia eu mi.
+                </p>
+              </div>
+            </article>
+
+            <article class="card restaurant">
+              <p class="restaurant-place" tabindex="0">Kota Bandung</p>
+              <img
+                class="card-image restaurant-thumbnail"
+                src="./images/heros/hero-image_4.jpg"
+                alt="Gambar dua orang wanita sedang memegang laptop"
+              />
+              <div class="card-body restaurant-content">
+                <h1 class="restaurant-title">
+                  <a href="#">Selera Minang</a>
+                </h1>
+                <div class="restaurant-rating">
+                  <span
+                    id="rating-icon"
+                    class="material-icons"
+                    tabindex="0"
+                    aria-label="Star icon for restaurant rating"
+                  >
+                    grade
+                  </span>
+                  <label
+                    for="rating-icon"
+                    tabindex="0"
+                    aria-label="Restaurant rating point is 4.8"
+                    >4.8</label
+                  >
+                </div>
+                <p class="restaurant-description" tabindex="0">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  est dolor, faucibus et iaculis a, lacinia eu mi.
+                </p>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
+
       <section id="popular-menus">
         <div class="container">
           <div class="section-header">
-            <h2 class="section-title">PopularMenus</h2>
+            <h2 class="section-title" tabindex="0">Popular Menus</h2>
+          </div>
+          <div class="menus">
+            <article class="card menu">
+              <img
+                class="card-image menu-thumbnail"
+                src="./images/heros/hero-image_2.jpg"
+                alt="Gambar dua orang wanita sedang memegang laptop"
+              />
+              <div class="card-body menu-content">
+                <h1 class="menu-title">
+                  <a href="#">Ayam Geprek Mantap</a>
+                </h1>
+                <div class="menu-info">
+                  <div class="menu-info__rating">
+                    <span
+                      id="rating-icon"
+                      class="material-icons"
+                      tabindex="0"
+                      aria-label="Star icon for rating"
+                    >
+                      grade
+                    </span>
+                    <label
+                      for="rating-icon"
+                      tabindex="0"
+                      aria-label="Rating point is 4.8"
+                      >4.8</label
+                    >
+                  </div>
+                  <div class="menu-info__place">
+                    <span
+                      id="place-icon"
+                      class="material-icons"
+                      tabindex="0"
+                      aria-label="Place icon"
+                    >
+                      place
+                    </span>
+                    <label for="place-icon" tabindex="0">Kota Bandung</label>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="card menu">
+              <img
+                class="card-image menu-thumbnail"
+                src="./images/heros/hero-image_2.jpg"
+                alt="Gambar dua orang wanita sedang memegang laptop"
+              />
+              <div class="card-body menu-content">
+                <h1 class="menu-title">
+                  <a href="#">Ayam Geprek Mantap</a>
+                </h1>
+                <div class="menu-info">
+                  <div class="menu-info__rating">
+                    <span
+                      id="rating-icon"
+                      class="material-icons"
+                      tabindex="0"
+                      aria-label="Star icon for rating"
+                    >
+                      grade
+                    </span>
+                    <label
+                      for="rating-icon"
+                      tabindex="0"
+                      aria-label="Rating point is 4.8"
+                      >4.8</label
+                    >
+                  </div>
+                  <div class="menu-info__place">
+                    <span
+                      id="place-icon"
+                      class="material-icons"
+                      tabindex="0"
+                      aria-label="Place icon"
+                    >
+                      place
+                    </span>
+                    <label for="place-icon" tabindex="0">Kota Bandung</label>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="card menu">
+              <img
+                class="card-image menu-thumbnail"
+                src="./images/heros/hero-image_2.jpg"
+                alt="Gambar dua orang wanita sedang memegang laptop"
+              />
+              <div class="card-body menu-content">
+                <h1 class="menu-title">
+                  <a href="#">Ayam Geprek Mantap</a>
+                </h1>
+                <div class="menu-info">
+                  <div class="menu-info__rating">
+                    <span
+                      id="rating-icon"
+                      class="material-icons"
+                      tabindex="0"
+                      aria-label="Star icon for rating"
+                    >
+                      grade
+                    </span>
+                    <label
+                      for="rating-icon"
+                      tabindex="0"
+                      aria-label="Rating point is 4.8"
+                      >4.8</label
+                    >
+                  </div>
+                  <div class="menu-info__place">
+                    <span
+                      id="place-icon"
+                      class="material-icons"
+                      tabindex="0"
+                      aria-label="Place icon"
+                    >
+                      place
+                    </span>
+                    <label for="place-icon" tabindex="0">Kota Bandung</label>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="card menu">
+              <img
+                class="card-image menu-thumbnail"
+                src="./images/heros/hero-image_2.jpg"
+                alt="Gambar dua orang wanita sedang memegang laptop"
+              />
+              <div class="card-body menu-content">
+                <h1 class="menu-title">
+                  <a href="#">Ayam Geprek Mantap</a>
+                </h1>
+                <div class="menu-info">
+                  <div class="menu-info__rating">
+                    <span
+                      id="rating-icon"
+                      class="material-icons"
+                      tabindex="0"
+                      aria-label="Star icon for rating"
+                    >
+                      grade
+                    </span>
+                    <label
+                      for="rating-icon"
+                      tabindex="0"
+                      aria-label="Rating point is 4.8"
+                      >4.8</label
+                    >
+                  </div>
+                  <div class="menu-info__place">
+                    <span
+                      id="place-icon"
+                      class="material-icons"
+                      tabindex="0"
+                      aria-label="Place icon"
+                    >
+                      place
+                    </span>
+                    <label for="place-icon" tabindex="0">Kota Bandung</label>
+                  </div>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </section>
-      <section id="discover"></section>
+
+      <section id="discover-restaurant">
+        <div class="container discover">
+          <div class="discover-banner">
+            <img
+              src="./images/heros/hero-image_1.webp"
+              alt="Chef in the kitchen"
+            />
+          </div>
+          <div class="discover-content">
+            <h1 class="discover-title" tabindex="0">
+              Connect <span class="primary-text">With</span> Us
+            </h1>
+
+            <p class="discover-text" tabindex="0">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed est
+              dolor, faucibus et iaculis a, lacinia eu mi. Lorem ipsum dolor sit
+              amet, consectetur adipiscing elit. Cras fringilla ullamcorper dui
+              vel ultricies. Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit. Nulla pulvinar posuere pulvinar.
+            </p>
+
+            <button class="discover-button" type="button">Discover Here</button>
+          </div>
+        </div>
+      </section>
     </main>
-    <footer class="page-footer">
+    <footer>
       <div class="footer-copyright">
-        <div class="container">Copyright © 2014 - Foody</div>
+        <div class="container">Copyright © 2020 - Foody</div>
       </div>
     </footer>
   </body>
