@@ -23,6 +23,14 @@ module.exports = {
             loader: 'sass-loader'
           }
         ]
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif|webp)$/,
+        use: ['file-loader']
+      },
+      {
+        test: /\.(woff|woff2|ttf|eot)$/,
+        use: 'file-loader?name=fonts/[name].[ext]!static'
       }
     ]
   },
@@ -36,6 +44,10 @@ module.exports = {
         {
           from: path.resolve(__dirname, 'src/public/'),
           to: path.resolve(__dirname, 'dist/')
+        },
+        {
+          from: path.resolve(__dirname, 'src/fonts/'),
+          to: path.resolve(__dirname, 'dist/fonts/')
         }
       ]
     })
