@@ -1,11 +1,118 @@
 @media screen and (min-width: 960px) {
-  nav {
-    .burger-menu {
-      display: none;
+  #drawer-menu {
+    display: none;
+  }
+
+  #menu-bar {
+    background-color: transparent;
+    box-shadow: none;
+
+    .brand-logo {
+      float: left;
+      width: auto;
     }
 
-    #nav-bar {
-      display: block;
+    nav {
+      position: initial;
+      height: auto;
+      width: auto;
+      float: right;
+      box-shadow: none;
+      background-color: transparent;
+
+      .nav {
+        .nav-item {
+          display: inline-block;
+          line-height: 72px;
+
+          .nav-link {
+            display: block;
+            padding: 0 16px;
+            color: $general-text;
+          }
+        }
+      }
+    }
+  }
+
+  #menu-bar.sticky {
+    position: fixed !important;
+    background-color: $white-color;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.25);
+
+    .nav .nav-item .nav-link {
+      color: $dark-color;
+    }
+  }
+
+  .section-title {
+    font-size: 26px;
+  }
+
+  .hero {
+    height: $hero-height;
+    margin-top: 0;
+
+    .hero-gradient,
+    .hero-image {
+      height: $hero-height;
+      top: 0;
+    }
+
+    .hero-content {
+      padding-top: 22%;
+
+      .hero-tagline {
+        font-size: 18px !important;
+      }
+      .hero-title {
+        font-size: 42px;
+        line-height: 52px !important;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .search-form {
+    width: 580px;
+    height: 52px;
+  }
+
+  .restaurants,
+  .menus {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .restaurant-content,
+  .menu-content {
+    padding: 15px 20px !important;
+  }
+
+  .restaurant-title,
+  .menu-title {
+    font-size: 16px;
+  }
+
+  .restaurant-description,
+  .menu-description {
+    line-height: 16px !important;
+  }
+
+  #discover-restaurant {
+    padding: 58px 0;
+    .discover {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      padding: 0 100px;
+
+      .discover-content {
+        padding-top: 12%;
+        margin-left: 20px;
+
+        .discover-title {
+          font-size: 28px;
+        }
+      }
     }
   }
 }
