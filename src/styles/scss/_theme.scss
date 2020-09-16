@@ -5,6 +5,7 @@
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
+  font-display: auto;
   src: url('/fonts/MaterialIcons-Regular.woff2') format('woff2');
 }
 
@@ -26,13 +27,13 @@
   font-feature-settings: 'liga';
 }
 
-// main color
-$primary-color: #fcba3f;
-$white-color: #ffffff;
-$grey-color: #f8f9fa;
-$dark-color: #656565;
+// color pallet
+$primary-color: #ffa600;
+$secondary-color: #fbc914;
+$tertiary-color: #f8f9fa;
+$fourthly-color: #2f2f2f;
+$fifthly-color: #ffffff;
 
-// text color
-$primary-text: $primary-color;
-$general-text: $white-color;
-$title-text: $dark-color;
+$white-color: $fifthly-color;
+$grey-color: $tertiary-color;
+$dark-color: $fourthly-color;

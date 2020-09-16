@@ -28,7 +28,7 @@
           .nav-link {
             display: block;
             padding: 0 16px;
-            color: $general-text;
+            color: $white-color;
           }
         }
       }
@@ -60,7 +60,7 @@
     }
 
     .hero-content {
-      padding-top: 22%;
+      padding-top: 250px;
 
       .hero-tagline {
         font-size: 18px !important;
@@ -106,7 +106,7 @@
       padding: 0 100px;
 
       .discover-content {
-        padding-top: 12%;
+        padding-top: 0;
         margin-left: 20px;
 
         .discover-title {

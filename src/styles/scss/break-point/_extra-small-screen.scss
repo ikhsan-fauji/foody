@@ -16,7 +16,9 @@
     width: 100%;
 
     a {
-      color: $primary-text;
+      color: $primary-color;
+      position: relative;
+      left: -20px;
     }
   }
 
@@ -28,7 +30,7 @@
   #drawer-menu {
     background-color: transparent;
     border: none;
-    color: $primary-text;
+    color: $primary-color;
     float: left;
     margin-top: 12px;
     width: 44px;
@@ -112,15 +114,14 @@
     }
 
     .hero-content {
-      padding-left: 50px;
-      padding-right: 50px;
-      color: $general-text;
+      padding: 0 20px;
+      color: $white-color;
       text-align: center;
-      line-height: 32px;
       padding-top: 10%;
 
       .hero-tagline {
-        font-size: 12px !important;
+        line-height: 30px;
+        font-size: 14px !important;
       }
 
       .hero-title {
@@ -182,17 +183,18 @@
       border-bottom-right-radius: 5px;
 
       button {
-        padding-top: 8px;
+        padding-top: 5px;
         height: 100%;
         width: 100%;
-        color: $general-text;
+        min-width: 44px;
+        color: $white-color;
         background-color: $primary-color;
         border: none;
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px;
 
         &:hover {
-          color: $general-text;
+          color: $white-color;
           background-color: #e29402;
         }
       }
@@ -241,7 +243,7 @@
     .card-body {
       background-color: $white-color;
       border-radius: 5px;
-      padding: 12px;
+      padding: 15px;
       position: relative;
       top: -10px;
     }
@@ -257,13 +259,20 @@
     .restaurant-place {
       position: absolute;
       margin-top: 10px;
-      color: $general-text;
+      color: $white-color;
       font-size: 10px;
       line-height: 30px;
       background-color: $primary-color;
       padding: 0 12px;
       border-top-right-radius: 20px;
       border-bottom-right-radius: 20px;
+
+      .material-icons {
+        font-size: 12px;
+        position: relative;
+        bottom: -2px;
+        margin-right: 5px;
+      }
     }
 
     .restaurant-content {
@@ -277,7 +286,7 @@
         font-size: 10px;
 
         .material-icons {
-          color: $primary-text;
+          color: $primary-color;
           float: left;
           font-size: 16px;
         }
@@ -305,7 +314,7 @@
 
   .menu {
     .menu-thumbnail {
-      height: 130px;
+      max-height: 160px;
     }
   }
   .menu-content {
@@ -327,7 +336,7 @@
         margin-right: 10px;
       }
       .menu-info__rating .material-icons {
-        color: $primary-text;
+        color: $primary-color;
         font-size: 16px;
       }
       .menu-info__place .material-icons {
@@ -357,7 +366,7 @@
       }
 
       .discover-title {
-        color: $title-text;
+        color: $dark-color;
         font-size: 18px;
         font-weight: bold;
       }
@@ -373,11 +382,33 @@
         border: none;
         text-align: center;
         text-transform: uppercase;
-        color: $general-text;
+        color: $white-color;
         line-height: 44px;
         padding: 0 15px;
         border-radius: 5px;
+
+        &:hover {
+          background-color: $white-color;
+          color: $primary-color;
+          border: 1px solid $primary-color;
+          cursor: pointer;
+          line-height: 42px;
+        }
       }
     }
+  }
+}
+
+@media screen and (max-width: 320.9px) {
+  .hero .hero-content .hero-tagline {
+    font-size: 12px !important;
+  }
+
+  .restaurants,
+  .menus {
+    padding: 22px 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 }
