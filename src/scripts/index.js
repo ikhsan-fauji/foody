@@ -25,6 +25,8 @@ const main = () => {
     navigation.sticky();
   };
 
+  navigation.keepStickyOnRefresh();
+
   const drawerMenu = document.getElementById('drawer-menu');
   const drawer = document.getElementById('drawer');
   drawerMenu.addEventListener('click', (event) => {
