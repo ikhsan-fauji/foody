@@ -12,12 +12,22 @@ class Navigation {
   static sticky() {
     const header = document.getElementById('menu-bar');
     const sticky = header.offsetTop;
+    const { pageYOffset } = window;
 
-    if (window.pageYOffset > sticky) {
+    if (pageYOffset > sticky) {
       header.classList.add('sticky');
     } else {
       header.classList.remove('sticky');
     }
+  }
+
+  static keepStickyOnRefresh() {
+    window.onload = () => {
+      const scrollYPosition = window.scrollY;
+      if (scrollYPosition > 0) {
+        this.sticky();
+      }
+    };
   }
 }
 
