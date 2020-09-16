@@ -1,4 +1,16 @@
 @media screen and (min-width: 768px) {
+  .section-header {
+    .section-title {
+      font-size: 24px;
+      text-align: center;
+
+      &::after {
+        margin: 0 auto;
+        margin-top: 10px !important;
+      }
+    }
+  }
+
   nav {
     width: 320px;
     left: -325px;
@@ -43,4 +55,9 @@
   .right-group .form-input input {
     border-radius: unset;
   }
+}
+
+#explore,
+#popular-menus {
+  padding: 45px 0;
 }
