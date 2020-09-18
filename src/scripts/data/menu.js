@@ -1,4 +1,4 @@
-import './component/MenuCard';
+import '../component/MenuCard';
 
 class Menu {
   constructor(menus) {

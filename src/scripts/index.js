@@ -3,8 +3,8 @@ import './lazysizes.min';
 import '../styles/main.scss';
 
 import navigation from './navigation';
-import Restaurant from './restaurant';
-import Menu from './menu';
+import Restaurant from './data/restaurant';
+import Menu from './data/menu';
 import dummy from './data/DATA.json';
 
 const descendingByRating = (a, b) => {

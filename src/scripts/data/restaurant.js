@@ -1,4 +1,4 @@
-import './component/RestaurantCard';
+import '../component/RestaurantCard';
 
 class Restaurant {
   constructor(restaurants) {
