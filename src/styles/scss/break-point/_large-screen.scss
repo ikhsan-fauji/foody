@@ -7,28 +7,34 @@
     background-color: transparent;
     box-shadow: none;
 
-    .brand-logo {
-      float: left;
-      width: auto;
-    }
+    .container {
+      display: grid;
+      grid-template-columns: 2fr 10fr;
 
-    nav {
-      position: initial;
-      height: auto;
-      width: auto;
-      float: right;
-      box-shadow: none;
-      background-color: transparent;
+      .brand-logo {
+        max-width: 200px;
+        align-self: flex-start;
+      }
 
-      .nav {
-        .nav-item {
-          display: inline-block;
-          line-height: 72px;
+      nav {
+        position: initial;
+        height: auto;
+        width: 100%;
+        box-shadow: none;
+        background-color: transparent;
+        display: flex;
+        justify-content: flex-end;
 
-          .nav-link {
-            display: block;
-            padding: 0 16px;
-            color: $white-color;
+        .nav {
+          .nav-item {
+            display: inline-block;
+            line-height: 72px;
+
+            .nav-link {
+              display: block;
+              padding: 0 16px;
+              color: $white-color;
+            }
           }
         }
       }
@@ -41,7 +47,7 @@
     box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.25);
 
     .nav .nav-item .nav-link {
-      color: $dark-color;
+      color: $dark-color !important;
     }
   }
 

@@ -15,11 +15,18 @@
   }
 
   .brand-logo {
-    text-align: center;
+    display: flex;
+
+    #drawer-menu {
+      align-self: flex-start;
+
+      span {
+        top: 2px;
+      }
+    }
 
     a {
-      position: relative;
-      left: -20px;
+      margin-left: 10px;
     }
   }
 
@@ -63,7 +70,7 @@
 
   .restaurant {
     .restaurant-thumbnail {
-      max-height: 180px;
+      height: 135px !important;
     }
   }
 
