@@ -10,7 +10,6 @@ class RestaurantCard extends HTMLElement {
   _prepareTemplate(restaurant) {
     if (restaurant) {
       const { name, city, pictureId, rating, description } = restaurant;
-      const descriptionSplited = description.substring(0, 110);
       const fixedRating = rating.toFixed(1);
       const thumbnail = pictureId || './images/heros/hero-image_4.jpg';
 
@@ -20,7 +19,7 @@ class RestaurantCard extends HTMLElement {
           <img
             class="card-image restaurant-thumbnail lazyload"
             data-src="${thumbnail}"
-            alt="Picture of ${name}"
+            alt="${name} Restaurant"
           />
           <div class="card-body restaurant-content">
             <h1 class="restaurant-title">
@@ -43,8 +42,8 @@ class RestaurantCard extends HTMLElement {
               ${fixedRating}
               </label>
             </div>
-            <p class="restaurant-description" tabindex="0">
-              ${descriptionSplited}...
+            <p class="restaurant-description card-text" tabindex="0">
+              ${description}
             </p>
           </div>
         </article>

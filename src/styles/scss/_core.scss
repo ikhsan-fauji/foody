@@ -23,6 +23,7 @@ main {
 
 img {
   display: block;
+  object-fit: cover !important;
 }
 
 .container {
@@ -316,6 +317,14 @@ nav {
     padding: 15px;
     position: relative;
     top: -10px;
+
+    .card-text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 4; /* number of lines to show */
+      -webkit-box-orient: vertical;
+    }
   }
 }
 
@@ -324,6 +333,7 @@ nav {
 
   .restaurant-thumbnail {
     max-height: 170px !important;
+    object-fit: cover;
   }
 
   .restaurant-place {
@@ -392,6 +402,7 @@ nav {
 .menu {
   .menu-thumbnail {
     max-height: 170px;
+    object-fit: cover;
   }
 }
 .menu-content {
