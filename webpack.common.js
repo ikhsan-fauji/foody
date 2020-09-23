@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -48,8 +49,16 @@ module.exports = {
         {
           from: path.resolve(__dirname, 'src/fonts/'),
           to: path.resolve(__dirname, 'dist/fonts/')
+        },
+        {
+          from: path.resolve(__dirname, 'src/scripts/manifest.json'),
+          to: path.resolve(__dirname, 'dist/')
         }
       ]
+    }),
+    new WorkboxPlugin.InjectManifest({
+      swSrc: './src/scripts/service-worker.js',
+      swDest: 'service-worker.js'
     })
   ]
 };
