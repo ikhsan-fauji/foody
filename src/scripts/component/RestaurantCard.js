@@ -29,7 +29,6 @@ class RestaurantCard extends HTMLElement {
               <span
                 id="rating-icon"
                 class="material-icons"
-                tabindex="0"
                 aria-label="Star icon for restaurant rating"
               >
                 grade
@@ -42,7 +41,7 @@ class RestaurantCard extends HTMLElement {
               ${fixedRating}
               </label>
             </div>
-            <p class="restaurant-description card-text" tabindex="0">
+            <p class="restaurant-description card-text">
               ${description}
             </p>
           </div>

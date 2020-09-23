@@ -26,11 +26,11 @@ class MenuCard extends HTMLElement {
             </h1>
             <div class="menu-info">
               <div class="menu-info__rating">
-                <span id="rating-icon" class="material-icons" tabindex="0" aria-label="Star icon for rating"> grade </span>
+                <span id="rating-icon" class="material-icons" aria-label="Star icon for rating"> grade </span>
                 <label for="rating-icon" tabindex="0" aria-label="Rating point is ${fixedRating}"> ${fixedRating} </label>
               </div>
               <div class="menu-info__place">
-                <span id="place-icon" class="material-icons" tabindex="0" aria-label="Place icon"> place </span>
+                <span id="place-icon" class="material-icons" aria-label="Place icon"> place </span>
                 <label for="place-icon" tabindex="0">${city}</label>
               </div>
             </div>
