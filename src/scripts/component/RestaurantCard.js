@@ -1,3 +1,5 @@
+import { restaurantApi } from '../utils/enums';
+
 class RestaurantCard extends HTMLElement {
   constructor() {
     super();
@@ -9,7 +11,7 @@ class RestaurantCard extends HTMLElement {
 
   _prepareTemplate(restaurant) {
     if (restaurant) {
-      const { name, city, pictureId, rating, description } = restaurant;
+      const { id, name, city, pictureId, rating, description } = restaurant;
       const fixedRating = rating.toFixed(1);
       const thumbnail = pictureId || './images/heros/hero-image_4.jpg';
 
@@ -18,12 +20,12 @@ class RestaurantCard extends HTMLElement {
           <p class="restaurant-place" tabindex="0" aria-label="Restaurant in ${city}"><span id="place-icon" class="material-icons"> place </span>${city}</p>
           <img
             class="card-image restaurant-thumbnail lazyload"
-            data-src="${thumbnail}"
+            data-src="${restaurantApi.smallPicture}${thumbnail}"
             alt="${name} Restaurant"
           />
           <div class="card-body restaurant-content">
             <h1 class="restaurant-title">
-              <a href="#">${name}</a>
+              <a href="#/restaurant/${id}">${name}</a>
             </h1>
             <div class="restaurant-rating">
               <span
