@@ -2,53 +2,35 @@ import 'regenerator-runtime';
 import './lazysizes.min';
 import '../styles/main.scss';
 
-import navigation from './navigation';
-import Restaurant from './data/restaurant';
-import Menu from './data/menu';
-import dummy from './data/DATA.json';
+import App from './views/app';
 
-const descendingByRating = (a, b) => {
-  let comparison = 0;
+const menuBar = document.querySelector('#menu-bar');
+const button = document.querySelector('#drawer-menu');
+const drawer = document.querySelector('#drawer');
+const content = document.querySelector('#main-content');
 
-  if (a.rating > b.rating) {
-    comparison = -1;
-  } else if (a.rating < b.rating) {
-    comparison = 1;
-  }
+const app = new App({ menuBar, button, drawer, content });
 
-  return comparison;
-};
+window.addEventListener('hashchange', () => {
+  app.renderPage();
+});
 
-const main = () => {
-  window.onscroll = () => {
-    navigation.sticky();
-  };
+window.addEventListener('load', () => {
+  app.renderPage();
+});
 
-  navigation.keepStickyOnRefresh();
-  navigation.initDrawer();
+// const swRegister = async () => {
+//   if (!('serviceWorker' in navigator)) {
+//     console.log('Browser tidak mendukung Service Worker');
+//     return;
+//   }
 
-  const sortedRestaurants = dummy.restaurants.sort(descendingByRating);
-  const sortedPopularMenus = dummy.popularMenus.sort(descendingByRating);
-  const restaurant = new Restaurant(sortedRestaurants);
-  restaurant.renderAll();
-  const menu = new Menu(sortedPopularMenus);
-  menu.popular();
-};
+//   try {
+//     await navigator.serviceWorker.register('./service-worker.js');
+//     console.log('Service worker registered');
+//   } catch (error) {
+//     console.log('Failed to register service worker', error);
+//   }
+// };
 
-document.addEventListener('DOMContentLoaded', main);
-
-const swRegister = async () => {
-  if (!('serviceWorker' in navigator)) {
-    console.log('Browser tidak mendukung Service Worker');
-    return;
-  }
-
-  try {
-    await navigator.serviceWorker.register('./service-worker.js');
-    console.log('Service worker registered');
-  } catch (error) {
-    console.log('Failed to register service worker', error);
-  }
-};
-
-swRegister();
+// swRegister();
