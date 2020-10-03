@@ -19,6 +19,7 @@ body {
 
 main {
   flex: 1 0 auto;
+  min-height: 320px;
 }
 
 img {
@@ -82,7 +83,7 @@ footer {
   }
 }
 
-.show-drawer {
+.open {
   left: 0;
   transition: ease-in 0.3s;
 }
@@ -166,7 +167,7 @@ nav {
     background-image: linear-gradient(
       to right,
       rgba(0, 0, 0, 0.9),
-      rgba(0, 0, 0, 0.3)
+      rgba(0, 0, 0, 0.4)
     );
     z-index: -4;
   }
@@ -263,6 +264,47 @@ nav {
       width: 100%;
       padding: 10px;
       border: none;
+    }
+  }
+}
+
+#breadcrumb {
+  background-image: url('/images/heros/breadcrumb.webp');
+  height: 220px;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    content: '';
+    width: 100%;
+    height: 220px;
+    background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 0.4)
+    );
+  }
+
+  .container .breadcrumb-header {
+    position: relative;
+    bottom: -130px;
+    text-align: center;
+    z-index: 1;
+
+    .breadcrumb-title {
+      color: $white-color;
+      text-transform: uppercase;
+      font-size: 24px;
+
+      &::after {
+        content: '';
+        height: 3px;
+        width: 90px;
+        display: block;
+        background-color: $primary-color;
+        margin: 0 auto;
+        margin-top: 10px;
+      }
     }
   }
 }
@@ -491,5 +533,141 @@ nav {
         line-height: 42px;
       }
     }
+  }
+}
+.h-3 {
+  font-weight: 500;
+  font-family: $poppins-family;
+}
+
+.card-outline {
+  border: 1px solid $primary-color;
+  border-radius: 3px;
+  padding: 10px 15px;
+  text-align: center;
+
+  .co-title {
+    font-weight: 500;
+    font-family: $poppins-family;
+  }
+}
+
+.badge {
+  background-color: $primary-color;
+  border-radius: 10px;
+  color: $white-color;
+  padding: 2px 10px;
+  font-size: 12px;
+}
+
+#restaurant-content {
+  margin: 30px 0;
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    .restaurant-image {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+
+    .restaurant-name {
+      font-family: $poppins-family;
+      font-size: 26px;
+      font-weight: 500;
+    }
+
+    .restaurant-info {
+      display: inline;
+      font-size: 16px;
+
+      .material-icons {
+        color: $primary-color;
+        font-size: 18px;
+      }
+
+      label {
+        margin-right: 5px;
+      }
+    }
+
+    .restaurant-description {
+      margin: 15px 0;
+      line-height: 24px !important;
+    }
+
+    .restaurant-menus {
+      display: grid;
+      grid-template-columns: repeat(2, 6fr);
+      gap: 30px;
+    }
+
+    .restaurant-review {
+      margin-top: 20px;
+    }
+  }
+}
+
+.list-menus {
+  list-style-type: none;
+
+  .menu-item:nth-child(1) {
+    border-top: 1px solid rgba(235, 163, 7, 0.5);
+  }
+  .menu-item {
+    line-height: 40px;
+    border-bottom: 1px solid rgba(235, 163, 7, 0.5);
+  }
+}
+
+.reviews {
+  list-style-type: none;
+
+  .review-item {
+    margin: 15px 0;
+
+    .reviewer {
+      font-weight: 500;
+      font-family: $poppins-family;
+    }
+
+    .review-date {
+      margin: 8px 0;
+      font-size: 14px;
+      opacity: 0.6;
+    }
+
+    .review-detail {
+      margin-top: 5px;
+    }
+  }
+}
+
+.review-form {
+  width: 50%;
+
+  input,
+  textarea {
+    display: block;
+    width: 100%;
+    margin: 15px 0;
+    padding: 10px;
+  }
+}
+
+.btn-primary {
+  background-color: $primary-color;
+  color: $white-color;
+  padding: 10px 24px;
+  cursor: pointer;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.25);
+
+  &:hover {
+    background-color: #ec9900;
   }
 }
