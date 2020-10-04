@@ -1,4 +1,5 @@
 import { restaurantApi } from '../utils/enums';
+import idb from '../helper/idb-helper';
 import request from '../helper/request-helper';
 import descendingByRating from '../helper/sorter-helper';
 import '../component/RestaurantCard';
@@ -26,17 +27,9 @@ class RestaurantData {
     this._renderList();
   }
 
-  async detail(id) {
-    const response = await request.get(`${restaurantApi.detail}${id}`);
-    if (response && response.error) {
-      console.error(response.message);
-    } else {
-      const detailElement = document.createElement('restaurant-detail');
-      detailElement.restaurantId = id;
-      detailElement.detail = response.restaurant;
-      const restaurantContent = document.querySelector('#restaurant-content');
-      restaurantContent.appendChild(detailElement);
-    }
+  async favorites() {
+    this._restaurants = await idb.getAll();
+    this._renderList();
   }
 
   _renderList() {
@@ -47,6 +40,19 @@ class RestaurantData {
         restaurantCard.restaurant = restaurant;
         listRestaurant.appendChild(restaurantCard);
       });
+    }
+  }
+
+  async detail(id) {
+    const response = await request.get(`${restaurantApi.detail}${id}`);
+    if (response && response.error) {
+      console.error(response.message);
+    } else {
+      const detailElement = document.createElement('restaurant-detail');
+      detailElement.restaurantId = id;
+      detailElement.detail = response.restaurant;
+      const restaurantContent = document.querySelector('#restaurant-content');
+      restaurantContent.appendChild(detailElement);
     }
   }
 }
