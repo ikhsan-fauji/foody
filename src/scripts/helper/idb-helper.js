@@ -23,13 +23,13 @@ const idb = {
     });
   },
 
-  async upsert(storeName, data = null, key = 'id') {
+  async upsert(data = null, key = 'id') {
     let result = null;
     if (!window.indexedDB) return result;
     if (data) {
       const store = (await _openDb())
-        .transaction(storeName, 'readwrite')
-        .objectStore(storeName);
+        .transaction(STORE_NAME, 'readwrite')
+        .objectStore(STORE_NAME);
 
       const existingData = await store.get(data[key]);
       if (existingData) {
@@ -41,9 +41,8 @@ const idb = {
         newData.updatedAt = null;
         await store.add(newData);
       }
-
-      result = await store.done;
-      store.close();
+      result = data;
+      await store.done;
     }
     return result;
   },
@@ -83,7 +82,7 @@ const idb = {
       .transaction(STORE_NAME, 'readwrite')
       .objectStore(STORE_NAME);
 
-    return store.delete(key).done.close();
+    return store.delete(key);
   }
 };
 
