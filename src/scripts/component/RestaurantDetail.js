@@ -1,7 +1,8 @@
-import { restaurantApi } from '../utils/enums';
 import './MenuList';
 import './ReviewForm';
 import './ConsumerReviews';
+import { restaurantApi } from '../utils/enums';
+import idb from '../helper/idb-helper';
 
 class RestaurantDetail extends HTMLElement {
   constructor() {
@@ -61,7 +62,10 @@ class RestaurantDetail extends HTMLElement {
             src="${restaurantImage}"
             alt="restaurant ${this._detail.name}"
           />
-          <h2 class="restaurant-name primary-text">${this._detail.name}</h2>
+          <div class="restaurant__name__action">
+            <h2 class="restaurant-name primary-text">${this._detail.name}</h2>
+            <div id="favorite-actions"></div>
+          </div>
           <div class="restaurant-info">
             <span id="rating-icon" class="material-icons">grade</span>
             <label for="rating-icon" tabindex="0" aria-label="Restaurant rating point is ${fixedRating}">
@@ -125,6 +129,8 @@ class RestaurantDetail extends HTMLElement {
     reviewForm.restaurantId = this._restaurantId;
     reviewForm.afterSubmitted = (reviews) => this._refreshReviews(reviews);
     document.querySelector('#review-form').appendChild(reviewForm);
+
+    this._favoriteActions();
   }
 
   _refreshReviews(reviews) {
@@ -133,6 +139,51 @@ class RestaurantDetail extends HTMLElement {
     const reviewsElement = document.querySelector('#reviews');
     reviewsElement.innerHTML = '';
     reviewsElement.appendChild(consumerReviews);
+  }
+
+  async _favoriteActions() {
+    const favoriteActions = document.querySelector('#favorite-actions');
+    const savedData = await idb.getByKey(this._restaurantId);
+    if (savedData) {
+      const removeFavorite = `<button type="button" id="remove-favorite"><span class="material-icons">favorite</span></button>`;
+      favoriteActions.innerHTML = removeFavorite;
+      const removeElement = document.querySelector('#remove-favorite');
+      removeElement.addEventListener('click', (event) => {
+        this._removeRestaurant();
+        event.stopPropagation();
+      });
+    } else {
+      const saveFavorite = `<button type="button" id="save-favorite"><span class="material-icons">favorite_border</span></button>`;
+      favoriteActions.innerHTML = saveFavorite;
+      const saveElement = document.querySelector('#save-favorite');
+      saveElement.addEventListener('click', (event) => {
+        this._saveRestaurant();
+        event.stopPropagation();
+      });
+    }
+  }
+
+  async _saveRestaurant() {
+    try {
+      const restaurantData = this._detail;
+      await idb.upsert(restaurantData);
+      alert('saving success');
+      this._favoriteActions();
+    } catch (error) {
+      alert('saving failed');
+      this._favoriteActions();
+    }
+  }
+
+  async _removeRestaurant() {
+    try {
+      await idb.deleteByKey(this._restaurantId);
+      alert('remove success');
+      this._favoriteActions();
+    } catch (error) {
+      alert('remove failed');
+      this._favoriteActions();
+    }
   }
 }
 
