@@ -7,9 +7,7 @@ const Restaurant = {
 
     return `
       <section id="explore">
-        <div class="container">
-          <div class="restaurants">
-          </div>
+        <div class="container restaurants">
         </div>
       </section>
     `;
