@@ -2,6 +2,7 @@ import { restaurantApi } from '../utils/enums';
 import request from '../helper/request-helper';
 import descendingByRating from '../helper/sorter-helper';
 import '../component/RestaurantCard';
+import '../component/RestaurantDetail';
 
 class RestaurantData {
   async _fetchListRestaurant() {
@@ -30,14 +31,13 @@ class RestaurantData {
     if (response && response.error) {
       console.error(response.message);
     } else {
+      const detailElement = document.createElement('restaurant-detail');
+      detailElement.restaurantId = id;
+      detailElement.detail = response.restaurant;
+      const restaurantContent = document.querySelector('#restaurant-content');
+      restaurantContent.appendChild(detailElement);
       console.debug(response.restaurant);
     }
-  }
-
-  async review(value) {
-    const dummyId = '36fa3p5gw45kfhujxow';
-    const reviewData = { id: dummyId, name: 'Budi', review: value };
-    request.post(restaurantApi.review, reviewData);
   }
 
   _renderList() {
