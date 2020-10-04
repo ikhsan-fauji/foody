@@ -351,6 +351,7 @@ nav {
     width: 100%;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+    object-fit: cover;
   }
 
   .card-body {
@@ -669,5 +670,21 @@ nav {
 
   &:hover {
     background-color: #ec9900;
+  }
+}
+
+.restaurant__name__action {
+  display: grid;
+  grid-template-columns: 11fr 1fr;
+
+  #favorite-actions {
+    position: relative;
+    right: -70px;
+
+    button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
   }
 }
