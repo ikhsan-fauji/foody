@@ -13,7 +13,8 @@ class RestaurantCard extends HTMLElement {
     if (restaurant) {
       const { id, name, city, pictureId, rating, description } = restaurant;
       const fixedRating = rating.toFixed(1);
-      const thumbnail = pictureId || './images/heros/hero-image_4.jpg';
+      const defaultThumbnail = './images/heros/hero-image_4.jpg';
+      const thumbnail = pictureId || defaultThumbnail;
       const restaurantImage = `${restaurantApi.smallPicture}${thumbnail}`;
 
       const template = `
