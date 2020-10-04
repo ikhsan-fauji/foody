@@ -36,7 +36,6 @@ class RestaurantData {
       detailElement.detail = response.restaurant;
       const restaurantContent = document.querySelector('#restaurant-content');
       restaurantContent.appendChild(detailElement);
-      console.debug(response.restaurant);
     }
   }
 
