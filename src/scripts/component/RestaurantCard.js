@@ -14,13 +14,14 @@ class RestaurantCard extends HTMLElement {
       const { id, name, city, pictureId, rating, description } = restaurant;
       const fixedRating = rating.toFixed(1);
       const thumbnail = pictureId || './images/heros/hero-image_4.jpg';
+      const restaurantImage = `${restaurantApi.smallPicture}${thumbnail}`;
 
       const template = `
         <article class="card restaurant">
           <p class="restaurant-place" tabindex="0" aria-label="Restaurant in ${city}"><span id="place-icon" class="material-icons"> place </span>${city}</p>
           <img
             class="card-image restaurant-thumbnail lazyload"
-            data-src="${restaurantApi.smallPicture}${thumbnail}"
+            data-src="${restaurantImage}"
             alt="${name} Restaurant"
           />
           <div class="card-body restaurant-content">
