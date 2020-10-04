@@ -3,7 +3,7 @@ import 'regenerator-runtime/runtime';
 import { precacheAndRoute } from 'workbox-precaching/precacheAndRoute';
 import { cleanupOutdatedCaches } from 'workbox-precaching';
 import { registerRoute } from 'workbox-routing/registerRoute';
-import { NetworkFirst } from 'workbox-strategies';
+import { NetworkFirst, CacheFirst } from 'workbox-strategies';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { skipWaiting, clientsClaim, setCacheNameDetails } from 'workbox-core';
 
@@ -32,6 +32,21 @@ precacheAndRoute(
     }
   ],
   { ignoreUrlParameterMatching: [/.*/] }
+);
+
+registerRoute(
+  ({ url }) =>
+    url.origin === 'https://fonts.googleapis.com' ||
+    url.origin === 'https://fonts.gstatic.com',
+  new CacheFirst({
+    cacheName: 'google-fonts-stylesheets',
+    plugins: [
+      new ExpirationPlugin({
+        maxAgeSeconds: 60 * 60 * 24 * 30 * 2,
+        maxEntries: 100
+      })
+    ]
+  })
 );
 
 registerRoute(
