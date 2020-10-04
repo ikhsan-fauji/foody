@@ -40,6 +40,16 @@ class RestaurantDetail extends HTMLElement {
     return template;
   }
 
+  _categories(categories = []) {
+    let template = `<label for="rating-icon" tabindex="0"> | Categories: </label>`;
+    if (categories.length > 0) {
+      categories.forEach((category) => {
+        template += `<span class="category badge">${category.name}</span>&nbsp;`;
+      });
+    }
+    return template;
+  }
+
   _detailTemplate() {
     const restaurantImage = `${restaurantApi.mediumPicture}${this._detail.pictureId}`;
     const fixedRating = this._detail.rating.toFixed(1);
@@ -63,10 +73,9 @@ class RestaurantDetail extends HTMLElement {
               tabindex="0"
               aria-label="${this._detail.city}"
             >
-              ${this._detail.city} | ${this._detail.address}
+              ${this._detail.city} - ${this._detail.address}
             </label>
-            <label for="rating-icon" tabindex="0"> | Categories: </label>
-            <span class="category badge">Badge category</span>
+            ${this._categories(this._detail.categories)}
           </div>
           <p class="restaurant-description">${this._detail.description}</p>
         </section>
