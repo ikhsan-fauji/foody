@@ -23,18 +23,18 @@ window.addEventListener('load', () => {
   app.renderPage();
 });
 
-// const swRegister = async () => {
-//   if (!('serviceWorker' in navigator)) {
-//     console.log('Browser tidak mendukung Service Worker');
-//     return;
-//   }
+const swRegister = async () => {
+  if (!('serviceWorker' in navigator)) {
+    console.log('Browser tidak mendukung Service Worker');
+    return;
+  }
 
-//   try {
-//     await navigator.serviceWorker.register('./service-worker.js');
-//     console.log('Service worker registered');
-//   } catch (error) {
-//     console.log('Failed to register service worker', error);
-//   }
-// };
+  try {
+    await navigator.serviceWorker.register('./service-worker.js');
+    console.log('Service worker registered');
+  } catch (error) {
+    console.log('Failed to register service worker', error);
+  }
+};
 
-// swRegister();
+swRegister();
