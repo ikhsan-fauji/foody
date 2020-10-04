@@ -52,6 +52,7 @@
     "workbox-window": "^5.1.4"
   },
   "dependencies": {
+    "idb": "^5.0.6",
     "regenerator-runtime": "^0.13.5"
   }
 }
