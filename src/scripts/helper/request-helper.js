@@ -1,4 +1,4 @@
-import { API_KEY } from '../utils/enums';
+import CONFIG from '../globals/config';
 
 const request = {
   async get(url) {
@@ -24,7 +24,7 @@ const request = {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'X-Auth-Token': API_KEY
+          'X-Auth-Token': CONFIG.API_KEY
         },
         referrerPolicy: 'no-referrer',
         body: JSON.stringify(data)
