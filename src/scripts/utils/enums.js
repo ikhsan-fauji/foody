@@ -1,13 +1,12 @@
-const API_URL = 'https://dicoding-restaurant-api.el.r.appspot.com';
-const API_KEY = 12345;
+import CONFIG from '../globals/config';
 
 const restaurantApi = Object.freeze({
-  list: `${API_URL}/list`,
-  detail: `${API_URL}/detail/`,
-  review: `${API_URL}/review`,
-  smallPicture: `${API_URL}/images/small/`,
-  mediumPicture: `${API_URL}/images/medium/`,
-  largePicture: `${API_URL}/images/large/`
+  list: `${CONFIG.API_URL}/list`,
+  detail: `${CONFIG.API_URL}/detail/`,
+  review: `${CONFIG.API_URL}/review`,
+  smallPicture: `${CONFIG.API_URL}/images/small/`,
+  mediumPicture: `${CONFIG.API_URL}/images/medium/`,
+  largePicture: `${CONFIG.API_URL}/images/large/`
 });
 
-export { API_KEY, restaurantApi };
+export { restaurantApi };
