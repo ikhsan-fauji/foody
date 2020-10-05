@@ -2,6 +2,9 @@ import 'regenerator-runtime';
 import './lazysizes.min';
 import '../styles/main.scss';
 
+import CONFIG from './globals/config';
+import swRegister from './utils/service-worker-register';
+import WebSocketInitiator from './utils/websocket-initiator';
 import idb from './helper/idb-helper';
 import App from './views/app';
 
@@ -21,20 +24,6 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
   app.renderPage();
+  swRegister();
+  WebSocketInitiator.init(CONFIG.WEB_SOCKET_SERVER);
 });
-
-const swRegister = async () => {
-  if (!('serviceWorker' in navigator)) {
-    console.log('Browser tidak mendukung Service Worker');
-    return;
-  }
-
-  try {
-    await navigator.serviceWorker.register('./service-worker.js');
-    console.log('Service worker registered');
-  } catch (error) {
-    console.log('Failed to register service worker', error);
-  }
-};
-
-swRegister();
