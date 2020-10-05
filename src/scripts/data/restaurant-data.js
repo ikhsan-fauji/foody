@@ -22,16 +22,6 @@ class RestaurantData {
     this._renderList();
   }
 
-  async list() {
-    this._restaurants = await this._fetchListRestaurant();
-    this._renderList();
-  }
-
-  async favorites() {
-    this._restaurants = await idb.getAll();
-    this._renderList();
-  }
-
   _renderList() {
     if (this._restaurants.length > 0) {
       const listRestaurant = document.querySelector('.restaurants');
@@ -43,16 +33,50 @@ class RestaurantData {
     }
   }
 
+  async list() {
+    this._restaurants = await this._fetchListRestaurant();
+    this._renderList();
+  }
+
+  async favorites() {
+    this._restaurants = await idb.getAll();
+    this._renderList();
+  }
+
+  findFavoriteByKey(key) {
+    return idb.getByKey(key);
+  }
+
   async detail(id) {
     const response = await request.get(`${restaurantApi.detail}${id}`);
     if (response && response.error) {
       console.error(response.message);
     } else {
+      this._restaurant = response.restaurant;
       const detailElement = document.createElement('restaurant-detail');
       detailElement.restaurantId = id;
-      detailElement.detail = response.restaurant;
+      detailElement.detail = this._restaurant;
       const restaurantContent = document.querySelector('#restaurant-content');
       restaurantContent.appendChild(detailElement);
+    }
+  }
+
+  async likeRestaurant() {
+    try {
+      const restaurantData = this._restaurant;
+      await idb.upsert(restaurantData);
+      alert('saving success');
+    } catch (error) {
+      alert('saving failed');
+    }
+  }
+
+  async unLikeRestaurant(key) {
+    try {
+      await idb.deleteByKey(key);
+      alert('remove success');
+    } catch (error) {
+      alert('remove failed');
     }
   }
 }
