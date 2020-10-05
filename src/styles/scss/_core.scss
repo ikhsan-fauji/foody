@@ -673,18 +673,19 @@ nav {
   }
 }
 
-.restaurant__name__action {
-  display: grid;
-  grid-template-columns: 11fr 1fr;
-
-  #favorite-actions {
-    position: relative;
-    right: -70px;
-
-    button {
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-    }
-  }
+.like {
+  font-size: 18px;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background-color: rgb(247, 73, 73);
+  color: $white-color;
+  border: 0;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
