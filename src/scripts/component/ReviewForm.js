@@ -1,5 +1,6 @@
 import { restaurantApi } from '../utils/enums';
 import request from '../helper/request-helper';
+import alert from '../helper/alert-helper';
 
 class ReviewForm extends HTMLElement {
   constructor() {
@@ -74,7 +75,7 @@ class ReviewForm extends HTMLElement {
         if (response.error) {
           throw Error(response.message);
         } else if (this._callback) {
-          alert('Success');
+          alert.success('Success', 'Review success');
           this._callback(response.customerReviews);
           this._resetForm();
         } else {
@@ -83,6 +84,7 @@ class ReviewForm extends HTMLElement {
       }
     } catch (error) {
       console.error(error.message);
+      alert.error('Failed', error.message);
     }
   }
 

@@ -1,9 +1,10 @@
+import '../component/RestaurantCard';
+import '../component/RestaurantDetail';
 import { restaurantApi } from '../utils/enums';
 import idb from '../helper/idb-helper';
 import request from '../helper/request-helper';
 import descendingByRating from '../helper/sorter-helper';
-import '../component/RestaurantCard';
-import '../component/RestaurantDetail';
+import alert from '../helper/alert-helper';
 
 class RestaurantData {
   async _fetchListRestaurant() {
@@ -65,18 +66,18 @@ class RestaurantData {
     try {
       const restaurantData = this._restaurant;
       await idb.upsert(restaurantData);
-      alert('saving success');
+      alert.success('Success!', 'Like success');
     } catch (error) {
-      alert('saving failed');
+      alert.error('Failed!', 'Like failed');
     }
   }
 
   async unLikeRestaurant(key) {
     try {
       await idb.deleteByKey(key);
-      alert('remove success');
+      alert.success('Success!', 'Unlike success');
     } catch (error) {
-      alert('remove failed');
+      alert.error('Failed!', 'Unlike failed');
     }
   }
 }

@@ -689,3 +689,34 @@ nav {
   align-items: center;
   justify-content: center;
 }
+
+#alert-container {
+  position: fixed;
+  bottom: 10px;
+  right: -300px;
+  z-index: 3500 !important;
+
+  .alert {
+    padding: 10px 15px;
+    color: white;
+    border-radius: 5px;
+    min-width: 200px;
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .success {
+    background-color: rgb(5, 152, 113);
+  }
+
+  .error {
+    background-color: rgb(198, 15, 15);
+  }
+}
+
+.show {
+  right: 5px !important;
+  transition: ease-in 0.3s;
+}
