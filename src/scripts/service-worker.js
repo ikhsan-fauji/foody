@@ -62,4 +62,24 @@ registerRoute(
   })
 );
 
+self.addEventListener('push', (event) => {
+  let body;
+  if (event.data) {
+    body = event.data.text();
+  } else {
+    body = 'Foody Apps';
+  }
+
+  const options = {
+    body,
+    icon: './images/icons/icon-144x144.png',
+    vibrate: [100, 58, 100],
+    data: {
+      dateOfArrival: Date.now(),
+      primaryKey: 1
+    }
+  };
+  event.waitUntil(self.registration.showNotification('Foody Apps', options));
+});
+
 cleanupOutdatedCaches();
