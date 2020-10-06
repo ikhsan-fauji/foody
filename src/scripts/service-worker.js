@@ -50,7 +50,7 @@ registerRoute(
 );
 
 registerRoute(
-  /^https:\/\/dicoding-restaurant-api\.el\.r\.appspot\.com\/(?:(list|detail))/,
+  /^https:\/\/dicoding-restaurant-api\.el\.r\.appspot\.com\//,
   new NetworkFirst({
     cacheName: 'dicoding-restaurant-api',
     plugins: [
