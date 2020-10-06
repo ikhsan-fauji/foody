@@ -81,6 +81,27 @@
       }
     }
   }
+
+  #restaurant-content {
+    .container {
+      .restaurant-image {
+        height: 220px;
+      }
+
+      .restaurant-menus {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+
+  .review-form {
+    width: 100%;
+  }
+
+  .like {
+    width: 45px;
+    height: 45px;
+  }
 }
 
 @media screen and (max-width: 320.9px) {
