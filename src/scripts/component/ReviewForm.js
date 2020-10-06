@@ -11,7 +11,7 @@ class ReviewForm extends HTMLElement {
     return `
       <form action="#" class="review-form">
         <div class="form-input">
-          <input id="name-input" type="text" placeholder="Nama" />
+          <input id="name-input" type="text" placeholder="Name" />
         </div>
         <div class="form-input">
           <textarea id="review-input" rows="3" placeholder="Message"></textarea>
@@ -34,14 +34,14 @@ class ReviewForm extends HTMLElement {
   _nameValue() {
     const nameInput = document.querySelector('#name-input');
     const name = nameInput.value || null;
-    if (!name) this._validateMessage('Nama harus diisi');
+    if (!name) this._validateMessage('Name is required');
     return name;
   }
 
   _reviewValue() {
     const reviewInput = document.querySelector('#review-input');
     const review = reviewInput.value || null;
-    if (!review) this._validateMessage('Review harus diisi');
+    if (!review) this._validateMessage('Message is required');
     return review;
   }
 
