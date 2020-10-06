@@ -17,7 +17,7 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "ignorePatterns": ["dist", "lazysizes.min.js"],
+  "ignorePatterns": ["dist", "lib"],
   "rules": {
     "linebreak-style": 0,
     "comma-dangle": ["error", "never"],

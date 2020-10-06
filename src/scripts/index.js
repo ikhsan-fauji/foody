@@ -1,5 +1,5 @@
 import 'regenerator-runtime';
-import './lazysizes.min';
+import './lib/lazysizes.min';
 import '../styles/main.scss';
 
 import CONFIG from './globals/config';
