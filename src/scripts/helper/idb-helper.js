@@ -1,21 +1,17 @@
 import { openDB } from 'idb';
+import CONFIG from '../globals/config';
 
-// configuration
-const DB_NAME = 'idb_foody';
-const DB_VERSION = 1;
-const STORE_NAME = 'favorite_restaurant';
-
-const _openDb = () => {
-  return openDB(DB_NAME, DB_VERSION);
+const dbPromise = () => {
+  return openDB(CONFIG.DB_NAME, CONFIG.DB_VERSION);
 };
 
 const idb = {
   initialize() {
     if (!window.indexedDB) return;
-    openDB(DB_NAME, DB_VERSION, {
+    openDB(CONFIG.DB_NAME, CONFIG.DB_VERSION, {
       upgrade(db) {
-        if (!db.objectStoreNames.contains(STORE_NAME)) {
-          db.createObjectStore(STORE_NAME, {
+        if (!db.objectStoreNames.contains(CONFIG.STORE_NAME)) {
+          db.createObjectStore(CONFIG.STORE_NAME, {
             keyPath: 'id'
           }).createIndex('id', 'id', { unique: true });
         }
@@ -27,19 +23,17 @@ const idb = {
     let result = null;
     if (!window.indexedDB) return result;
     if (data) {
-      const store = (await _openDb())
-        .transaction(STORE_NAME, 'readwrite')
-        .objectStore(STORE_NAME);
+      const store = await dbPromise();
 
-      const existingData = await store.get(data[key]);
+      const existingData = await store.get(CONFIG.STORE_NAME, data[key]);
       if (existingData) {
         existingData.updatedAt = new Date();
-        await store.put(existingData);
+        await store.put(CONFIG.STORE_NAME, existingData);
       } else {
         const newData = data;
         newData.createdAt = new Date();
         newData.updatedAt = null;
-        await store.add(newData);
+        await store.add(CONFIG.STORE_NAME, newData);
       }
       result = data;
       await store.done;
@@ -51,11 +45,8 @@ const idb = {
     let result = [];
     if (!window.indexedDB) return result;
 
-    const store = (await _openDb())
-      .transaction(STORE_NAME, 'readonly')
-      .objectStore(STORE_NAME);
-
-    result = await store.getAll();
+    const store = await dbPromise();
+    result = await store.getAll(CONFIG.STORE_NAME);
     return result;
   },
 
@@ -64,11 +55,8 @@ const idb = {
     if (!window.indexedDB) return result;
     if (!key) throw Error('Please provide key');
 
-    const store = (await _openDb())
-      .transaction(STORE_NAME, 'readonly')
-      .objectStore(STORE_NAME);
-
-    result = await store.get(key);
+    const store = await dbPromise();
+    result = await store.get(CONFIG.STORE_NAME, key);
     return result;
   },
 
@@ -78,11 +66,8 @@ const idb = {
 
     if (!key) throw Error('Please provide key');
 
-    const store = (await _openDb())
-      .transaction(STORE_NAME, 'readwrite')
-      .objectStore(STORE_NAME);
-
-    return store.delete(key);
+    const store = await dbPromise();
+    return store.delete(CONFIG.STORE_NAME, key);
   }
 };
 
