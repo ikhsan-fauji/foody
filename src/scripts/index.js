@@ -1,5 +1,6 @@
 import 'regenerator-runtime';
-import './lib/lazysizes.min';
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 import '../styles/main.scss';
 
 import CONFIG from './globals/config';
