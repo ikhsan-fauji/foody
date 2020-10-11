@@ -1,4 +1,4 @@
-import { restaurantApi } from '../utils/enums';
+import restaurantApi from '../globals/api';
 
 class RestaurantCard extends HTMLElement {
   constructor() {
@@ -13,7 +13,7 @@ class RestaurantCard extends HTMLElement {
     if (restaurant) {
       const { id, name, city, pictureId, rating, description } = restaurant;
       const fixedRating = rating.toFixed(1);
-      const defaultThumbnail = './images/heros/hero-image_4.jpg';
+      const defaultThumbnail = './images/heros/hero-image_4.webp';
       const thumbnail = pictureId || defaultThumbnail;
       const restaurantImage = `${restaurantApi.smallPicture}${thumbnail}`;
 
