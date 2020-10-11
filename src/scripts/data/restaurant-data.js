@@ -1,6 +1,6 @@
 import '../component/RestaurantCard';
 import '../component/RestaurantDetail';
-import { restaurantApi } from '../utils/enums';
+import restaurantApi from '../globals/api';
 import idb from '../helper/idb-helper';
 import loader from '../helper/loader-helper';
 import request from '../helper/request-helper';
