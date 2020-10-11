@@ -52,12 +52,33 @@ class MenuBar extends HTMLElement {
     `;
   }
 
+  _activateMenu() {
+    const navItems = document.getElementsByClassName('nav-item');
+    for (let index = 0; index < navItems.length; index += 1) {
+      navItems[index].addEventListener('click', () => {
+        const current = document.querySelector('.active');
+        current.className = current.className.replace(' active', '');
+        navItems[index].className += ' active';
+        window.scrollTo(0, 0); // set window to top position
+      });
+    }
+  }
+
   render() {
-    this.innerHTML = this._menuBar();
+    return new Promise((resolve) => {
+      this.innerHTML = this._menuBar();
+      resolve();
+    });
+  }
+
+  afterRendered() {
+    this._activateMenu();
   }
 
   connectedCallback() {
-    this.render();
+    this.render().then(() => {
+      this.afterRendered();
+    });
   }
 }
 
