@@ -3,6 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
+const CompressionPlugin = require('compression-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const manifest = require('./manifest');
 
 module.exports = {
@@ -54,10 +56,20 @@ module.exports = {
         }
       ]
     }),
+    new CompressionPlugin({
+      test: /\.js(\?.*)?$/i
+    }),
+    new WebpackPwaManifest(manifest),
     new WorkboxPlugin.InjectManifest({
       swSrc: './src/scripts/service-worker.js',
       swDest: 'service-worker.js'
-    }),
-    new WebpackPwaManifest(manifest)
-  ]
+    })
+  ],
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        test: /\.js(\?.*)?$/i
+      })
+    ]
+  }
 };
