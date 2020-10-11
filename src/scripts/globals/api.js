@@ -1,4 +1,4 @@
-import CONFIG from '../globals/config';
+import CONFIG from './config';
 
 const restaurantApi = Object.freeze({
   list: `${CONFIG.API_URL}/list`,
@@ -9,4 +9,4 @@ const restaurantApi = Object.freeze({
   largePicture: `${CONFIG.API_URL}/images/large/`
 });
 
-export { restaurantApi };
+export default restaurantApi;
