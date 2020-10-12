@@ -18,21 +18,7 @@ setCacheNameDetails({
   runtime: 'runtime'
 });
 
-precacheAndRoute(
-  [
-    ...webManifest,
-    {
-      url:
-        'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap',
-      revision: 1
-    },
-    {
-      url: 'https://fonts.googleapis.com/css2?family=Roboto&display=swap',
-      revision: 1
-    }
-  ],
-  { ignoreUrlParameterMatching: [/.*/] }
-);
+precacheAndRoute(webManifest, { ignoreUrlParameterMatching: [/.*/] });
 
 registerRoute(
   ({ url }) =>
