@@ -3,9 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
-const CompressionPlugin = require('compression-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const manifest = require('./manifest');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/scripts/index.js'),
@@ -28,14 +26,6 @@ module.exports = {
             loader: 'sass-loader'
           }
         ]
-      },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif|webp)$/,
-        use: ['file-loader']
-      },
-      {
-        test: /\.(woff|woff2|ttf|eot)$/,
-        use: 'file-loader?name=fonts/[name].[ext]!static'
       }
     ]
   },
@@ -56,10 +46,37 @@ module.exports = {
         }
       ]
     }),
-    new CompressionPlugin({
-      test: /\.js(\?.*)?$/i
+    new WebpackPwaManifest({
+      filename: 'manifest.json',
+      name: 'Foody Apps',
+      short_name: 'Foody',
+      description: 'Restaurant catalogue web app',
+      theme_color: '#fff',
+      background_color: '#fff',
+      display: 'standalone',
+      orientation: 'portrait',
+      start_url: './index.html',
+      crossorigin: 'use-credentials',
+      icons: [
+        {
+          src: path.resolve(__dirname, 'src/public/images/icons/app-icon.png'),
+          sizes: [120, 152, 167, 180, 1024],
+          destination: path.join('icons', 'ios'),
+          ios: true
+        },
+        {
+          src: path.resolve(__dirname, 'src/public/images/icons/app-icon.png'),
+          size: 1024,
+          destination: path.join('icons', 'ios'),
+          ios: 'startup'
+        },
+        {
+          src: path.resolve(__dirname, 'src/public/images/icons/app-icon.png'),
+          sizes: [36, 48, 72, 96, 144, 192, 512],
+          destination: path.join('icons', 'android')
+        }
+      ]
     }),
-    new WebpackPwaManifest(manifest),
     new WorkboxPlugin.InjectManifest({
       swSrc: './src/scripts/service-worker.js',
       swDest: 'service-worker.js'
@@ -70,6 +87,13 @@ module.exports = {
       new UglifyJsPlugin({
         test: /\.js(\?.*)?$/i
       })
-    ]
+    ],
+    splitChunks: {
+      cacheGroups: {
+        defaultVendors: {
+          filename: '[name].bundle.js'
+        }
+      }
+    }
   }
 };
