@@ -36,9 +36,22 @@ registerRoute(
 );
 
 registerRoute(
-  /^https:\/\/dicoding-restaurant-api\.el\.r\.appspot\.com\//,
+  /^https:\/\/dicoding-restaurant-api\.el\.r\.appspot\.com\/(?:(list|detail))/,
   new NetworkFirst({
     cacheName: 'dicoding-restaurant-api',
+    plugins: [
+      new ExpirationPlugin({
+        maxAgeSeconds: 60 * 60 * 24 * 30 * 2,
+        maxEntries: 100
+      })
+    ]
+  })
+);
+
+registerRoute(
+  /^https:\/\/dicoding-restaurant-api\.el\.r\.appspot\.com\/(?:(images))/,
+  new NetworkFirst({
+    cacheName: 'dicoding-images',
     plugins: [
       new ExpirationPlugin({
         maxAgeSeconds: 60 * 60 * 24 * 30 * 2,
