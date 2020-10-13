@@ -17,7 +17,7 @@ class App {
     Drawer.init({
       button: this._button,
       drawer: this._drawer,
-      content: this._content
+      content: document.querySelector('body')
     });
     Drawer.stickyOnScroll(this._menuBar);
     Drawer.keepStickyOnRefresh(this._menuBar);
