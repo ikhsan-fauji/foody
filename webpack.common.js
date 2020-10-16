@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const WorkboxPlugin = require('workbox-webpack-plugin');
+const { InjectManifest } = require('workbox-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
@@ -77,7 +77,7 @@ module.exports = {
         }
       ]
     }),
-    new WorkboxPlugin.InjectManifest({
+    new InjectManifest({
       swSrc: './src/scripts/service-worker.js',
       swDest: 'service-worker.js'
     })
