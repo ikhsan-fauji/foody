@@ -2,6 +2,7 @@ import '../component/MenuBar';
 import routers from '../routes/routers';
 import UrlParser from '../routes/url-parser';
 import Drawer from '../utils/drawer-initiator';
+import NotFoundTemplate from './templates/not-found';
 
 class App {
   constructor({ menuBar, button, drawer, content }) {
@@ -13,11 +14,15 @@ class App {
     this._initialAppShell();
   }
 
+  _body() {
+    return document.querySelector('body');
+  }
+
   _initialAppShell() {
     Drawer.init({
       button: this._button,
       drawer: this._drawer,
-      content: document.querySelector('body')
+      content: this._body()
     });
     Drawer.stickyOnScroll(this._menuBar);
     Drawer.keepStickyOnRefresh(this._menuBar);
@@ -27,9 +32,18 @@ class App {
     const url = UrlParser.parseActiveUrlWithCombiner();
     if (url === 'main-content') return;
 
-    const page = routers[url] || routers['/*'];
-    this._content.innerHTML = await page.render();
-    await page.afterRendered();
+    const page = routers[url];
+    if (page) {
+      this._content.innerHTML = await page.render();
+      await page.afterRendered();
+    } else {
+      this._notFound();
+    }
+  }
+
+  _notFound() {
+    const body = this._body();
+    body.innerHTML = NotFoundTemplate();
   }
 }
 

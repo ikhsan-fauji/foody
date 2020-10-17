@@ -15,6 +15,7 @@ main {
 body {
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 
 main {
@@ -724,4 +725,32 @@ nav {
 .not-found {
   margin: 0 auto;
   text-align: center;
+}
+
+#not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+
+  div {
+    width: 80%;
+    height: 100px;
+
+    h2 {
+      font-family: $poppins-family;
+      color: $primary-color;
+      font-size: 32px;
+    }
+
+    p {
+      font-size: 24px;
+    }
+
+    a {
+      font-style: italic;
+    }
+  }
 }
