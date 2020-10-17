@@ -47,7 +47,7 @@ class RestaurantData {
   }
 
   async list() {
-    const elementId = '#explore';
+    const elementId = '#restaurant';
     loader.start(elementId);
     this._restaurants = await this._fetchListRestaurant();
     loader.stop();
@@ -59,8 +59,8 @@ class RestaurantData {
   }
 
   async favorites() {
-    const elementId = '#explore';
-    loader.start('#explore');
+    const elementId = '#favorite';
+    loader.start(elementId);
     this._restaurants = await idb.getAll();
     loader.stop();
     if (this._restaurants && this._restaurants.length > 0) {

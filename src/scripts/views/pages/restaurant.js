@@ -6,7 +6,7 @@ const Restaurant = {
     HeaderContent.breadCrumb('Restaurants');
 
     return `
-      <section id="explore">
+      <section id="restaurant">
         <div class="container restaurants">
         </div>
       </section>

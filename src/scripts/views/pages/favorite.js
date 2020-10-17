@@ -6,7 +6,7 @@ const Favorite = {
     HeaderContent.breadCrumb('Favorites');
 
     return `
-      <section id="explore">
+      <section id="favorite">
         <div class="container restaurants">
         </div>
       </section>
