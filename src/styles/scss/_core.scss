@@ -722,9 +722,17 @@ nav {
   transition: ease-in 0.3s;
 }
 
-.not-found {
-  margin: 0 auto;
+.not-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  min-height: 250px;
+
+  div {
+    width: 90%;
+  }
 }
 
 #not-found {
@@ -737,7 +745,6 @@ nav {
 
   div {
     width: 80%;
-    height: 100px;
 
     h2 {
       font-family: $poppins-family;
