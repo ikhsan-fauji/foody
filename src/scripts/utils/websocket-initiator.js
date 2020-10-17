@@ -12,7 +12,8 @@ const WebSocketInitiator = {
   },
 
   _onMessageHandler(message) {
-    console.debug(message);
+    const data = JSON.parse(message.data);
+    console.debug('New Message: ', data.title);
     // const { title, overview, poster_path } = JSON.parse(message.data);
     // NotificationHelper.sendNotification({
     //   title: `${title} is on cinema!`,
