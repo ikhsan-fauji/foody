@@ -1,13 +1,19 @@
 import { openDB } from 'idb';
 import CONFIG from '../globals/config';
 
-const dbPromise = () => {
+const _dbPromise = () => {
   return openDB(CONFIG.DB_NAME, CONFIG.DB_VERSION);
+};
+
+const _idbChecking = () => {
+  if (!window.indexedDB)
+    throw Error('indexedDb is not supported in your browser');
 };
 
 const idb = {
   initialize() {
-    if (!window.indexedDB) return;
+    _idbChecking();
+
     openDB(CONFIG.DB_NAME, CONFIG.DB_VERSION, {
       upgrade(db) {
         if (!db.objectStoreNames.contains(CONFIG.STORE_NAME)) {
@@ -20,36 +26,34 @@ const idb = {
   },
 
   async insert(data = null) {
-    if (!window.indexedDB)
-      throw Error('indexedDb is not supporting in your browser');
+    _idbChecking();
 
     const newData = data;
     newData.createdAt = new Date();
     newData.updatedAt = null;
-    return dbPromise().add(CONFIG.STORE_NAME, newData);
+    return _dbPromise().add(CONFIG.STORE_NAME, newData);
   },
 
   async getAll() {
-    if (!window.indexedDB)
-      throw Error('indexedDb is not supporting in your browser');
+    _idbChecking();
 
-    return dbPromise().getAll(CONFIG.STORE_NAME);
+    return _dbPromise().getAll(CONFIG.STORE_NAME);
   },
 
   async getByKey(key) {
-    if (!window.indexedDB)
-      throw Error('indexedDb is not supporting in your browser');
+    _idbChecking();
+
     if (!key) throw Error('Please provide key');
 
-    return dbPromise().get(CONFIG.STORE_NAME, key);
+    return _dbPromise().get(CONFIG.STORE_NAME, key);
   },
 
   async deleteByKey(key) {
-    if (!window.indexedDB)
-      throw Error('indexedDb is not supporting in your browser');
+    _idbChecking();
+
     if (!key) throw Error('Please provide key');
 
-    return dbPromise().delete(CONFIG.STORE_NAME, key);
+    return _dbPromise().delete(CONFIG.STORE_NAME, key);
   }
 };
 
