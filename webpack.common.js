@@ -9,7 +9,7 @@ module.exports = {
   entry: path.resolve(__dirname, 'src/scripts/index.js'),
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: '[name].bundle.js'
   },
   module: {
     rules: [
@@ -46,6 +46,10 @@ module.exports = {
         }
       ]
     }),
+    new InjectManifest({
+      swSrc: './src/scripts/service-worker.js',
+      swDest: 'service-worker.js'
+    }),
     new WebpackPwaManifest({
       filename: 'manifest.json',
       name: 'Foody Apps',
@@ -76,10 +80,6 @@ module.exports = {
           destination: path.join('icons', 'android')
         }
       ]
-    }),
-    new InjectManifest({
-      swSrc: './src/scripts/service-worker.js',
-      swDest: 'service-worker.js'
     })
   ],
   optimization: {
@@ -89,11 +89,7 @@ module.exports = {
       })
     ],
     splitChunks: {
-      cacheGroups: {
-        defaultVendors: {
-          filename: '[name].bundle.js'
-        }
-      }
+      chunks: 'all'
     }
   }
 };
