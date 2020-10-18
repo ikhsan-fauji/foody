@@ -66,7 +66,7 @@ registerRoute(
 
 registerRoute(
   /^https:\/\/dicoding-restaurant-api\.el\.r\.appspot\.com\/(?:(images))/,
-  new NetworkFirst({
+  new StaleWhileRevalidate({
     cacheName: 'dicoding-images',
     plugins: [
       new ExpirationPlugin({
@@ -77,6 +77,7 @@ registerRoute(
   })
 );
 
+// TODO: remove this code!!
 self.addEventListener('push', (event) => {
   let body;
   if (event.data) {
