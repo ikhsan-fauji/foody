@@ -8,11 +8,15 @@ import descendingByRating from '../helper/sorter-helper';
 import alert from '../helper/alert-helper';
 import noDataTemplate from '../views/templates/nodata-template';
 
+const logError = (params) => {
+  console.error('ERROR: ', params);
+};
+
 class RestaurantData {
   async _fetchListRestaurant() {
     let response = await request.get(restaurantApi.list);
     if (response && response.error) {
-      console.error(response.message);
+      logError(response.message);
     } else {
       response = response.restaurants.sort(descendingByRating);
     }
@@ -81,7 +85,7 @@ class RestaurantData {
     loader.stop();
     if (response && response.error) {
       this._noDataTemplate(elementId);
-      console.error(response.message);
+      logError(response.message);
     } else if (response.restaurant) {
       this._restaurant = response.restaurant;
       const detailElement = document.createElement('restaurant-detail');
@@ -101,6 +105,7 @@ class RestaurantData {
       alert.success('Success!', 'Like success');
     } catch (error) {
       alert.error('Failed!', 'Like failed');
+      logError(error.message);
     }
   }
 
@@ -110,6 +115,7 @@ class RestaurantData {
       alert.success('Success!', 'Unlike success');
     } catch (error) {
       alert.error('Failed!', 'Unlike failed');
+      logError(error.message);
     }
   }
 }
