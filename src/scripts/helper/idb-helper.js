@@ -25,8 +25,10 @@ const idb = {
     });
   },
 
-  async insert(data = null) {
+  async insert(data) {
     _idbChecking();
+
+    if (!data) throw Error('Please provide data');
 
     const newData = data;
     newData.createdAt = new Date();
