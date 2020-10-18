@@ -18,6 +18,7 @@ class MenuCard extends HTMLElement {
           <img
             class="card-image menu-thumbnail lazyload"
             data-src="${thumbnail}"
+            data-sizes="auto"
             alt="Picture of ${name}"
           />
           <div class="card-body menu-content">

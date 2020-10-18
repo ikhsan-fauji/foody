@@ -14,6 +14,7 @@ const HeaderContent = {
         <div class="hero-gradient"></div>
         <img
           data-src="./images/heros/hero-image_4.webp"
+          data-sizes="auto"
           alt="Hero Image"
           class="hero-image lazyload"
         />

@@ -23,6 +23,7 @@ class RestaurantCard extends HTMLElement {
           <img
             class="card-image restaurant-thumbnail lazyload"
             data-src="${restaurantImage}"
+            data-sizes="auto"
             alt="${name} Restaurant"
           />
           <div class="card-body restaurant-content">
