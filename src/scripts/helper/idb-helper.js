@@ -19,55 +19,37 @@ const idb = {
     });
   },
 
-  async upsert(data = null, key = 'id') {
-    let result = null;
-    if (!window.indexedDB) return result;
-    if (data) {
-      const store = await dbPromise();
+  async insert(data = null) {
+    if (!window.indexedDB)
+      throw Error('indexedDb is not supporting in your browser');
 
-      const existingData = await store.get(CONFIG.STORE_NAME, data[key]);
-      if (existingData) {
-        existingData.updatedAt = new Date();
-        await store.put(CONFIG.STORE_NAME, existingData);
-      } else {
-        const newData = data;
-        newData.createdAt = new Date();
-        newData.updatedAt = null;
-        await store.add(CONFIG.STORE_NAME, newData);
-      }
-      result = data;
-      await store.done;
-    }
-    return result;
+    const newData = data;
+    newData.createdAt = new Date();
+    newData.updatedAt = null;
+    return dbPromise().add(CONFIG.STORE_NAME, newData);
   },
 
   async getAll() {
-    let result = [];
-    if (!window.indexedDB) return result;
+    if (!window.indexedDB)
+      throw Error('indexedDb is not supporting in your browser');
 
-    const store = await dbPromise();
-    result = await store.getAll(CONFIG.STORE_NAME);
-    return result;
+    return dbPromise().getAll(CONFIG.STORE_NAME);
   },
 
   async getByKey(key) {
-    let result = null;
-    if (!window.indexedDB) return result;
+    if (!window.indexedDB)
+      throw Error('indexedDb is not supporting in your browser');
     if (!key) throw Error('Please provide key');
 
-    const store = await dbPromise();
-    result = await store.get(CONFIG.STORE_NAME, key);
-    return result;
+    return dbPromise().get(CONFIG.STORE_NAME, key);
   },
 
   async deleteByKey(key) {
     if (!window.indexedDB)
-      throw Error('Your browser is not supporting indexed db');
-
+      throw Error('indexedDb is not supporting in your browser');
     if (!key) throw Error('Please provide key');
 
-    const store = await dbPromise();
-    return store.delete(CONFIG.STORE_NAME, key);
+    return dbPromise().delete(CONFIG.STORE_NAME, key);
   }
 };
 
