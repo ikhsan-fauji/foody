@@ -97,7 +97,7 @@ class RestaurantData {
   async likeRestaurant() {
     try {
       const restaurantData = this._restaurant;
-      await idb.upsert(restaurantData);
+      await idb.insert(restaurantData);
       alert.success('Success!', 'Like success');
     } catch (error) {
       alert.error('Failed!', 'Like failed');
