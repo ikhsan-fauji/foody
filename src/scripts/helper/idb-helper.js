@@ -33,13 +33,15 @@ const idb = {
     const newData = data;
     newData.createdAt = new Date();
     newData.updatedAt = null;
-    return _dbPromise().add(CONFIG.STORE_NAME, newData);
+    const store = await _dbPromise();
+    return store.add(CONFIG.STORE_NAME, newData);
   },
 
   async getAll() {
     _idbChecking();
 
-    return _dbPromise().getAll(CONFIG.STORE_NAME);
+    const store = await _dbPromise();
+    return store.getAll(CONFIG.STORE_NAME);
   },
 
   async getByKey(key) {
@@ -47,7 +49,8 @@ const idb = {
 
     if (!key) throw Error('Please provide key');
 
-    return _dbPromise().get(CONFIG.STORE_NAME, key);
+    const store = await _dbPromise();
+    return store.get(CONFIG.STORE_NAME, key);
   },
 
   async deleteByKey(key) {
@@ -55,7 +58,8 @@ const idb = {
 
     if (!key) throw Error('Please provide key');
 
-    return _dbPromise().delete(CONFIG.STORE_NAME, key);
+    const store = await _dbPromise();
+    return store.delete(CONFIG.STORE_NAME, key);
   }
 };
 
