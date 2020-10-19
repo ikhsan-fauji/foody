@@ -1,0 +1,116 @@
+#restaurant-content {
+  margin: 30px 0;
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.restaurant-image {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.restaurant-name {
+  font-family: $poppins-family;
+  font-size: 26px;
+  font-weight: 500;
+}
+
+.restaurant-info {
+  display: inline;
+  font-size: 16px;
+
+  .material-icons {
+    color: $primary-color;
+    font-size: 18px;
+  }
+
+  label {
+    margin-right: 5px;
+  }
+}
+
+.restaurant-description {
+  margin: 15px 0;
+  line-height: 24px !important;
+}
+
+.restaurant-menus {
+  display: grid;
+  grid-template-columns: repeat(2, 6fr);
+  gap: 30px;
+}
+
+.restaurant-review {
+  margin-top: 20px;
+}
+
+.list-menus {
+  list-style-type: none;
+}
+
+.menu-item:nth-child(1) {
+  border-top: 1px solid rgba(235, 163, 7, 0.5);
+}
+
+.menu-item {
+  line-height: 40px;
+  border-bottom: 1px solid rgba(235, 163, 7, 0.5);
+}
+
+.reviews {
+  list-style-type: none;
+}
+
+.review-item {
+  margin: 15px 0;
+}
+
+.reviewer {
+  font-weight: 500;
+  font-family: $poppins-family;
+}
+
+.review-date {
+  margin: 8px 0;
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+.review-detail {
+  margin-top: 5px;
+}
+
+.review-form {
+  width: 50%;
+
+  input,
+  textarea {
+    display: block;
+    width: 100%;
+    margin: 15px 0;
+    padding: 10px;
+  }
+}
+
+.like {
+  font-size: 18px;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background-color: rgb(247, 73, 73);
+  color: $white-color;
+  border: 0;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

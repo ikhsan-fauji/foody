@@ -1,0 +1,63 @@
+.restaurant {
+  min-height: 172px;
+}
+
+.restaurant-thumbnail {
+  max-height: 170px !important;
+  object-fit: cover;
+}
+
+.restaurant-place {
+  position: absolute;
+  margin-top: 10px;
+  color: $white-color;
+  font-size: 10px;
+  line-height: 30px;
+  background-color: $primary-color;
+  padding: 0 12px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+#place-icon {
+  font-size: 12px;
+  position: relative;
+  bottom: -2px;
+  margin-right: 5px;
+}
+
+.restaurant-title {
+  font-size: 14px;
+  font-family: $poppins-family;
+  margin-bottom: 4px;
+
+  a {
+    color: $dark-color;
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+
+.restaurant-rating {
+  display: inline;
+  font-size: 10px;
+
+  label {
+    margin-left: 5px;
+    position: relative;
+    top: -2px;
+  }
+}
+
+#rating-icon {
+  color: $primary-color;
+  font-size: 16px;
+}
+
+.restaurant-description {
+  clear: both;
+  font-size: 12px;
+  line-height: 14px;
+  margin-top: 5px;
+}

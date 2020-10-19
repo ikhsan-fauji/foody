@@ -1,12 +1,13 @@
 @media screen and (max-width: 575.9px) {
   .section-header {
     margin-bottom: 5px;
-    .section-title {
-      font-size: 18px;
+  }
 
-      &::after {
-        margin-top: 6px !important;
-      }
+  .section-title {
+    font-size: 18px;
+
+    &::after {
+      margin-top: 6px !important;
     }
   }
 
@@ -16,28 +17,26 @@
 
   .brand-logo {
     display: flex;
+  }
 
-    #drawer-menu {
-      align-self: flex-start;
+  #drawer-menu {
+    align-self: flex-start;
 
-      span {
-        top: 2px;
-      }
-    }
-
-    a {
-      margin-left: 10px;
+    span {
+      top: 2px;
     }
   }
 
-  .hero {
-    .hero-content {
-      padding: 0 20px;
-      padding-top: 32px;
+  .brand-link {
+    margin-left: 10px;
+  }
 
-      .hero-tagline {
-        line-height: 30px;
-      }
+  .hero-content {
+    padding: 0 20px;
+    padding-top: 32px;
+
+    .hero-tagline {
+      line-height: 30px;
     }
   }
 

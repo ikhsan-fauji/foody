@@ -41,11 +41,12 @@ const HeaderContent = {
               <div class="form-input">
                 <input
                   type="text"
+                  class="search-input"
                   aria-label="Search input for restaurant or food"
                   placeholder="Search here..."
                 />
               </div>
-              <div class="form-icon">
+              <div class="form-icon right-icon">
                 <button class="search-button" type="button">
                   <span class="material-icons">search</span>
                 </button>

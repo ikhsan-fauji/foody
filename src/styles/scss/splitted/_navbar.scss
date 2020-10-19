@@ -1,0 +1,84 @@
+#menu-bar {
+  background-color: $white-color;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.25);
+  position: fixed;
+  width: 100%;
+  z-index: 3000;
+}
+
+.brand-logo {
+  line-height: 72px;
+  font-size: 34px;
+  font-weight: 600;
+  width: 100%;
+}
+
+.brand-link {
+  color: $primary-color;
+}
+
+.open {
+  left: 0 !important;
+  transition: ease-in 0.3s !important;
+}
+
+#drawer-menu {
+  background-color: transparent;
+  border: none;
+  color: $primary-color;
+  margin-top: 12px;
+  width: 44px;
+  height: 44px;
+
+  span {
+    font-size: 44px;
+    position: relative;
+    top: 9px;
+  }
+}
+
+#drawer {
+  position: fixed;
+  background-color: $white-color;
+  left: -225px;
+  top: 0;
+  height: 100vh;
+  width: 220px;
+  transition: ease-out 0.1s;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.25);
+  z-index: 3000;
+}
+
+.nav .active::after {
+  content: '';
+  display: block;
+  position: relative;
+  height: 2px;
+  top: -20px;
+  width: 65%;
+  margin: 0 auto;
+  background-color: $primary-color;
+}
+
+.nav-item {
+  display: block;
+  text-align: center;
+  line-height: 72px;
+  transition: ease-in 2s;
+
+  &:hover::after {
+    content: '';
+    display: block;
+    position: relative;
+    height: 2px;
+    top: -20px;
+    width: 65%;
+    margin: 0 auto;
+    background-color: $primary-color;
+  }
+}
+
+.nav-link {
+  display: block;
+  color: $dark-color;
+}

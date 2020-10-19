@@ -11,30 +11,30 @@
     }
   }
 
-  nav {
+  #drawer {
     width: 320px;
     left: -325px;
   }
 
   .hero {
     height: 322px;
+  }
 
-    .hero-gradient,
-    .hero-image {
-      height: 322px;
-    }
+  .hero-gradient,
+  .hero-image {
+    height: 322px;
+  }
 
-    .hero-content {
-      padding-top: 90px;
+  .hero-content {
+    padding-top: 90px;
+  }
 
-      .hero-tagline {
-        font-size: 16px !important;
-      }
-      .hero-title {
-        font-size: 32px;
-        margin-bottom: 15px;
-      }
-    }
+  .hero-tagline {
+    font-size: 16px !important;
+  }
+  .hero-title {
+    font-size: 32px;
+    margin-bottom: 15px;
   }
 
   .restaurants,

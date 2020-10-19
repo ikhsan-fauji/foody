@@ -10,35 +10,33 @@
     .container {
       display: grid;
       grid-template-columns: 2fr 10fr;
-
-      .brand-logo {
-        max-width: 200px;
-        align-self: flex-start;
-      }
-
-      nav {
-        position: initial;
-        height: auto;
-        width: 100%;
-        box-shadow: none;
-        background-color: transparent;
-        display: flex;
-        justify-content: flex-end;
-
-        .nav {
-          .nav-item {
-            display: inline-block;
-            line-height: 72px;
-
-            .nav-link {
-              display: block;
-              padding: 0 16px;
-              color: $white-color;
-            }
-          }
-        }
-      }
     }
+  }
+
+  .brand-logo {
+    max-width: 200px;
+    align-self: flex-start;
+  }
+
+  #drawer {
+    position: initial;
+    height: auto;
+    width: 100%;
+    box-shadow: none;
+    background-color: transparent;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .nav-item {
+    display: inline-block;
+    line-height: 72px;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 0 16px;
+    color: $white-color;
   }
 
   #menu-bar.sticky {
@@ -58,25 +56,25 @@
   .hero {
     height: $hero-height;
     margin-top: 0;
+  }
 
-    .hero-gradient,
-    .hero-image {
-      height: $hero-height;
-      top: 0;
-    }
+  .hero-gradient,
+  .hero-image {
+    height: $hero-height;
+    top: 0;
+  }
 
-    .hero-content {
-      padding-top: 250px;
+  .hero-content {
+    padding-top: 250px;
+  }
 
-      .hero-tagline {
-        font-size: 18px !important;
-      }
-      .hero-title {
-        font-size: 42px;
-        line-height: 52px !important;
-        margin-bottom: 20px;
-      }
-    }
+  .hero-tagline {
+    font-size: 18px !important;
+  }
+  .hero-title {
+    font-size: 42px;
+    line-height: 52px !important;
+    margin-bottom: 20px;
   }
 
   .search-form {
@@ -106,19 +104,20 @@
 
   #discover-restaurant {
     padding: 58px 0;
-    .discover {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      padding: 0 100px;
+  }
 
-      .discover-content {
-        padding-top: 0;
-        margin-left: 20px;
+  .discover {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 0 100px;
+  }
 
-        .discover-title {
-          font-size: 28px;
-        }
-      }
-    }
+  .discover-content {
+    padding-top: 0;
+    margin-left: 20px;
+  }
+
+  .discover-title {
+    font-size: 28px;
   }
 }

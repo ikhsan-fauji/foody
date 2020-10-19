@@ -1,12 +1,13 @@
 @media screen and (min-width: 576px) {
   .section-header {
     margin-bottom: 10px;
-    .section-title {
-      font-size: 18px;
+  }
 
-      &::after {
-        margin-top: 6px !important;
-      }
+  .section-title {
+    font-size: 18px;
+
+    &::after {
+      margin-top: 6px !important;
     }
   }
 
@@ -14,11 +15,9 @@
     margin-right: 10px;
   }
 
-  .hero {
-    .hero-content {
-      padding: 0 50px;
-      padding-top: 6%;
-    }
+  .hero-content {
+    padding: 0 50px;
+    padding-top: 6%;
   }
 
   .search-form {
@@ -38,28 +37,20 @@
     }
   }
 
-  .restaurant {
-    .restaurant-thumbnail {
-      height: 170px;
-    }
-
-    .restaurant-place {
-      font-weight: 500;
-      min-width: 80px;
-    }
+  .restaurant-thumbnail {
+    height: 170px;
   }
 
-  .menu {
-    .menu-thumbnail {
-      height: 170px;
-    }
+  .restaurant-place {
+    font-weight: 500;
+    min-width: 80px;
   }
 
-  #discover-restaurant {
-    .discover {
-      .discover-title {
-        font-size: 24px;
-      }
-    }
+  .menu-thumbnail {
+    height: 170px;
+  }
+
+  .discover-title {
+    font-size: 24px;
   }
 }

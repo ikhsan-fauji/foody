@@ -9,7 +9,7 @@ class MenuBar extends HTMLElement {
         <button id="drawer-menu">
           <span class="material-icons"> menu </span>
         </button>
-        <a href="/">Foody</a>
+        <a class="brand-link" href="/">Foody</a>
       </div>
     `;
   }
