@@ -1,6 +1,6 @@
 import '../component/MenuCard';
 
-class Menu {
+class MenuData {
   constructor(menus) {
     this._popularMenus = menus || [];
   }
@@ -17,4 +17,4 @@ class Menu {
   }
 }
 
-export default Menu;
+export default MenuData;

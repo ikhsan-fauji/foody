@@ -1,6 +1,6 @@
 import HeaderContent from '../templates/header-content';
 import dummy from '../../data/DATA.json';
-import Menu from '../../data/menu';
+import Menu from '../../data/menu-data';
 import Restaurant from '../../data/restaurant-data';
 
 const Home = {
