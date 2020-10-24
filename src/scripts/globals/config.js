@@ -5,7 +5,7 @@ const CONFIG = {
   DB_VERSION: 1,
   DB_STORE_NAME: 'favorite_restaurant',
   DEFAULT_LANGUAGES: 'en-us',
-  WEB_SOCKET_SERVER: 'wss://stormy-badlands-06326.herokuapp.com'
+  WEB_SOCKET_SERVER: 'wss://echo.websocket.org/'
 };
 
 export default CONFIG;
