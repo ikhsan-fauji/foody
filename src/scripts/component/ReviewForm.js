@@ -25,48 +25,57 @@ class ReviewForm extends HTMLElement {
     `;
   }
 
-  _validateMessage(errorId, message) {
-    const errorContainer = document.querySelector(`.${errorId}`);
-    errorContainer.innerHTML = message;
-  }
-
-  _nameValue() {
-    const nameInput = document.querySelector('#name-input');
-    const name = nameInput.value || null;
-    if (!name) {
-      nameInput.classList.add('error-input');
-      this._validateMessage('name-error', 'Name is required');
-    } else {
-      nameInput.classList.remove('error-input');
-      this._validateMessage('name-error', '');
-    }
-    return name;
-  }
-
-  _reviewValue() {
-    const reviewInput = document.querySelector('#review-input');
-    const review = reviewInput.value || null;
-    if (!review) {
-      reviewInput.classList.add('error-input');
-      this._validateMessage('review-error', 'Message is required');
-    } else {
-      reviewInput.classList.remove('error-input');
-      this._validateMessage('review-error', '');
-    }
-    return review;
-  }
-
-  _resetForm() {
-    document.querySelector('#name-input').value = null;
-    document.querySelector('#review-input').value = null;
-  }
-
   set afterSubmitted(callback) {
     this._callback = callback;
   }
 
   set restaurantId(restaurantId) {
     this._restaurantId = restaurantId;
+  }
+
+  connectedCallback() {
+    this.render().then(() => {
+      this.afterRendered();
+    });
+  }
+
+  render() {
+    return new Promise((resolve) => {
+      this.innerHTML = this._formTemplate();
+      resolve();
+    });
+  }
+
+  afterRendered() {
+    this._submitEvent();
+    this._onInputForm();
+  }
+
+  _submitEvent() {
+    const submitButton = document.querySelector('.btn-submit');
+    submitButton.addEventListener('click', (event) => {
+      this._submitForm();
+      event.stopPropagation();
+    });
+  }
+
+  _onInputForm() {
+    const nameInput = this._nameInput();
+    nameInput.oninput = ({ target: { value } }) => {
+      this._validate({
+        value,
+        element: nameInput,
+        preClass: 'name'
+      });
+    };
+    const reviewInput = this._reviewInput();
+    reviewInput.oninput = ({ target: { value } }) => {
+      this._validate({
+        value,
+        element: reviewInput,
+        preClass: 'review'
+      });
+    };
   }
 
   async _submitForm() {
@@ -93,53 +102,58 @@ class ReviewForm extends HTMLElement {
     }
   }
 
-  _submitEvent() {
-    const submitButton = document.querySelector('.btn-submit');
-    submitButton.addEventListener('click', (event) => {
-      this._submitForm();
-      event.stopPropagation();
+  _nameInput() {
+    return document.querySelector('#name-input');
+  }
+
+  _nameValue() {
+    const nameInput = this._nameInput();
+    const name = nameInput.value || null;
+    this._validate({
+      element: nameInput,
+      value: name,
+      preClass: 'name'
     });
+    return name;
   }
 
-  _onInputForm() {
-    const nameInput = document.querySelector('#name-input');
-    nameInput.oninput = ({ target: { value } }) => {
-      if (value) {
-        nameInput.classList.remove('error-input');
-        this._validateMessage('name-error', '');
-      } else {
-        nameInput.classList.add('error-input');
-        this._validateMessage('name-error', 'Name is required');
-      }
-    };
-    const reviewInput = document.querySelector('#review-input');
-    reviewInput.oninput = ({ target: { value } }) => {
-      if (value) {
-        reviewInput.classList.remove('error-input');
-        this._validateMessage('review-error', '');
-      } else {
-        reviewInput.classList.add('error-input');
-        this._validateMessage('review-error', 'Message is required');
-      }
-    };
+  _reviewInput() {
+    return document.querySelector('#review-input');
   }
 
-  render() {
-    return new Promise((resolve) => {
-      this.innerHTML = this._formTemplate();
-      resolve();
+  _reviewValue() {
+    const reviewInput = this._reviewInput();
+    const review = reviewInput.value || null;
+    this._validate({
+      element: reviewInput,
+      value: review,
+      preClass: 'review'
     });
+    return review;
   }
 
-  afterRendered() {
-    this._submitEvent();
-    this._onInputForm();
+  _validate({ element, value, preClass }) {
+    if (value) {
+      this._error(element, preClass, '', 'remove');
+    } else {
+      const preRequiredMessage = preClass === 'name' ? 'Name' : 'Message';
+      this._error(element, preClass, `${preRequiredMessage} is required`);
+    }
   }
 
-  connectedCallback() {
-    this.render().then(() => {
-      this.afterRendered();
-    });
+  _error(element, preClass, message = '', action = 'add') {
+    element.classList[action]('error-input');
+    this._errorMessage(`${preClass}-error`, message);
+  }
+
+  _errorMessage(errorId, message) {
+    const errorContainer = document.querySelector(`.${errorId}`);
+    errorContainer.innerHTML = message;
+  }
+
+  _resetForm() {
+    this._nameInput().value = null;
+    this._reviewInput().value = null;
   }
 }
 
