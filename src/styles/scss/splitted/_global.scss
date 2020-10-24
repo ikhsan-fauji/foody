@@ -26,6 +26,10 @@ main {
 img {
   display: block;
   object-fit: cover;
+
+  &:empty {
+    background-color: grey;
+  }
 }
 
 .container {
