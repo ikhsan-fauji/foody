@@ -1,9 +1,9 @@
 const noDataTemplate = () => {
   return `
-    <div class="not-data">
+    <div class="no-data">
       <div>
         <h1>Oops!!!</h1>
-        <p>No data found.</p>
+        <p>Data not found.</p>
       </div>
     </div>
   `;

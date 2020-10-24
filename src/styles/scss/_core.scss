@@ -41,64 +41,68 @@
   gap: 20px;
 }
 
+/*
+** Discover style
+*/
 #discover-restaurant {
   padding: 36px 0;
+}
 
-  .discover {
-    display: grid;
-    grid-template-columns: 1fr;
+.discover {
+  display: grid;
+  grid-template-columns: 1fr;
+}
 
-    .discover-banner {
-      width: 100%;
+.discover-banner {
+  width: 100%;
 
-      img {
-        width: 100%;
-      }
-    }
-
-    .discover-content {
-      padding: 20px 10px;
-    }
-
-    .discover-title {
-      color: $dark-color;
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    .discover-text {
-      text-align: left;
-      color: $dark-color;
-      margin: 15px 0;
-    }
-
-    .discover-button {
-      background-color: $primary-color;
-      border: none;
-      text-align: center;
-      text-transform: uppercase;
-      color: $white-color;
-      line-height: 44px;
-      padding: 0 15px;
-      border-radius: 5px;
-
-      &:hover {
-        background-color: $white-color;
-        color: $primary-color;
-        border: 1px solid $primary-color;
-        cursor: pointer;
-        line-height: 42px;
-      }
-    }
+  img {
+    width: 100%;
   }
 }
 
+.discover-content {
+  padding: 20px 10px;
+}
+
+.discover-title {
+  color: $dark-color;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.discover-text {
+  text-align: left;
+  color: $dark-color;
+  margin: 15px 0;
+}
+
+.discover-button {
+  background-color: $primary-color;
+  border: none;
+  text-align: center;
+  text-transform: uppercase;
+  color: $white-color;
+  line-height: 44px;
+  padding: 0 15px;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: $white-color;
+    color: $primary-color;
+    border: 1px solid $primary-color;
+    cursor: pointer;
+    line-height: 42px;
+  }
+}
+
+// show alert
 .show {
   right: 5px !important;
   transition: ease-in 0.3s;
 }
 
-.not-data {
+.no-data {
   display: flex;
   flex-direction: column;
   align-items: center;
