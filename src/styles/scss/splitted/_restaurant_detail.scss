@@ -98,6 +98,10 @@
   }
 }
 
+.btn-submit {
+  margin-top: 15px;
+}
+
 .like {
   font-size: 18px;
   position: fixed;
@@ -113,4 +117,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.name-error,
+.review-error {
+  font-size: 14px;
+  font-style: italic;
+  color: rgb(247, 73, 73);
+}
+
+.error-input {
+  border-color: rgb(247, 73, 73);
 }

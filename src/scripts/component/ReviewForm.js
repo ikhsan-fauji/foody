@@ -12,42 +12,48 @@ class ReviewForm extends HTMLElement {
       <form action="#" class="review-form">
         <div class="form-input">
           <input id="name-input" type="text" placeholder="Name" />
+          <span class="name-error"></span>
         </div>
         <div class="form-input">
           <textarea id="review-input" rows="3" placeholder="Message"></textarea>
+          <span class="review-error"></span>
         </div>
         <button type="button" class="btn-submit btn-primary">
           Submit
         </button>
-        <div id="error-message"></div>
       </form>
     `;
   }
 
-  _validateMessage(message) {
-    const reviewForm = document.querySelector('#error-message');
-    const messageElement = document.createElement('p');
-    messageElement.innerHTML = message;
-    reviewForm.appendChild(messageElement);
+  _validateMessage(errorId, message) {
+    const errorContainer = document.querySelector(`.${errorId}`);
+    errorContainer.innerHTML = message;
   }
 
   _nameValue() {
     const nameInput = document.querySelector('#name-input');
     const name = nameInput.value || null;
-    if (!name) this._validateMessage('Name is required');
+    if (!name) {
+      nameInput.classList.add('error-input');
+      this._validateMessage('name-error', 'Name is required');
+    } else {
+      nameInput.classList.remove('error-input');
+      this._validateMessage('name-error', '');
+    }
     return name;
   }
 
   _reviewValue() {
     const reviewInput = document.querySelector('#review-input');
     const review = reviewInput.value || null;
-    if (!review) this._validateMessage('Message is required');
+    if (!review) {
+      reviewInput.classList.add('error-input');
+      this._validateMessage('review-error', 'Message is required');
+    } else {
+      reviewInput.classList.remove('error-input');
+      this._validateMessage('review-error', '');
+    }
     return review;
-  }
-
-  _resetErrorMessage() {
-    const reviewForm = document.querySelector('#error-message');
-    reviewForm.innerHTML = '';
   }
 
   _resetForm() {
@@ -65,7 +71,6 @@ class ReviewForm extends HTMLElement {
 
   async _submitForm() {
     try {
-      this._resetErrorMessage();
       const name = this._nameValue();
       const review = this._reviewValue();
       if (name && review) {
@@ -96,6 +101,29 @@ class ReviewForm extends HTMLElement {
     });
   }
 
+  _onInputForm() {
+    const nameInput = document.querySelector('#name-input');
+    nameInput.oninput = ({ target: { value } }) => {
+      if (value) {
+        nameInput.classList.remove('error-input');
+        this._validateMessage('name-error', '');
+      } else {
+        nameInput.classList.add('error-input');
+        this._validateMessage('name-error', 'Name is required');
+      }
+    };
+    const reviewInput = document.querySelector('#review-input');
+    reviewInput.oninput = ({ target: { value } }) => {
+      if (value) {
+        reviewInput.classList.remove('error-input');
+        this._validateMessage('review-error', '');
+      } else {
+        reviewInput.classList.add('error-input');
+        this._validateMessage('review-error', 'Message is required');
+      }
+    };
+  }
+
   render() {
     return new Promise((resolve) => {
       this.innerHTML = this._formTemplate();
@@ -105,6 +133,7 @@ class ReviewForm extends HTMLElement {
 
   afterRendered() {
     this._submitEvent();
+    this._onInputForm();
   }
 
   connectedCallback() {
