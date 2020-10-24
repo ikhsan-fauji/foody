@@ -9,18 +9,17 @@ html,
 body,
 main {
   width: 100%;
+  min-height: 100vh;
   scroll-behavior: smooth;
 }
 
 body {
   display: flex;
   flex-direction: column;
-  height: 100vh;
 }
 
 main {
   flex: 1 0 auto;
-  min-height: 320px;
 }
 
 img {
