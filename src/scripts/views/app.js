@@ -1,4 +1,4 @@
-import '../component/MenuBar';
+import '../component/NavBar';
 import routers from '../routes/routers';
 import UrlParser from '../routes/url-parser';
 import Drawer from '../utils/drawer-initiator';
