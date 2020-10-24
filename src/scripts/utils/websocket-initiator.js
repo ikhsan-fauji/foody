@@ -1,27 +1,59 @@
 import NotificationHelper from '../helper/notification-helper';
 
+let webSocket;
 const WebSocketInitiator = {
   init(url) {
-    const webSocket = new WebSocket(url);
-    webSocket.onopen = this._onOpen;
+    webSocket = new WebSocket(url);
+    webSocket.onopen = () => this._onOpen();
     webSocket.onmessage = this._onMessageHandler;
+    webSocket.onclose = this._onClose;
   },
 
-  _onOpen(event) {
+  _onOpen() {
     console.log('CONNECTED');
+    NotificationHelper.sendNotification({
+      title: `websocket.org`,
+      options: {
+        body:
+          'WebSocket was connected. 3 sample message would be send in 5 seconds'
+      }
+    });
+    setTimeout(() => {
+      this._sendMessage();
+    }, 5000);
   },
 
-  _onMessageHandler(message) {
-    const data = JSON.parse(message.data);
-    console.debug('New Message: ', data.title);
-    // const { title, overview, poster_path } = JSON.parse(message.data);
-    // NotificationHelper.sendNotification({
-    //   title: `${title} is on cinema!`,
-    //   options: {
-    //     body: overview
-    //     // image: `${CONFIG.BASE_IMAGE_URL + movie.poster_path}`
-    //   }
-    // });
+  _sendMessage(counter = 1) {
+    const messsage = `Message ${counter}`;
+    console.log('SEND: ', messsage);
+    webSocket.send(messsage);
+    if (counter > 3) {
+      webSocket.close();
+    } else {
+      setTimeout(() => {
+        this._sendMessage(counter + 1);
+      }, 10000);
+    }
+  },
+
+  _onMessageHandler(event) {
+    console.log('RECEIVED: ', event.data);
+    NotificationHelper.sendNotification({
+      title: `websocket.org`,
+      options: {
+        body: event.data
+      }
+    });
+  },
+
+  _onClose() {
+    console.log('DISCONNECTED');
+    NotificationHelper.sendNotification({
+      title: `websocket.org`,
+      options: {
+        body: 'WebSocket was disconnected'
+      }
+    });
   }
 };
 export default WebSocketInitiator;
