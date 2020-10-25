@@ -57,7 +57,7 @@ registerRoute(
     cacheName: 'dicoding-restaurant-api',
     plugins: [
       new ExpirationPlugin({
-        maxAgeSeconds: 60 * 60 * 24 * 30 * 2,
+        maxAgeSeconds: 24 * 60 * 60,
         maxEntries: 100
       })
     ]
@@ -66,12 +66,25 @@ registerRoute(
 
 registerRoute(
   /^https:\/\/dicoding-restaurant-api\.el\.r\.appspot\.com\/(?:(images))/,
-  new StaleWhileRevalidate({
+  new CacheFirst({
     cacheName: 'dicoding-images',
     plugins: [
       new ExpirationPlugin({
         maxAgeSeconds: 60 * 60 * 24 * 30 * 2,
         maxEntries: 100
+      })
+    ]
+  })
+);
+
+registerRoute(
+  ({ request }) => request.destination === 'image',
+  new CacheFirst({
+    cacheName: 'images',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 60,
+        maxAgeSeconds: 60 * 60 * 24 * 30 * 2
       })
     ]
   })
