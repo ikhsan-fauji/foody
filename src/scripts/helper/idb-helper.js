@@ -1,9 +1,15 @@
 import { openDB } from 'idb';
 import CONFIG from '../globals/config';
 
-const _dbPromise = () => {
-  return openDB(CONFIG.DB_NAME, CONFIG.DB_VERSION);
-};
+const _dbPromise = openDB(CONFIG.DB_NAME, CONFIG.DB_VERSION, {
+  upgrade(db) {
+    if (!db.objectStoreNames.contains(CONFIG.STORE_NAME)) {
+      db.createObjectStore(CONFIG.STORE_NAME, {
+        keyPath: 'id'
+      }).createIndex('id', 'id', { unique: true });
+    }
+  }
+});
 
 const _idbChecking = () => {
   if (!window.indexedDB)
@@ -11,20 +17,6 @@ const _idbChecking = () => {
 };
 
 const idb = {
-  initialize() {
-    _idbChecking();
-
-    openDB(CONFIG.DB_NAME, CONFIG.DB_VERSION, {
-      upgrade(db) {
-        if (!db.objectStoreNames.contains(CONFIG.STORE_NAME)) {
-          db.createObjectStore(CONFIG.STORE_NAME, {
-            keyPath: 'id'
-          }).createIndex('id', 'id', { unique: true });
-        }
-      }
-    });
-  },
-
   async insert(data) {
     _idbChecking();
 
@@ -33,15 +25,14 @@ const idb = {
     const newData = data;
     newData.createdAt = new Date();
     newData.updatedAt = null;
-    const store = await _dbPromise();
-    return store.add(CONFIG.STORE_NAME, newData);
+
+    return (await _dbPromise).add(CONFIG.STORE_NAME, newData);
   },
 
   async getAll() {
     _idbChecking();
 
-    const store = await _dbPromise();
-    return store.getAll(CONFIG.STORE_NAME);
+    return (await _dbPromise).getAll(CONFIG.STORE_NAME);
   },
 
   async getByKey(key) {
@@ -49,8 +40,7 @@ const idb = {
 
     if (!key) throw Error('Please provide key');
 
-    const store = await _dbPromise();
-    return store.get(CONFIG.STORE_NAME, key);
+    return (await _dbPromise).get(CONFIG.STORE_NAME, key);
   },
 
   async deleteByKey(key) {
@@ -58,8 +48,7 @@ const idb = {
 
     if (!key) throw Error('Please provide key');
 
-    const store = await _dbPromise();
-    return store.delete(CONFIG.STORE_NAME, key);
+    return (await _dbPromise).delete(CONFIG.STORE_NAME, key);
   }
 };
 
