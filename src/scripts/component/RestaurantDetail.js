@@ -33,7 +33,9 @@ class RestaurantDetail extends HTMLElement {
             src="${restaurantImage}"
             alt="restaurant ${this._detail.name}"
           />
-          <h2 class="restaurant-name primary-text">${this._detail.name}</h2>
+          <h2 class="restaurant-name primary-text" tabindex="0">
+          ${this._detail.name}
+          </h2>
           <div class="restaurant-info">
             <span id="rating-icon" class="material-icons">grade</span>
             <label for="rating-icon" tabindex="0" aria-label="Restaurant rating point is ${fixedRating}">
@@ -43,7 +45,7 @@ class RestaurantDetail extends HTMLElement {
             <label
               for="rating-icon"
               tabindex="0"
-              aria-label="${this._detail.city}"
+              aria-label="${this._detail.city} - ${this._detail.address}"
             >
               ${this._detail.city} - ${this._detail.address}
             </label>
