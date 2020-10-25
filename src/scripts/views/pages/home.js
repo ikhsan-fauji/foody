@@ -31,7 +31,7 @@ const Home = {
           <div class="discover-banner">
             <img
               class="lazyload"
-              data-src="./images/heros/hero-image_1.jpg"
+              data-src="./images/heros/hero-image_1.webp"
               alt="Chef in the kitchen"
             />
           </div>
