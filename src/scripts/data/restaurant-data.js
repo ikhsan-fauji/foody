@@ -12,11 +12,22 @@ const logError = (params) => {
   console.error('ERROR: ', params);
 };
 
+const handleError = ({ elementId, functionName, error }) => {
+  const content = document.querySelector(elementId);
+  if (error.message === 'Failed to fetch') {
+    content.innerHTML = noDataTemplate('Connection failed');
+    logError(`${functionName} >> Offline`);
+  } else {
+    content.innerHTML = noDataTemplate(error.message);
+    logError(`${functionName} >> ${error.message}`);
+  }
+};
+
 class RestaurantData {
   async _fetchListRestaurant() {
     let response = await request.get(restaurantApi.list);
-    if (response && response.error) {
-      logError(response.message);
+    if (response.error) {
+      throw Error(response.message);
     } else {
       response = response.restaurants.sort(descendingByRating);
     }
@@ -29,21 +40,25 @@ class RestaurantData {
   }
 
   async recommended() {
-    const elementId = '#explore';
-    loader.start(elementId);
-    const restaurants = await this._fetchListRestaurant();
-    loader.stop();
-    this._restaurants = restaurants.slice(0, 4);
-    if (this._restaurants && this._restaurants.length > 0) {
-      this._renderList();
-    } else {
-      this._noDataTemplate(elementId);
+    try {
+      const elementId = '#explore';
+      loader.start(elementId);
+      let restaurants = await this._fetchListRestaurant();
+      loader.stop();
+      if (restaurants && restaurants.length > 0) {
+        restaurants = restaurants.slice(0, 4);
+        this._renderList(restaurants);
+      } else {
+        this._noDataTemplate(elementId);
+      }
+    } catch (error) {
+      handleError('recommended', error);
     }
   }
 
-  _renderList() {
+  _renderList(restaurants) {
     const listRestaurant = document.querySelector('.restaurants');
-    this._restaurants.forEach((restaurant) => {
+    restaurants.forEach((restaurant) => {
       const restaurantCard = document.createElement('restaurant-card');
       restaurantCard.restaurant = restaurant;
       listRestaurant.appendChild(restaurantCard);
@@ -52,25 +67,41 @@ class RestaurantData {
 
   async list() {
     const elementId = '#restaurant';
-    loader.start(elementId);
-    this._restaurants = await this._fetchListRestaurant();
-    loader.stop();
-    if (this._restaurants && this._restaurants.length > 0) {
-      this._renderList();
-    } else {
-      this._noDataTemplate(elementId);
+    try {
+      loader.start(elementId);
+      const restaurants = await this._fetchListRestaurant();
+      loader.stop();
+      if (restaurants && restaurants.length > 0) {
+        this._renderList(restaurants);
+      } else {
+        this._noDataTemplate(elementId);
+      }
+    } catch (error) {
+      handleError({
+        elementId,
+        error,
+        functionName: 'list'
+      });
     }
   }
 
   async favorites() {
     const elementId = '#favorite';
-    loader.start(elementId);
-    this._restaurants = await idb.getAll();
-    loader.stop();
-    if (this._restaurants && this._restaurants.length > 0) {
-      this._renderList();
-    } else {
-      this._noDataTemplate(elementId);
+    try {
+      loader.start(elementId);
+      const restaurants = await idb.getAll();
+      loader.stop();
+      if (restaurants && restaurants.length > 0) {
+        this._renderList(restaurants);
+      } else {
+        this._noDataTemplate(elementId);
+      }
+    } catch (error) {
+      handleError({
+        elementId,
+        error,
+        functionName: 'favorites'
+      });
     }
   }
 
@@ -80,21 +111,26 @@ class RestaurantData {
 
   async detail(id) {
     const elementId = '#restaurant-content';
-    loader.start(elementId);
-    const response = await request.get(`${restaurantApi.detail}${id}`);
-    loader.stop();
-    if (response && response.error) {
-      this._noDataTemplate(elementId);
-      logError(response.message);
-    } else if (response.restaurant) {
-      this._restaurant = response.restaurant;
-      const detailElement = document.createElement('restaurant-detail');
-      detailElement.restaurantId = id;
-      detailElement.detail = this._restaurant;
-      const restaurantContent = document.querySelector('#restaurant-content');
-      restaurantContent.appendChild(detailElement);
-    } else {
-      this._noDataTemplate(elementId);
+    try {
+      loader.start(elementId);
+      const response = await request.get(`${restaurantApi.detail}${id}`);
+      loader.stop();
+      if (response.error) {
+        throw Error(response.message);
+      } else {
+        this._restaurant = response.restaurant;
+        const detailElement = document.createElement('restaurant-detail');
+        detailElement.restaurantId = id;
+        detailElement.detail = this._restaurant;
+        const restaurantContent = document.querySelector(elementId);
+        restaurantContent.appendChild(detailElement);
+      }
+    } catch (error) {
+      handleError({
+        elementId,
+        error,
+        functionName: 'detail'
+      });
     }
   }
 
