@@ -1,9 +1,9 @@
-const noDataTemplate = () => {
+const noDataTemplate = (message = 'Data not found.') => {
   return `
     <div class="no-data">
       <div>
         <h1>Oops!!!</h1>
-        <p>Data not found.</p>
+        <p>${message}</p>
       </div>
     </div>
   `;
