@@ -6,55 +6,53 @@ class RestaurantCard extends HTMLElement {
   }
 
   set restaurant(restaurant = null) {
-    this._prepareTemplate(restaurant);
+    this._restaurant = restaurant;
   }
 
   _prepareTemplate(restaurant) {
-    if (restaurant) {
-      const { id, name, city, pictureId, rating, description } = restaurant;
-      const fixedRating = rating.toFixed(1);
-      const defaultThumbnail = './images/heros/hero-image_4.webp';
-      const thumbnail = pictureId || defaultThumbnail;
-      const restaurantImage = `${restaurantApi.smallPicture}${thumbnail}`;
+    const { id, name, city, pictureId, rating, description } = restaurant;
+    const fixedRating = rating.toFixed(1);
+    const defaultThumbnail = './images/heros/hero-image_4.webp';
+    const thumbnail = pictureId || defaultThumbnail;
+    const restaurantImage = `${restaurantApi.smallPicture}${thumbnail}`;
 
-      const template = `
-        <article class="card restaurant">
-          <p class="restaurant-place" tabindex="0" aria-label="Restaurant in ${city}"><span id="place-icon" class="material-icons"> place </span>${city}</p>
-          <img
-            class="card-image restaurant-thumbnail lazyload"
-            data-src="${restaurantImage}"
-            data-sizes="auto"
-            alt="${name} Restaurant"
-          />
-          <div class="card-body restaurant-content">
-            <h1 class="restaurant-title">
-              <a href="#/restaurant/${id}">${name}</a>
-            </h1>
-            <div class="restaurant-rating">
-              <span
-                id="rating-icon"
-                class="material-icons"
-                aria-label="Star icon for restaurant rating"
-              >
-                grade
-              </span>
-              <label
-                for="rating-icon"
-                tabindex="0"
-                aria-label="Restaurant rating point is ${fixedRating}"
-              >
-              ${fixedRating}
-              </label>
-            </div>
-            <p class="restaurant-description card-text">
-              ${description}
-            </p>
+    const template = `
+      <article class="card restaurant">
+        <p class="restaurant-place" tabindex="0" aria-label="Restaurant in ${city}"><span id="place-icon" class="material-icons"> place </span>${city}</p>
+        <img
+          class="card-image restaurant-thumbnail lazyload"
+          data-src="${restaurantImage}"
+          data-sizes="auto"
+          alt="${name} Restaurant"
+        />
+        <div class="card-body restaurant-content">
+          <h1 class="restaurant-title">
+            <a href="#/restaurant/${id}">${name}</a>
+          </h1>
+          <div class="restaurant-rating">
+            <span
+              id="rating-icon"
+              class="material-icons"
+              aria-label="Star icon for restaurant rating"
+            >
+              grade
+            </span>
+            <label
+              for="rating-icon"
+              tabindex="0"
+              aria-label="Restaurant rating point is ${fixedRating}"
+            >
+            ${fixedRating}
+            </label>
           </div>
-        </article>
-      `;
+          <p class="restaurant-description card-text">
+            ${description}
+          </p>
+        </div>
+      </article>
+    `;
 
-      this._cardTemplate = template;
-    }
+    return template;
   }
 
   connectedCallback() {
@@ -62,8 +60,8 @@ class RestaurantCard extends HTMLElement {
   }
 
   render() {
-    if (this._cardTemplate) {
-      this.innerHTML = this._cardTemplate;
+    if (this._restaurant) {
+      this.innerHTML = this._prepareTemplate(this._restaurant);
     }
   }
 }

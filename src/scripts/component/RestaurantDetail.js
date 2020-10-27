@@ -22,19 +22,19 @@ class RestaurantDetail extends HTMLElement {
     return template;
   }
 
-  _detailTemplate() {
-    const restaurantImage = `${restaurantApi.mediumPicture}${this._detail.pictureId}`;
-    const fixedRating = this._detail.rating.toFixed(1);
+  _detailTemplate(detail) {
+    const restaurantImage = `${restaurantApi.mediumPicture}${detail.pictureId}`;
+    const fixedRating = detail.rating.toFixed(1);
     const template = `
       <div class="container">
         <section class="restaurant-detail">
           <img
             class="restaurant-image"
             src="${restaurantImage}"
-            alt="restaurant ${this._detail.name}"
+            alt="restaurant ${detail.name}"
           />
           <h2 class="restaurant-name primary-text" tabindex="0">
-          ${this._detail.name}
+          ${detail.name}
           </h2>
           <div class="restaurant-info">
             <span id="rating-icon" class="material-icons">grade</span>
@@ -45,13 +45,13 @@ class RestaurantDetail extends HTMLElement {
             <label
               for="rating-icon"
               tabindex="0"
-              aria-label="${this._detail.city} - ${this._detail.address}"
+              aria-label="${detail.city} - ${detail.address}"
             >
-              ${this._detail.city} - ${this._detail.address}
+              ${detail.city} - ${detail.address}
             </label>
-            ${this._categories(this._detail.categories)}
+            ${this._categories(detail.categories)}
           </div>
-          <p class="restaurant-description">${this._detail.description}</p>
+          <p class="restaurant-description">${detail.description}</p>
         </section>
 
         ${restaurantDetailMenusTemplate()}
@@ -65,7 +65,7 @@ class RestaurantDetail extends HTMLElement {
   set detail(detail) {
     this._detail = detail;
     this.render().then(() => {
-      this.afterRendered();
+      this.afterRendered(this._detail);
     });
   }
 
@@ -76,16 +76,16 @@ class RestaurantDetail extends HTMLElement {
   render() {
     return new Promise((resolve) => {
       if (this._detail) {
-        this.innerHTML = this._detailTemplate();
+        this.innerHTML = this._detailTemplate(this._detail);
       }
       resolve();
     });
   }
 
-  afterRendered() {
-    this._renderListMenus('#food-list', this._detail.menus.foods);
-    this._renderListMenus('#drink-list', this._detail.menus.drinks);
-    this._initReviews(this._detail.consumerReviews);
+  afterRendered(detail) {
+    this._renderListMenus('#food-list', detail.menus.foods);
+    this._renderListMenus('#drink-list', detail.menus.drinks);
+    this._initReviews(detail.consumerReviews);
     this._initReviewForm();
   }
 
