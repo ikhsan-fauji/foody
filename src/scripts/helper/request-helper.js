@@ -2,19 +2,11 @@ import CONFIG from '../globals/config';
 
 const request = {
   async get(url) {
-    let responseData = null;
-
     const response = await fetch(url);
-    if (response.ok) {
-      responseData = response.json();
-    }
-
-    return responseData;
+    return response.json();
   },
 
   async post(url, data) {
-    let responseData = null;
-
     const postConfig = {
       method: 'POST',
       headers: {
@@ -26,11 +18,7 @@ const request = {
     };
 
     const response = await fetch(url, postConfig);
-    if (response.ok) {
-      responseData = response.json();
-    }
-
-    return responseData;
+    return response.json();
   }
 };
 
