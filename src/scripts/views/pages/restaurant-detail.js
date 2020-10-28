@@ -4,11 +4,13 @@ import Restaurant from '../../data/restaurant';
 import FavoriteRestaurant from '../../data/favorite-restaurant';
 import alert from '../../helper/alert-helper';
 import loader from '../../helper/loader-helper';
+import handleError from '../../helper/error-helper';
 import HeaderTemplate from '../templates/header-template';
 import {
   likeButtonTemplate,
   unLikeButtonTemplate
 } from '../templates/like-button-template';
+import noDataTemplate from '../templates/nodata-template';
 
 const restaurant = new Restaurant();
 const favoriteRestaurant = new FavoriteRestaurant();
@@ -23,27 +25,35 @@ const RestaurantDetailPage = {
   },
 
   async afterRendered() {
+    const elementId = '#restaurant-content';
     try {
       const url = UrlParser.parseActiveUrlWithoutCombiner();
       const restaurantId = url.verb;
-      loader.start('#restaurant-content');
+      loader.start(elementId);
       const restaurantData = await restaurant.detail(restaurantId);
       loader.stop();
       this._renderDetailContent(restaurantId, restaurantData);
       await this._initLikeAction(restaurantId, restaurantData);
     } catch (error) {
       loader.stop();
-      console.error('afterRendered', error);
+      handleError({
+        error,
+        elementId,
+        functionName: 'afterRendered'
+      });
     }
   },
 
   _renderDetailContent(restaurantId, restaurantData) {
-    const elementId = '#restaurant-content';
-    const detailElement = document.createElement('restaurant-detail');
-    detailElement.restaurantId = restaurantId;
-    detailElement.detail = restaurantData;
-    const restaurantContent = document.querySelector(elementId);
-    restaurantContent.appendChild(detailElement);
+    const restaurantContent = document.querySelector('#restaurant-content');
+    if (restaurantData) {
+      const detailElement = document.createElement('restaurant-detail');
+      detailElement.restaurantId = restaurantId;
+      detailElement.detail = restaurantData;
+      restaurantContent.appendChild(detailElement);
+    } else {
+      restaurantContent.innerHTML = noDataTemplate();
+    }
   },
 
   async _initLikeAction(restaurantId, restaurantData) {
@@ -82,22 +92,21 @@ const RestaurantDetailPage = {
 
   async _likeRestaurant(restaurantData) {
     try {
-      console.debug('like', restaurantData);
       await favoriteRestaurant.like(restaurantData);
-      alert.success('Success!', 'Like success');
+      alert.success('Awesome', 'Success to like this restaurant');
     } catch (error) {
-      alert.error('Failed!', 'Like failed');
-      console.error(error);
+      alert.error('Sorry', 'Failed to like this restaurant');
+      console.error('_likeRestaurant', error);
     }
   },
 
   async _unLikeRestaurant(key) {
     try {
       await favoriteRestaurant.unlike(key);
-      alert.success('Success!', 'Unlike success');
+      alert.success('Awesome', 'Success to unlike this restaurant');
     } catch (error) {
-      alert.error('Failed!', 'Unlike failed');
-      console.error(error);
+      alert.error('Sorry', 'Failed to unlike this restaurant');
+      console.error('_unLikeRestaurant', error);
     }
   }
 };
