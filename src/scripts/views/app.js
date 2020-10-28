@@ -2,7 +2,7 @@ import '../component/NavBar';
 import routers from '../routes/routers';
 import UrlParser from '../routes/url-parser';
 import Drawer from '../utils/drawer-initiator';
-import NotFoundTemplate from './templates/not-found';
+import NotFoundTemplate from './templates/not-found-template';
 
 class App {
   constructor({ menuBar, button, drawer, content }) {
