@@ -1,9 +1,11 @@
 import '../../component/RestaurantCard';
 import '../../component/MenuCard';
 import dummy from '../../data/DATA.json';
-import HeaderTemplate from '../templates/header-template';
 import Restaurant from '../../data/restaurant';
 import loader from '../../helper/loader-helper';
+import handleError from '../../helper/error-helper';
+import HeaderTemplate from '../templates/header-template';
+import noDataTemplate from '../templates/nodata-template';
 
 const HomePage = {
   async render() {
@@ -63,20 +65,29 @@ const HomePage = {
   },
 
   async _renderRecommendedRestaurant() {
+    const elementId = '#explore';
     try {
       const restaurant = new Restaurant();
-      loader.start('#explore');
+      loader.start(elementId);
       const restaurants = await restaurant.recommended();
       loader.stop();
-      const listRestaurant = document.querySelector('.restaurants');
-      restaurants.forEach((restaurantData) => {
-        const restaurantCard = document.createElement('restaurant-card');
-        restaurantCard.restaurant = restaurantData;
-        listRestaurant.appendChild(restaurantCard);
-      });
+      if (restaurants && restaurants.length > 0) {
+        const listRestaurant = document.querySelector('.restaurants');
+        restaurants.forEach((restaurantData) => {
+          const restaurantCard = document.createElement('restaurant-card');
+          restaurantCard.restaurant = restaurantData;
+          listRestaurant.appendChild(restaurantCard);
+        });
+      } else {
+        noDataTemplate();
+      }
     } catch (error) {
       loader.stop();
-      console.error('_renderRecommendedRestaurant', error);
+      handleError({
+        error,
+        elementId,
+        functionName: '_renderRecommendedRestaurant'
+      });
     }
   },
 
