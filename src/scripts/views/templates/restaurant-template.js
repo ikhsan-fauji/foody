@@ -1,3 +1,5 @@
+import noDataTemplate from './nodata-template';
+
 const restaurantDetailMenusTemplate = () => `
   <section class="restaurant-menus">
     <div class="foods">
@@ -22,4 +24,17 @@ const restaurantReviewsTemplate = () => `
   </section>
 `;
 
-export { restaurantDetailMenusTemplate, restaurantReviewsTemplate };
+const renderList = (restaurants) => {
+  if (restaurants && restaurants.length > 0) {
+    const listRestaurant = document.querySelector('.restaurants');
+    restaurants.forEach((restaurantData) => {
+      const restaurantCard = document.createElement('restaurant-card');
+      restaurantCard.restaurant = restaurantData;
+      listRestaurant.appendChild(restaurantCard);
+    });
+  } else {
+    noDataTemplate();
+  }
+};
+
+export { restaurantDetailMenusTemplate, restaurantReviewsTemplate, renderList };

@@ -3,7 +3,7 @@ import Restaurant from '../../data/restaurant';
 import loader from '../../helper/loader-helper';
 import handleError from '../../helper/error-helper';
 import HeaderTemplate from '../templates/header-template';
-import noDataTemplate from '../templates/nodata-template';
+import { renderList } from '../templates/restaurant-template';
 
 const RestaurantPage = {
   async render() {
@@ -28,16 +28,7 @@ const RestaurantPage = {
       loader.start(elementId);
       const restaurants = await restaurant.list();
       loader.stop();
-      if (restaurants && restaurants.length > 0) {
-        const listRestaurant = document.querySelector('.restaurants');
-        restaurants.forEach((restaurantData) => {
-          const restaurantCard = document.createElement('restaurant-card');
-          restaurantCard.restaurant = restaurantData;
-          listRestaurant.appendChild(restaurantCard);
-        });
-      } else {
-        noDataTemplate();
-      }
+      renderList(restaurants);
     } catch (error) {
       loader.stop();
       handleError({
