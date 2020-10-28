@@ -3,6 +3,7 @@ import '../../component/MenuCard';
 import dummy from '../../data/DATA.json';
 import HeaderTemplate from '../templates/header-template';
 import Restaurant from '../../data/restaurant';
+import loader from '../../helper/loader-helper';
 
 const HomePage = {
   async render() {
@@ -57,19 +58,26 @@ const HomePage = {
   },
 
   async afterRendered() {
-    const restaurant = new Restaurant();
-    const restaurants = await restaurant.recommended();
-    this._renderRecommendedRestaurant(restaurants);
+    await this._renderRecommendedRestaurant();
     this._renderPopularMenus();
   },
 
-  _renderRecommendedRestaurant(restaurants) {
-    const listRestaurant = document.querySelector('.restaurants');
-    restaurants.forEach((restaurant) => {
-      const restaurantCard = document.createElement('restaurant-card');
-      restaurantCard.restaurant = restaurant;
-      listRestaurant.appendChild(restaurantCard);
-    });
+  async _renderRecommendedRestaurant() {
+    try {
+      const restaurant = new Restaurant();
+      loader.start();
+      const restaurants = await restaurant.recommended();
+      loader.stop();
+      const listRestaurant = document.querySelector('.restaurants');
+      restaurants.forEach((restaurantData) => {
+        const restaurantCard = document.createElement('restaurant-card');
+        restaurantCard.restaurant = restaurantData;
+        listRestaurant.appendChild(restaurantCard);
+      });
+    } catch (error) {
+      loader.stop();
+      console.error('_renderRecommendedRestaurant', error);
+    }
   },
 
   _renderPopularMenus() {

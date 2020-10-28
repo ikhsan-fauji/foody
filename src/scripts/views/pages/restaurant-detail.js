@@ -3,6 +3,7 @@ import UrlParser from '../../routes/url-parser';
 import Restaurant from '../../data/restaurant';
 import FavoriteRestaurant from '../../data/favorite-restaurant';
 import alert from '../../helper/alert-helper';
+import loader from '../../helper/loader-helper';
 import HeaderTemplate from '../templates/header-template';
 import {
   likeButtonTemplate,
@@ -22,11 +23,18 @@ const RestaurantDetailPage = {
   },
 
   async afterRendered() {
-    const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const restaurantId = url.verb;
-    const restaurantData = await restaurant.detail(restaurantId);
-    this._renderDetailContent(restaurantId, restaurantData);
-    await this._initLikeAction(restaurantId, restaurantData);
+    try {
+      const url = UrlParser.parseActiveUrlWithoutCombiner();
+      const restaurantId = url.verb;
+      loader.start();
+      const restaurantData = await restaurant.detail(restaurantId);
+      loader.stop();
+      this._renderDetailContent(restaurantId, restaurantData);
+      await this._initLikeAction(restaurantId, restaurantData);
+    } catch (error) {
+      loader.stop();
+      console.error('afterRendered', error);
+    }
   },
 
   _renderDetailContent(restaurantId, restaurantData) {

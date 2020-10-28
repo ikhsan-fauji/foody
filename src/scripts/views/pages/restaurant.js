@@ -1,6 +1,7 @@
 import '../../component/RestaurantCard';
 import HeaderTemplate from '../templates/header-template';
 import Restaurant from '../../data/restaurant';
+import loader from '../../helper/loader-helper';
 
 const RestaurantPage = {
   async render() {
@@ -15,18 +16,25 @@ const RestaurantPage = {
   },
 
   async afterRendered() {
-    const restaurant = new Restaurant();
-    const restaurants = await restaurant.list();
-    this._renderRestaurants(restaurants);
+    await this._renderRestaurants();
   },
 
-  _renderRestaurants(restaurants) {
-    const listRestaurant = document.querySelector('.restaurants');
-    restaurants.forEach((restaurant) => {
-      const restaurantCard = document.createElement('restaurant-card');
-      restaurantCard.restaurant = restaurant;
-      listRestaurant.appendChild(restaurantCard);
-    });
+  async _renderRestaurants() {
+    try {
+      const restaurant = new Restaurant();
+      loader.start();
+      const restaurants = await restaurant.list();
+      loader.stop();
+      const listRestaurant = document.querySelector('.restaurants');
+      restaurants.forEach((restaurantData) => {
+        const restaurantCard = document.createElement('restaurant-card');
+        restaurantCard.restaurant = restaurantData;
+        listRestaurant.appendChild(restaurantCard);
+      });
+    } catch (error) {
+      loader.stop();
+      console.error('_renderRestaurants', error);
+    }
   }
 };
 
