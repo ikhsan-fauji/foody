@@ -1,4 +1,4 @@
-const HeaderContent = {
+const HeaderTemplate = {
   _setContent(content) {
     if (content) {
       const headerContent = document.querySelector('#header-content');
@@ -78,4 +78,4 @@ const HeaderContent = {
   }
 };
 
-export default HeaderContent;
+export default HeaderTemplate;
