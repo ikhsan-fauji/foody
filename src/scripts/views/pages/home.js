@@ -65,7 +65,7 @@ const HomePage = {
   async _renderRecommendedRestaurant() {
     try {
       const restaurant = new Restaurant();
-      loader.start();
+      loader.start('#explore');
       const restaurants = await restaurant.recommended();
       loader.stop();
       const listRestaurant = document.querySelector('.restaurants');

@@ -22,7 +22,7 @@ const RestaurantPage = {
   async _renderRestaurants() {
     try {
       const restaurant = new Restaurant();
-      loader.start();
+      loader.start('#restaurant');
       const restaurants = await restaurant.list();
       loader.stop();
       const listRestaurant = document.querySelector('.restaurants');

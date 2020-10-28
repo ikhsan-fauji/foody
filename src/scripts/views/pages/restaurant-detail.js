@@ -26,7 +26,7 @@ const RestaurantDetailPage = {
     try {
       const url = UrlParser.parseActiveUrlWithoutCombiner();
       const restaurantId = url.verb;
-      loader.start();
+      loader.start('#restaurant-content');
       const restaurantData = await restaurant.detail(restaurantId);
       loader.stop();
       this._renderDetailContent(restaurantId, restaurantData);

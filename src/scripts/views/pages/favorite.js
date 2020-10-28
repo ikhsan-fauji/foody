@@ -22,7 +22,7 @@ const FavoritePage = {
   async _renderFavoriteRestaurants() {
     try {
       const favorite = new FavoriteRestaurant();
-      loader.start();
+      loader.start('#favorite');
       const restaurants = await favorite.getAll();
       loader.stop();
       const listRestaurant = document.querySelector('.restaurants');
