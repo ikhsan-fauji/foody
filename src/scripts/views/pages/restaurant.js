@@ -1,9 +1,10 @@
-import HeaderContent from '../templates/header-content';
-import RestaurantData from '../../data/restaurant-data';
+import '../../component/RestaurantCard';
+import HeaderTemplate from '../templates/header-template';
+import Restaurant from '../../data/restaurant';
 
-const Restaurant = {
+const RestaurantPage = {
   async render() {
-    HeaderContent.breadCrumb('Restaurants');
+    HeaderTemplate.breadCrumb('Restaurants');
 
     return `
       <section id="restaurant">
@@ -13,10 +14,20 @@ const Restaurant = {
     `;
   },
 
-  afterRendered() {
-    const restaurant = new RestaurantData();
-    restaurant.list();
+  async afterRendered() {
+    const restaurant = new Restaurant();
+    const restaurants = await restaurant.list();
+    this._renderRestaurants(restaurants);
+  },
+
+  _renderRestaurants(restaurants) {
+    const listRestaurant = document.querySelector('.restaurants');
+    restaurants.forEach((restaurant) => {
+      const restaurantCard = document.createElement('restaurant-card');
+      restaurantCard.restaurant = restaurant;
+      listRestaurant.appendChild(restaurantCard);
+    });
   }
 };
 
-export default Restaurant;
+export default RestaurantPage;

@@ -1,11 +1,12 @@
-import HeaderContent from '../templates/header-content';
+import '../../component/RestaurantCard';
+import '../../component/MenuCard';
 import dummy from '../../data/DATA.json';
-import Menu from '../../data/menu-data';
-import Restaurant from '../../data/restaurant-data';
+import HeaderTemplate from '../templates/header-template';
+import Restaurant from '../../data/restaurant';
 
-const Home = {
+const HomePage = {
   async render() {
-    HeaderContent.hero();
+    HeaderTemplate.hero();
 
     return `
       <section id="explore">
@@ -55,12 +56,31 @@ const Home = {
     `;
   },
 
-  afterRendered() {
+  async afterRendered() {
     const restaurant = new Restaurant();
-    restaurant.recommended();
-    const menu = new Menu(dummy.popularMenus);
-    menu.popular();
+    const restaurants = await restaurant.recommended();
+    this._renderRecommendedRestaurant(restaurants);
+    this._renderPopularMenus();
+  },
+
+  _renderRecommendedRestaurant(restaurants) {
+    const listRestaurant = document.querySelector('.restaurants');
+    restaurants.forEach((restaurant) => {
+      const restaurantCard = document.createElement('restaurant-card');
+      restaurantCard.restaurant = restaurant;
+      listRestaurant.appendChild(restaurantCard);
+    });
+  },
+
+  _renderPopularMenus() {
+    const { popularMenus } = dummy;
+    const popularMenusElement = document.querySelector('.menus');
+    popularMenus.forEach((menu) => {
+      const menuCard = document.createElement('menu-card');
+      menuCard.menu = menu;
+      popularMenusElement.appendChild(menuCard);
+    });
   }
 };
 
-export default Home;
+export default HomePage;

@@ -1,9 +1,10 @@
-import HeaderContent from '../templates/header-content';
-import RestaurantData from '../../data/restaurant-data';
+import '../../component/RestaurantCard';
+import HeaderTemplate from '../templates/header-template';
+import FavoriteRestaurant from '../../data/favorite-restaurant';
 
-const Favorite = {
+const FavoritePage = {
   async render() {
-    HeaderContent.breadCrumb('Favorites');
+    HeaderTemplate.breadCrumb('Favorites');
 
     return `
       <section id="favorite">
@@ -13,10 +14,20 @@ const Favorite = {
     `;
   },
 
-  afterRendered() {
-    const restaurant = new RestaurantData();
-    restaurant.favorites();
+  async afterRendered() {
+    const favorite = new FavoriteRestaurant();
+    const restaurants = await favorite.getAll();
+    this._renderFavoriteRestaurants(restaurants);
+  },
+
+  _renderFavoriteRestaurants(restaurants) {
+    const listRestaurant = document.querySelector('.restaurants');
+    restaurants.forEach((restaurant) => {
+      const restaurantCard = document.createElement('restaurant-card');
+      restaurantCard.restaurant = restaurant;
+      listRestaurant.appendChild(restaurantCard);
+    });
   }
 };
 
-export default Favorite;
+export default FavoritePage;
