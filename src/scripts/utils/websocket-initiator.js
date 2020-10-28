@@ -11,16 +11,16 @@ const WebSocketInitiator = {
 
   _onOpen() {
     console.log('CONNECTED');
-    NotificationHelper.sendNotification({
-      title: `websocket.org`,
-      options: {
-        body:
-          'WebSocket was connected. 3 sample message would be send in 5 seconds'
-      }
-    });
-    setTimeout(() => {
-      this._sendMessage();
-    }, 5000);
+    // NotificationHelper.sendNotification({
+    //   title: `websocket.org`,
+    //   options: {
+    //     body:
+    //       'WebSocket was connected. 3 sample message would be send in 5 seconds'
+    //   }
+    // });
+    // setTimeout(() => {
+    //   this._sendMessage();
+    // }, 5000);
   },
 
   _sendMessage(counter = 1) {
