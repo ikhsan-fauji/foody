@@ -39,6 +39,7 @@ class App {
     } else {
       this._notFound();
     }
+    window.scrollTo(0, 0); // set window to top position
   }
 
   _notFound() {

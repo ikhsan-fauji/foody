@@ -59,7 +59,6 @@ class NavBar extends HTMLElement {
         const current = document.querySelector('.active');
         current.className = current.className.replace(' active', '');
         navItems[index].className += ' active';
-        window.scrollTo(0, 0); // set window to top position
       });
     }
   }
