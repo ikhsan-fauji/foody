@@ -28,7 +28,7 @@ const RestaurantPage = {
       loader.start(elementId);
       const restaurants = await restaurant.list();
       loader.stop();
-      renderList(restaurants);
+      renderList(elementId, restaurants);
     } catch (error) {
       loader.stop();
       handleError({

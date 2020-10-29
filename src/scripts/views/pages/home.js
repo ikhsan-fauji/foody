@@ -71,7 +71,7 @@ const HomePage = {
       loader.start(elementId);
       const restaurants = await restaurant.recommended();
       loader.stop();
-      renderList(restaurants);
+      renderList(elementId, restaurants);
     } catch (error) {
       loader.stop();
       handleError({

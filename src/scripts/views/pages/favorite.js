@@ -28,7 +28,7 @@ const FavoritePage = {
       loader.start(elementId);
       const restaurants = await favorite.getAll();
       loader.stop();
-      renderList(restaurants);
+      renderList(elementId, restaurants);
     } catch (error) {
       loader.stop();
       handleError({

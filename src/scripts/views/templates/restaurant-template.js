@@ -24,7 +24,7 @@ const restaurantReviewsTemplate = () => `
   </section>
 `;
 
-const renderList = (restaurants) => {
+const renderList = (elementId, restaurants) => {
   if (restaurants && restaurants.length > 0) {
     const listRestaurant = document.querySelector('.restaurants');
     restaurants.forEach((restaurantData) => {
@@ -33,7 +33,8 @@ const renderList = (restaurants) => {
       listRestaurant.appendChild(restaurantCard);
     });
   } else {
-    noDataTemplate();
+    const element = document.querySelector(elementId);
+    element.innerHTML = noDataTemplate();
   }
 };
 
