@@ -97,8 +97,8 @@ class ReviewForm extends HTMLElement {
         }
       }
     } catch (error) {
-      console.error(error.message);
-      alert.error('Failed', error.message);
+      console.error('_submitForm', error.message);
+      alert.error('Failed', 'Something went wrong.');
     }
   }
 
