@@ -11,11 +11,11 @@ class ReviewForm extends HTMLElement {
     return `
       <form action="#" class="review-form">
         <div class="form-input">
-          <input id="name-input" type="text" placeholder="Name" />
+          <input id="name-input" type="text" placeholder="Name" aria-label="Name Input" />
           <span class="name-error"></span>
         </div>
         <div class="form-input">
-          <textarea id="review-input" rows="3" placeholder="Message"></textarea>
+          <textarea id="review-input" rows="3" placeholder="Message" aria-label="Review Input"></textarea>
           <span class="review-error"></span>
         </div>
         <button type="button" class="btn-submit btn-primary">
