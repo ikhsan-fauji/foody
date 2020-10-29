@@ -37,13 +37,23 @@ class RestaurantDetail extends HTMLElement {
           ${detail.name}
           </h2>
           <div class="restaurant-info">
-            <span id="rating-icon" class="material-icons">grade</span>
-            <label for="rating-icon" tabindex="0" aria-label="Restaurant rating point is ${fixedRating}">
-              ${fixedRating}
-            </label>
-            <span id="rating-icon" class="material-icons">place</span>
+            <span
+              id="rating-icon${detail.id}"
+              class="material-icons rating-icon"
+            >
+              grade
+            </span>
             <label
-              for="rating-icon"
+              for="rating-icon${detail.id}"
+              tabindex="0"
+              aria-label="Restaurant rating point is ${fixedRating}"
+            >${fixedRating}</label>
+            <span
+              id="place-icon${detail.id}"
+              class="material-icons rating-icon"
+              >place</span>
+            <label
+              for="place-icon${detail.id}"
               tabindex="0"
               aria-label="${detail.city} - ${detail.address}"
             >

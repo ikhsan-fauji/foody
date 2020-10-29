@@ -8,7 +8,7 @@ class MenuCard extends HTMLElement {
   }
 
   _prepareTemplate(menu) {
-    const { name, rating, city, picture } = menu;
+    const { id, name, rating, city, picture } = menu;
     const fixedRating = rating.toFixed(1);
     const thumbnail = picture || './images/heros/hero-image_4.webp';
 
@@ -26,12 +26,12 @@ class MenuCard extends HTMLElement {
           </h1>
           <div class="menu-info">
             <div class="menu-info__rating">
-              <span id="rating-icon" class="material-icons" aria-label="Star icon for rating"> grade </span>
-              <label for="rating-icon" tabindex="0" aria-label="Rating point is ${fixedRating}"> ${fixedRating} </label>
+              <span id="rating-icon${id}" class="material-icons rating-icon" aria-label="Star icon for rating"> grade </span>
+              <label for="rating-icon${id}" tabindex="0" aria-label="Rating point is ${fixedRating}"> ${fixedRating} </label>
             </div>
             <div class="menu-info__place">
-              <span id="place-icon" class="material-icons" aria-label="Place icon"> place </span>
-              <label for="place-icon" tabindex="0">${city}</label>
+              <span id="place-icon${id}" class="material-icons place-icon" aria-label="Place icon"> place </span>
+              <label for="place-icon${id}" tabindex="0">${city}</label>
             </div>
           </div>
         </div>
