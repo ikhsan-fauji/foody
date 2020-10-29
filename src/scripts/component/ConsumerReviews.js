@@ -12,12 +12,12 @@ class ConsumerReviews extends HTMLElement {
     let template = `<ul class="reviews">`;
 
     this._reviews.forEach((reviewDetail) => {
-      const { name = null, date = null, review = null } = reviewDetail;
+      const { name, date, review } = reviewDetail;
       template += `
         <li class="review-item">
-          <h4 class="reviewer">${name}</h4>
-          <i class="review-date">${date}</i>
-          <p class="review-detail">${review}</p>
+          <h4 class="reviewer">${name || 'User****'}</h4>
+          <i class="review-date">${date || ''}</i>
+          <p class="review-detail">${review || ''}</p>
         </li>
       `;
     });
