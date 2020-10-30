@@ -23,7 +23,10 @@ setCacheNameDetails({
   runtime: 'runtime'
 });
 
-precacheAndRoute(webManifest, { ignoreUrlParameterMatching: [/.*/] });
+precacheAndRoute(webManifest, {
+  ignoreUrlParameterMatching: [/.*/],
+  maxAgeSeconds: 30 * 24 * 60 * 60 // 30 Days
+});
 
 // Cache the Google Fonts stylesheets with a stale-while-revalidate strategy.
 registerRoute(
