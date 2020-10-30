@@ -54,7 +54,7 @@ class ReviewForm extends HTMLElement {
   _submitEvent() {
     const submitButton = document.querySelector('.btn-submit');
     submitButton.addEventListener('click', (event) => {
-      this._submitForm();
+      this._submitForm(submitButton);
       event.stopPropagation();
     });
   }
@@ -78,28 +78,40 @@ class ReviewForm extends HTMLElement {
     };
   }
 
-  async _submitForm() {
+  async _submitForm(element) {
     try {
       const name = this._nameValue();
       const review = this._reviewValue();
       if (name && review) {
         const id = this._restaurantId;
         const reviewData = { id, name, review };
+        this._disableButton(element);
         const response = await request.post(restaurantApi.review, reviewData);
         if (response.error) {
           throw Error(response.message);
-        } else if (this._callback) {
+        } else if (!this._callback) {
+          throw Error('please provide callback');
+        } else {
           alert.success('Success', 'Review success');
           this._callback(response.customerReviews);
           this._resetForm();
-        } else {
-          throw Error('please provide callback');
+          this._enableButton(element);
         }
+        this._enableButton(element);
       }
     } catch (error) {
+      this._enableButton(element);
       console.error('_submitForm', error.message);
       alert.error('Failed', 'Something went wrong.');
     }
+  }
+
+  _disableButton(element) {
+    element.setAttribute('disabled', true);
+  }
+
+  _enableButton(element) {
+    element.removeAttribute('disabled');
   }
 
   _nameInput() {

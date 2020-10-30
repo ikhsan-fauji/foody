@@ -95,7 +95,7 @@ class RestaurantDetail extends HTMLElement {
   afterRendered(detail) {
     this._renderListMenus('#food-list', detail.menus.foods);
     this._renderListMenus('#drink-list', detail.menus.drinks);
-    this._initReviews(detail.consumerReviews);
+    this._initReviews(detail.customerReviews);
     this._initReviewForm();
   }
 

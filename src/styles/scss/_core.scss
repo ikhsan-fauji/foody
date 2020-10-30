@@ -565,6 +565,10 @@ footer {
   border-bottom: 1px solid rgba(235, 163, 7, 0.5);
 }
 
+#reviews {
+  margin-bottom: 20px;
+}
+
 .reviews {
   list-style-type: none;
 }
@@ -602,6 +606,11 @@ footer {
 
 .btn-submit {
   margin-top: 15px;
+
+  &:disabled {
+    background-color: rgb(154, 145, 125);
+    cursor: none !important;
+  }
 }
 
 .like {
