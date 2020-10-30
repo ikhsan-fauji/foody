@@ -12,6 +12,10 @@ import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { skipWaiting, clientsClaim, setCacheNameDetails } from 'workbox-core';
 
+const aDay = 24 * 60 * 60;
+const aMonth = 30 * 24 * 60 * 60;
+const aYear = 365 * 24 * 60 * 60;
+
 const webManifest = self.__WB_MANIFEST || [];
 
 skipWaiting();
@@ -25,10 +29,10 @@ setCacheNameDetails({
 
 precacheAndRoute(webManifest, {
   ignoreUrlParameterMatching: [/.*/],
-  maxAgeSeconds: 30 * 24 * 60 * 60 // 30 Days
+  maxAgeSeconds: aMonth
 });
 
-// Cache the Google Fonts stylesheets with a stale-while-revalidate strategy.
+
 registerRoute(
   ({ url }) => url.origin === 'https://fonts.googleapis.com',
   new StaleWhileRevalidate({
@@ -36,7 +40,6 @@ registerRoute(
   })
 );
 
-// Cache the underlying font files with a cache-first strategy for 1 year.
 registerRoute(
   ({ url }) => url.origin === 'https://fonts.gstatic.com',
   new CacheFirst({
@@ -46,21 +49,20 @@ registerRoute(
         statuses: [0, 200]
       }),
       new ExpirationPlugin({
-        maxAgeSeconds: 60 * 60 * 24 * 365,
+        maxAgeSeconds: aYear,
         maxEntries: 30
       })
     ]
   })
 );
 
-// Cache the restaurant api from dicoding
 registerRoute(
   /^https:\/\/dicoding-restaurant-api\.el\.r\.appspot\.com\/(?:(list|detail))/,
   new NetworkFirst({
     cacheName: 'dicoding-restaurant-api',
     plugins: [
       new ExpirationPlugin({
-        maxAgeSeconds: 24 * 60 * 60,
+        maxAgeSeconds: aDay,
         maxEntries: 100
       })
     ]
@@ -73,7 +75,7 @@ registerRoute(
     cacheName: 'dicoding-images',
     plugins: [
       new ExpirationPlugin({
-        maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+        maxAgeSeconds: aMonth,
         maxEntries: 100
       })
     ]
@@ -86,8 +88,8 @@ registerRoute(
     cacheName: 'images',
     plugins: [
       new ExpirationPlugin({
-        maxEntries: 60,
-        maxAgeSeconds: 30 * 24 * 60 * 60 // 30 Days
+        maxAgeSeconds: aMonth,
+        maxEntries: 60
       })
     ]
   })
