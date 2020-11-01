@@ -67,10 +67,12 @@
     }
   }
 
-  .restaurant {
-    .restaurant-thumbnail {
-      height: 135px !important;
-    }
+  // .restaurants {
+  //   grid-template-columns: 1fr;
+  // }
+
+  .restaurant .restaurant-thumbnail {
+    height: 275px;
   }
 
   #discover-restaurant {
@@ -103,7 +105,7 @@
   }
 }
 
-@media screen and (max-width: 320.9px) {
+@media screen and (max-width: 400px) {
   .hero .hero-content .hero-tagline {
     font-size: 12px !important;
   }
@@ -113,6 +115,6 @@
     padding: 22px 0;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 20px;
   }
 }

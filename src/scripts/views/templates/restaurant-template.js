@@ -16,10 +16,10 @@ const restaurantDetailMenusTemplate = () => `
 
 const restaurantReviewsTemplate = () => `
   <section class="restaurant-review">
-    <h2 class="primary-text">Consumer Reviews</h2>
+    <h2 class="primary-text text-center">Consumer Reviews</h2>
     <div id="reviews"></div>
 
-    <h2 class="primary-text">What do you think?</h2>
+    <h2 class="primary-text text-center">What do you think?</h2>
     <div id="review-form"></div>
   </section>
 `;

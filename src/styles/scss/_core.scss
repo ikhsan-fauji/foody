@@ -43,6 +43,10 @@ img {
   color: $primary-color;
 }
 
+.text-center {
+  text-align: center;
+}
+
 a {
   text-decoration: none;
 }
@@ -467,6 +471,9 @@ footer {
 
   a {
     color: $dark-color;
+    display: block;
+    width: 100%;
+
     &:hover {
       color: $primary-color;
     }
@@ -566,15 +573,20 @@ footer {
 }
 
 #reviews {
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
 .reviews {
-  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
 .review-item {
-  margin: 15px 0;
+  border: 1px solid $primary-color;
+  border-radius: 5px;
+  padding: 10px 15px;
 }
 
 .reviewer {
@@ -594,6 +606,7 @@ footer {
 
 .review-form {
   width: 50%;
+  margin: 0 auto;
 
   input,
   textarea {
@@ -606,6 +619,8 @@ footer {
 
 .btn-submit {
   margin-top: 15px;
+  width: 100%;
+  display: block;
 
   &:disabled {
     background-color: rgb(154, 145, 125);

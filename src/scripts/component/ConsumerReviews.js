@@ -4,28 +4,28 @@ class ConsumerReviews extends HTMLElement {
   }
 
   _reviewsTemplate(reviews) {
-    let template = `<ul class="reviews">`;
+    let template = `<div class="reviews">`;
 
     if (reviews.length > 0) {
       reviews.forEach((reviewDetail) => {
         const { name, date, review } = reviewDetail;
         template += `
-          <li class="review-item">
+          <article class="review-item">
             <h4 class="reviewer">${name || 'User****'}</h4>
             <i class="review-date">${date || ''}</i>
             <p class="review-detail">${review || ''}</p>
-          </li>
+          </article>
         `;
       });
     } else {
       template += `
-        <li class="review-item">
+        <article class="review-item">
           <span>No Reviews</span>
-        </li>
+        </article>
         `;
     }
 
-    template += `</ul>`;
+    template += `</div>`;
     return template;
   }
 
