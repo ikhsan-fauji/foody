@@ -49,10 +49,6 @@ module.exports = {
         }
       ]
     }),
-    new InjectManifest({
-      swSrc: './src/scripts/service-worker.js',
-      swDest: 'service-worker.js'
-    }),
     new WebpackPwaManifest({
       filename: 'manifest.json',
       name: 'Foody Apps',
@@ -94,6 +90,10 @@ module.exports = {
           quality: [0.3, 0.5]
         })
       ]
+    }),
+    new InjectManifest({
+      swSrc: './src/scripts/service-worker.js',
+      swDest: 'service-worker.js'
     })
   ],
   optimization: {
