@@ -32,7 +32,6 @@ precacheAndRoute(webManifest, {
   maxAgeSeconds: aMonth
 });
 
-
 registerRoute(
   ({ url }) => url.origin === 'https://fonts.googleapis.com',
   new StaleWhileRevalidate({
