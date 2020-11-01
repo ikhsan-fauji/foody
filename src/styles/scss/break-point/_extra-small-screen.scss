@@ -67,9 +67,9 @@
     }
   }
 
-  // .restaurants {
-  //   grid-template-columns: 1fr;
-  // }
+  .restaurants {
+    gap: 15px;
+  }
 
   .restaurant .restaurant-thumbnail {
     height: 275px;
@@ -93,6 +93,11 @@
         grid-template-columns: 1fr;
       }
     }
+  }
+
+  .reviews {
+    grid-template-columns: 1fr;
+    gap: 15px;
   }
 
   .review-form {
