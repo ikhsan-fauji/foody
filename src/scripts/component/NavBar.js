@@ -7,7 +7,7 @@ class NavBar extends HTMLElement {
     return `
       <div class="brand-logo">
         <button id="drawer-menu">
-          <span class="material-icons"> menu </span>
+          <span class="material-icons" aria-label="Burger Menu"> menu </span>
         </button>
         <a class="brand-link" href="/">Foody</a>
       </div>
