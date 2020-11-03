@@ -11,7 +11,7 @@ class ConsumerReviews extends HTMLElement {
         const { name, date, review } = reviewDetail;
         template += `
           <article class="review-item">
-            <h4 class="reviewer">${name || 'User****'}</h4>
+            <h3 class="reviewer">${name || 'User****'}</h3>
             <i class="review-date">${date || ''}</i>
             <p class="review-detail">${review || ''}</p>
           </article>
