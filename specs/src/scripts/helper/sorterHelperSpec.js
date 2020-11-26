@@ -5,6 +5,16 @@ describe('Sorter Helper #descendingByRating', () => {
     expect(descendingByRating()).toBe(0);
   });
 
+  it('must return 0 if sorter method is called only with 1 params ', () => {
+    const restaurant = { rating: 4 };
+    expect(descendingByRating(restaurant)).toBe(0);
+  });
+
+  it('must return 0 if sorter method is called with undefined ', () => {
+    const restaurant = { rating: 4 };
+    expect(descendingByRating(undefined, restaurant)).toBe(0);
+  });
+
   it('must return 0 if sorter method is called with same parameters', () => {
     const restaurant = { rating: 4 };
     expect(descendingByRating(restaurant, restaurant)).toBe(0);
