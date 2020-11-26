@@ -27,3 +27,104 @@
     transform: rotate(360deg);
   }
 }
+
+/* Skeleton */
+@mixin skeleton {
+  position: relative;
+  background-color: #f1f1f1;
+  height: 14px;
+  margin-bottom: 8px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+@mixin skeleton-loading {
+  display: block;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(transparent),
+    color-stop(rgba(255, 255, 255, 0.2)),
+    to(transparent)
+  );
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+
+  animation: skeleton 0.8s infinite;
+  overflow: hidden;
+}
+
+.skeleton-3 {
+  @include skeleton;
+  width: 30%;
+
+  &::after {
+    @include skeleton-loading;
+  }
+}
+
+.skeleton-4 {
+  @include skeleton;
+  width: 40%;
+
+  &::after {
+    @include skeleton-loading;
+  }
+}
+
+.skeleton-5 {
+  @include skeleton;
+  width: 50%;
+
+  &::after {
+    @include skeleton-loading;
+  }
+}
+
+.skeleton-7 {
+  @include skeleton;
+  width: 70%;
+
+  &::after {
+    @include skeleton-loading;
+  }
+}
+
+.skeleton-8 {
+  @include skeleton;
+  width: 80%;
+
+  &::after {
+    @include skeleton-loading;
+  }
+}
+
+.skeleton-10 {
+  @include skeleton;
+  width: 100%;
+
+  &::after {
+    @include skeleton-loading;
+  }
+}
+
+.skeleton-h-10 {
+  height: 100% !important;
+}
+
+@keyframes skeleton {
+  100% {
+    transform: translateX(100%);
+  }
+}
