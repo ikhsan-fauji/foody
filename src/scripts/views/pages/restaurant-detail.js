@@ -3,7 +3,6 @@ import UrlParser from '../../routes/url-parser';
 import Restaurant from '../../data/restaurant';
 import FavoriteRestaurant from '../../data/favorite-restaurant';
 import alert from '../../helper/alert-helper';
-import loader from '../../helper/loader-helper';
 import handleError from '../../helper/error-helper';
 import HeaderTemplate from '../templates/header-template';
 import {
@@ -11,6 +10,7 @@ import {
   unLikeButtonTemplate
 } from '../templates/like-button-template';
 import noDataTemplate from '../templates/nodata-template';
+import skeleton from '../templates/skeleton-template';
 
 const restaurant = new Restaurant();
 const favoriteRestaurant = new FavoriteRestaurant();
@@ -19,7 +19,9 @@ const RestaurantDetailPage = {
   async render() {
     HeaderTemplate.breadCrumb('Restaurant Detail');
     return `
-      <section id="restaurant-content"></section>
+      <section id="restaurant-content">
+        ${skeleton.restaurantDetail()}
+      </section>
       <div id="like-btn-container"></div>
     `;
   },
@@ -29,13 +31,10 @@ const RestaurantDetailPage = {
     try {
       const url = UrlParser.parseActiveUrlWithoutCombiner();
       const restaurantId = url.verb;
-      loader.start(elementId);
       const restaurantData = await restaurant.detail(restaurantId);
-      loader.stop();
       this._renderDetailContent(restaurantId, restaurantData);
       await this._initLikeAction(restaurantId, restaurantData);
     } catch (error) {
-      loader.stop();
       handleError({
         error,
         elementId,
@@ -46,6 +45,7 @@ const RestaurantDetailPage = {
 
   _renderDetailContent(restaurantId, restaurantData) {
     const restaurantContent = document.querySelector('#restaurant-content');
+    restaurantContent.innerHTML = '';
     if (restaurantData) {
       const detailElement = document.createElement('restaurant-detail');
       detailElement.restaurantId = restaurantId;

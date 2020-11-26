@@ -2,10 +2,10 @@ import '../../component/RestaurantCard';
 import '../../component/MenuCard';
 import dummy from '../../data/DATA.json';
 import Restaurant from '../../data/restaurant';
-import loader from '../../helper/loader-helper';
 import handleError from '../../helper/error-helper';
 import HeaderTemplate from '../templates/header-template';
 import { renderList } from '../templates/restaurant-template';
+import skeleton from '../templates/skeleton-template';
 
 const HomePage = {
   async render() {
@@ -17,7 +17,7 @@ const HomePage = {
           <div class="section-header">
             <h2 class="section-title" tabindex="0">Explore Restaurant</h2>
           </div>
-          <div class="restaurants"></div>
+          <div class="restaurants">${skeleton.restaurantCard(4)}</div>
         </div>
       </section>
 
@@ -68,12 +68,9 @@ const HomePage = {
     const elementId = '#explore';
     try {
       const restaurant = new Restaurant();
-      loader.start(elementId);
       const restaurants = await restaurant.recommended();
-      loader.stop();
       renderList(elementId, restaurants);
     } catch (error) {
-      loader.stop();
       handleError({
         error,
         elementId,
