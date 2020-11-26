@@ -66,7 +66,7 @@ module.exports = {
           sizes: [120, 152, 167, 180, 1024],
           destination: path.join('icons', 'ios'),
           ios: true,
-          purpose: "maskable"
+          purpose: 'maskable'
         },
         {
           src: path.resolve(__dirname, 'src/public/images/icons/app-icon.png'),
@@ -78,7 +78,7 @@ module.exports = {
           src: path.resolve(__dirname, 'src/public/images/icons/app-icon.png'),
           sizes: [36, 48, 72, 96, 144, 192, 512],
           destination: path.join('icons', 'android'),
-          purpose: "maskable"
+          purpose: 'maskable'
         }
       ]
     }),
