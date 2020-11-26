@@ -35,6 +35,7 @@
     "no-console": "off",
     "no-process-exit": "off",
     "no-useless-constructor": "off",
+    "no-plusplus": "off",
     "prettier/prettier": [
       "error",
       {
