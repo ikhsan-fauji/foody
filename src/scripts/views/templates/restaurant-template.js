@@ -27,6 +27,7 @@ const restaurantReviewsTemplate = () => `
 const renderList = (elementId, restaurants) => {
   if (restaurants && restaurants.length > 0) {
     const listRestaurant = document.querySelector('.restaurants');
+    listRestaurant.innerHTML = '';
     restaurants.forEach((restaurantData) => {
       const restaurantCard = document.createElement('restaurant-card');
       restaurantCard.restaurant = restaurantData;
