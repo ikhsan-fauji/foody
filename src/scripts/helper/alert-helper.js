@@ -11,8 +11,8 @@ const alert = {
   success(title = '', message = '') {
     const template = `
       <div class="alert success">
-        <h5>${title}</h5>
-        <p>${message}</p>
+        <h5 class="alert-title">${title}</h5>
+        <p class="alert-message">${message}</p>
       </div>
     `;
     _showAlert(template);
@@ -21,8 +21,8 @@ const alert = {
   error(title = '', message = '') {
     const template = `
       <div class="alert error">
-        <h5>${title}</h5>
-        <p>${message}</p>
+        <h5 class="alert-title">${title}</h5>
+        <p class="alert-message">${message}</p>
       </div>
     `;
     _showAlert(template);
