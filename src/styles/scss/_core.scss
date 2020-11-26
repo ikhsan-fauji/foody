@@ -30,7 +30,7 @@ img {
   object-fit: cover;
 
   &:empty {
-    background-color: grey;
+    background-color: rgb(213, 213, 213);
   }
 }
 
@@ -145,7 +145,7 @@ footer {
 
 .open {
   left: 0 !important;
-  transition: ease-in 0.3s !important;
+  transition: ease-in 0.2s !important;
 }
 
 #drawer-menu {
@@ -524,7 +524,7 @@ footer {
 
 .restaurant-image {
   width: 100%;
-  height: 450px;
+  height: 450px !important;
   object-fit: cover;
   margin-bottom: 20px;
 }
