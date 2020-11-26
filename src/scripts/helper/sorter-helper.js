@@ -1,4 +1,6 @@
 const descendingByRating = (a, b) => {
+  if (!a || !b) return 0;
+
   let comparison = 0;
   if (a.rating > b.rating) {
     comparison = -1;
