@@ -3,7 +3,7 @@ const noDataTemplate = (message = 'Data not found.') => {
     <div class="no-data">
       <div>
         <h1>Oops!!!</h1>
-        <p>${message}</p>
+        <p class="error-message">${message}</p>
       </div>
     </div>
   `;
