@@ -5,7 +5,7 @@ import request from '../helper/request-helper';
 import descendingByRating from '../helper/sorter-helper';
 
 class Restaurant {
-  async _fetchRestaurants() {
+  static async _fetchRestaurants() {
     let response = await request.get(restaurantApi.list);
     if (response.error) {
       throw Error(response.message);
@@ -15,7 +15,7 @@ class Restaurant {
     return response;
   }
 
-  async recommended() {
+  static async recommended() {
     let restaurants = await this._fetchRestaurants();
     if (restaurants && restaurants.length > 0) {
       restaurants = restaurants.slice(0, 4);
@@ -23,11 +23,11 @@ class Restaurant {
     return restaurants || [];
   }
 
-  list() {
+  static list() {
     return this._fetchRestaurants();
   }
 
-  async detail(id) {
+  static async detail(id) {
     const response = await request.get(`${restaurantApi.detail}${id}`);
     if (response.error) {
       throw Error(response.message);
