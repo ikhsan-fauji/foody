@@ -2,18 +2,11 @@ import '../../component/RestaurantDetail';
 import UrlParser from '../../routes/url-parser';
 import Restaurant from '../../data/restaurant';
 import FavoriteRestaurant from '../../data/favorite-restaurant';
-import alert from '../../helper/alert-helper';
+import LikeButtonPresenter from '../../utils/like-button-presenter';
 import handleError from '../../helper/error-helper';
 import HeaderTemplate from '../templates/header-template';
-import {
-  likeButtonTemplate,
-  unLikeButtonTemplate
-} from '../templates/like-button-template';
 import noDataTemplate from '../templates/nodata-template';
 import skeleton from '../templates/skeleton-template';
-
-const restaurant = new Restaurant();
-const favoriteRestaurant = new FavoriteRestaurant();
 
 const RestaurantDetailPage = {
   async render() {
@@ -31,9 +24,13 @@ const RestaurantDetailPage = {
     try {
       const url = UrlParser.parseActiveUrlWithoutCombiner();
       const restaurantId = url.verb;
-      const restaurantData = await restaurant.detail(restaurantId);
+      const restaurantData = await Restaurant.detail(restaurantId);
       this._renderDetailContent(restaurantId, restaurantData);
-      await this._initLikeAction(restaurantId, restaurantData);
+      await LikeButtonPresenter.init({
+        restaurant: restaurantData,
+        favoriteRestaurant: FavoriteRestaurant,
+        likeButtonContainer: document.querySelector('#like-btn-container')
+      });
     } catch (error) {
       handleError({
         error,
@@ -53,60 +50,6 @@ const RestaurantDetailPage = {
       restaurantContent.appendChild(detailElement);
     } else {
       restaurantContent.innerHTML = noDataTemplate();
-    }
-  },
-
-  async _initLikeAction(restaurantId, restaurantData) {
-    const likeButtonContainer = document.querySelector('#like-btn-container');
-    const savedData = await favoriteRestaurant.getByKey(restaurantId);
-
-    if (savedData) {
-      likeButtonContainer.innerHTML = unLikeButtonTemplate();
-      await this._clickEvent({
-        restaurantData,
-        button: '#un-like-button',
-        callback: async () => {
-          await this._unLikeRestaurant(restaurantId);
-        }
-      });
-    } else {
-      likeButtonContainer.innerHTML = likeButtonTemplate();
-      await this._clickEvent({
-        restaurantData,
-        button: '#like-button',
-        callback: async () => {
-          await this._likeRestaurant(restaurantData);
-        }
-      });
-    }
-  },
-
-  async _clickEvent({ button, callback, restaurantData }) {
-    const buttonElement = document.querySelector(button);
-    await buttonElement.addEventListener('click', async (event) => {
-      await callback();
-      await this._initLikeAction(restaurantData.id, restaurantData);
-      event.stopPropagation();
-    });
-  },
-
-  async _likeRestaurant(restaurantData) {
-    try {
-      await favoriteRestaurant.like(restaurantData);
-      alert.success('Awesome', 'Success to like this restaurant');
-    } catch (error) {
-      alert.error('Sorry', 'Failed to like this restaurant');
-      console.error('_likeRestaurant', error);
-    }
-  },
-
-  async _unLikeRestaurant(key) {
-    try {
-      await favoriteRestaurant.unlike(key);
-      alert.success('Awesome', 'Success to unlike this restaurant');
-    } catch (error) {
-      alert.error('Sorry', 'Failed to unlike this restaurant');
-      console.error('_unLikeRestaurant', error);
     }
   }
 };
