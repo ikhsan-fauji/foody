@@ -25,8 +25,7 @@ const FavoritePage = {
   async _renderFavoriteRestaurants() {
     const elementId = '#favorite';
     try {
-      const favorite = new FavoriteRestaurant();
-      const restaurants = await favorite.getAll();
+      const restaurants = await FavoriteRestaurant.getAll();
       renderList(elementId, restaurants);
     } catch (error) {
       handleError({

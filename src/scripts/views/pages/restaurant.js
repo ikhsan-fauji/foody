@@ -25,8 +25,7 @@ const RestaurantPage = {
   async _renderRestaurants() {
     const elementId = '#restaurant';
     try {
-      const restaurant = new Restaurant();
-      const restaurants = await restaurant.list();
+      const restaurants = await Restaurant.list();
       renderList(elementId, restaurants);
     } catch (error) {
       handleError({

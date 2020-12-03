@@ -67,8 +67,7 @@ const HomePage = {
   async _renderRecommendedRestaurant() {
     const elementId = '#explore';
     try {
-      const restaurant = new Restaurant();
-      const restaurants = await restaurant.recommended();
+      const restaurants = await Restaurant.recommended();
       renderList(elementId, restaurants);
     } catch (error) {
       handleError({
