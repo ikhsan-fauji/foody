@@ -31,7 +31,7 @@ describe('Like Restaurant', () => {
     const restaurant = await FavoriteRestaurant.getByKey(1);
 
     expect(restaurant.id).toEqual(1);
-    FavoriteRestaurant.unlike(1);
+    await FavoriteRestaurant.unlike(1);
   });
 
   it('should not add the same restaurant if already liked before', async () => {
@@ -43,7 +43,7 @@ describe('Like Restaurant', () => {
     expect(restaurants[0].id).toEqual(1);
     expect(document.querySelector('#like-button')).toBeFalsy();
     expect(document.querySelector('#un-like-button')).toBeTruthy();
-    FavoriteRestaurant.unlike(1);
+    await FavoriteRestaurant.unlike(1);
   });
 
   it('should not render like or unlike button when id is undefined', async () => {
