@@ -1,18 +1,17 @@
 import '../../component/RestaurantCard';
 import Restaurant from '../../data/restaurant';
 import handleError from '../../helper/error-helper';
-import HeaderTemplate from '../templates/header-template';
+import { breadCrumb } from '../templates/header-template';
 import { renderList } from '../templates/restaurant-template';
-import skeleton from '../templates/skeleton-template';
+import { restaurantCard } from '../templates/skeleton-template';
 
 const RestaurantPage = {
-  async render() {
-    HeaderTemplate.breadCrumb('Restaurants');
-
+  render() {
+    breadCrumb('Restaurants');
     return `
       <section id="restaurant">
         <div class="container restaurants">
-          ${skeleton.restaurantCard(8)}
+          ${restaurantCard(8)}
         </div>
       </section>
     `;

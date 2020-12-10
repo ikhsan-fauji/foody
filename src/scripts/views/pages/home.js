@@ -3,21 +3,20 @@ import '../../component/MenuCard';
 import dummy from '../../data/DATA.json';
 import Restaurant from '../../data/restaurant';
 import handleError from '../../helper/error-helper';
-import HeaderTemplate from '../templates/header-template';
+import { hero } from '../templates/header-template';
 import { renderList } from '../templates/restaurant-template';
-import skeleton from '../templates/skeleton-template';
+import { restaurantCard } from '../templates/skeleton-template';
 
 const HomePage = {
-  async render() {
-    HeaderTemplate.hero();
-
+  render() {
+    hero();
     return `
       <section id="explore">
         <div class="container">
           <div class="section-header">
             <h2 class="section-title" tabindex="0">Explore Restaurant</h2>
           </div>
-          <div class="restaurants">${skeleton.restaurantCard(4)}</div>
+          <div class="restaurants">${restaurantCard(4)}</div>
         </div>
       </section>
 
@@ -26,7 +25,7 @@ const HomePage = {
           <div class="section-header">
             <h2 class="section-title" tabindex="0">Popular Menus</h2>
           </div>
-          <div class="menus"></div>
+          <div class="menus">${restaurantCard(4)}</div>
         </div>
       </section>
 
@@ -81,6 +80,7 @@ const HomePage = {
   _renderPopularMenus() {
     const { popularMenus } = dummy;
     const popularMenusElement = document.querySelector('.menus');
+    popularMenusElement.innerHTML = '';
     popularMenus.forEach((menu) => {
       const menuCard = document.createElement('menu-card');
       menuCard.menu = menu;

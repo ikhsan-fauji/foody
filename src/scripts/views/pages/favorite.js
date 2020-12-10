@@ -1,18 +1,17 @@
 import '../../component/RestaurantCard';
 import FavoriteRestaurant from '../../data/favorite-restaurant';
 import handleError from '../../helper/error-helper';
-import HeaderTemplate from '../templates/header-template';
+import { breadCrumb } from '../templates/header-template';
 import { renderList } from '../templates/restaurant-template';
-import skeleton from '../templates/skeleton-template';
+import { restaurantCard } from '../templates/skeleton-template';
 
 const FavoritePage = {
   async render() {
-    HeaderTemplate.breadCrumb('Favorites');
-
+    breadCrumb('Favorites');
     return `
       <section id="favorite">
         <div class="container restaurants">
-          ${skeleton.restaurantCard(8)}
+          ${restaurantCard(8)}
         </div>
       </section>
     `;

@@ -4,16 +4,16 @@ import Restaurant from '../../data/restaurant';
 import FavoriteRestaurant from '../../data/favorite-restaurant';
 import LikeButtonPresenter from '../../utils/like-button-presenter';
 import handleError from '../../helper/error-helper';
-import HeaderTemplate from '../templates/header-template';
+import { breadCrumb } from '../templates/header-template';
 import noDataTemplate from '../templates/nodata-template';
-import skeleton from '../templates/skeleton-template';
+import { restaurantDetail } from '../templates/skeleton-template';
 
 const RestaurantDetailPage = {
-  async render() {
-    HeaderTemplate.breadCrumb('Restaurant Detail');
+  render() {
+    breadCrumb('Restaurant Detail');
     return `
       <section id="restaurant-content">
-        ${skeleton.restaurantDetail()}
+        ${restaurantDetail()}
       </section>
       <div id="like-btn-container"></div>
     `;
