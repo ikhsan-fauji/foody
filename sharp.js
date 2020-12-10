@@ -1,0 +1,45 @@
+/* eslint-disable import/no-extraneous-dependencies */
+const sharp = require('sharp');
+const fs = require('fs');
+const path = require('path');
+
+const resizeImages = (originPath, targetPath) => {
+  const target = path.resolve(__dirname, originPath);
+  const destination = path.resolve(__dirname, targetPath);
+
+  if (!fs.existsSync(destination)) {
+    fs.mkdirSync(destination);
+  }
+
+  fs.readdirSync(target).forEach((image) => {
+    // mengubah ukuran gambar dengan lebar 900px, dengan prefix -large.webp
+    sharp(`${target}/${image}`)
+      .resize(900)
+      .toFile(
+        path.resolve(
+          __dirname,
+          `${destination}/${image.split('.').slice(0, -1).join('.')}-large.webp`,
+        ),
+      );
+
+    // mengubah ukuran gambar dengan lebar 400px, dengan prefix -small.webp
+    sharp(`${target}/${image}`)
+      .resize(400)
+      .toFile(
+        path.resolve(
+          __dirname,
+          `${destination}/${image.split('.').slice(0, -1).join('.')}-small.webp`,
+        ),
+      );
+
+    sharp(`${target}/${image}`)
+      .resize(1800)
+      .toFile(
+        path.resolve(__dirname, `${destination}/${image.split('.').slice(0, -1).join('.')}-xl.webp`),
+      );
+  });
+};
+
+resizeImages('src/public/images/heros', 'dist/images/heros');
+resizeImages('src/public/images/icons', 'dist/images/icons');
+resizeImages('src/public/images/menus', 'dist/images/menus');

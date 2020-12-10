@@ -4,7 +4,9 @@
   "description": "Restaurant catalogue apps",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack.prod.js",
+    "build": "webpack --config webpack.prod.js && node sharp.js",
+    "build-image": "node sharp.js",
+    "bundle-report": "webpack-bundle-analyzer --port 4200 dist/stats.json",
     "start-dev": "webpack-dev-server --config webpack.dev.js --open",
     "test": "karma start",
     "e2e": "codeceptjs run --steps",
@@ -44,6 +46,7 @@
     "puppeteer": "^5.5.0",
     "sass": "^1.26.10",
     "sass-loader": "^10.0.2",
+    "sharp": "^0.26.3",
     "style-loader": "^1.2.1",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.44.1",
