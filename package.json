@@ -4,10 +4,10 @@
   "description": "Restaurant catalogue apps",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack.prod.js && node sharp.js",
+    "build": "webpack --config webpack.prod.js",
     "build-image": "node sharp.js",
     "bundle-report": "webpack-bundle-analyzer --port 4200 dist/stats.json",
-    "start-dev": "webpack-dev-server --config webpack.dev.js --open",
+    "start-dev": "node sharp.js && webpack-dev-server --config webpack.dev.js --open",
     "test": "karma start",
     "e2e": "codeceptjs run --steps",
     "lint": "eslint --ignore-path .gitignore . --fix"
