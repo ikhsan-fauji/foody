@@ -10,7 +10,7 @@ class MenuCard extends HTMLElement {
   _prepareTemplate(menu) {
     const { id, name, rating, city, picture } = menu;
     const fixedRating = rating.toFixed(1);
-    const thumbnail = picture || './images/heros/hero-image_4.webp';
+    const thumbnail = picture || './images/heros/hero.webp';
 
     const template = `
       <article class="card menu">

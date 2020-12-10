@@ -34,7 +34,7 @@ const HomePage = {
           <div class="discover-banner">
             <img
               class="lazyload"
-              data-src="./images/heros/hero-image_1.webp"
+              data-src="./images/heros/discover.webp"
               alt="Chef in the kitchen"
             />
           </div>

@@ -12,7 +12,7 @@ const hero = () => {
     <section class="hero">
       <div class="hero-gradient"></div>
       <img
-        data-src="./images/heros/hero-image_4.webp"
+        data-src="./images/heros/hero.webp"
         data-sizes="auto"
         alt="Hero Image"
         class="hero-image lazyload"
