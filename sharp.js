@@ -12,34 +12,40 @@ const resizeImages = (originPath, targetPath) => {
   }
 
   fs.readdirSync(target).forEach((image) => {
-    // mengubah ukuran gambar dengan lebar 900px, dengan prefix -large.webp
-    sharp(`${target}/${image}`)
-      .resize(900)
-      .toFile(
-        path.resolve(
-          __dirname,
-          `${destination}/${image.split('.').slice(0, -1).join('.')}-large.webp`,
-        ),
-      );
+    const isSmall = image.includes('small');
+    const isLarge = image.includes('large');
+    const isXl = image.includes('xl');
+    const needToResize = (!isSmall && !isLarge && !isXl);
+    if (needToResize) {
+      // mengubah ukuran gambar dengan lebar 800px, dengan prefix -large.webp
+      sharp(`${target}/${image}`)
+        .resize(800)
+        .toFile(
+          path.resolve(
+            __dirname,
+            `${destination}/${image.split('.').slice(0, -1).join('.')}-large.webp`,
+          ),
+        );
 
-    // mengubah ukuran gambar dengan lebar 400px, dengan prefix -small.webp
-    sharp(`${target}/${image}`)
-      .resize(400)
-      .toFile(
-        path.resolve(
-          __dirname,
-          `${destination}/${image.split('.').slice(0, -1).join('.')}-small.webp`,
-        ),
-      );
+      // mengubah ukuran gambar dengan lebar 480px, dengan prefix -small.webp
+      sharp(`${target}/${image}`)
+        .resize(480)
+        .toFile(
+          path.resolve(
+            __dirname,
+            `${destination}/${image.split('.').slice(0, -1).join('.')}-small.webp`,
+          ),
+        );
 
-    sharp(`${target}/${image}`)
-      .resize(1800)
-      .toFile(
-        path.resolve(__dirname, `${destination}/${image.split('.').slice(0, -1).join('.')}-xl.webp`),
-      );
+      sharp(`${target}/${image}`)
+        .resize(1800)
+        .toFile(
+          path.resolve(__dirname, `${destination}/${image.split('.').slice(0, -1).join('.')}-xl.webp`),
+        );
+    }
   });
 };
 
-resizeImages('src/public/images/heros', 'dist/images/heros');
-resizeImages('src/public/images/icons', 'dist/images/icons');
-resizeImages('src/public/images/menus', 'dist/images/menus');
+resizeImages('src/public/images/heros', 'src/public/images/heros');
+resizeImages('src/public/images/icons', 'src/public/images/icons');
+resizeImages('src/public/images/menus', 'src/public/images/menus');
