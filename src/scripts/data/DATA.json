@@ -6,7 +6,7 @@
       "name": "The God Pangsit",
       "rating": 4.9,
       "city": "Ternate",
-      "picture": "./images/menus/pangsit.jpg"
+      "picture": "pangsit"
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "name": "Mendoan",
       "rating": 5.0,
       "city": "Malang",
-      "picture": "./images/menus/mendoan.jpg"
+      "picture": "mendoan"
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "name": "Original Macchiato",
       "rating": 4.7,
       "city": "Medan",
-      "picture": "./images/menus/macchiato.jpg"
+      "picture": "macchiato"
     },
     {
       "id": 4,
@@ -30,7 +30,7 @@
       "name": "Sweet Ducky",
       "rating": 4.8,
       "city": "Malang",
-      "picture": "./images/menus/ducky.jpg"
+      "picture": "ducky"
     }
   ]
 }
