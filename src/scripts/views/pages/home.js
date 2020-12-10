@@ -33,9 +33,12 @@ const HomePage = {
         <div class="container discover">
           <div class="discover-banner">
             <img
-              class="lazyload"
-              data-src="./images/heros/discover.webp"
               alt="Chef in the kitchen"
+              class="lazyload"
+              data-sizes="auto"
+              data-src="./images/heros/discover-small.webp 480w, ./images/heros/discover-large.webp 800w, ./images/heros/discover-xl.webp 1800w"
+              srcset="./images/heros/discover-small.webp 480w, ./images/heros/discover-large.webp 800w, ./images/heros/discover-xl.webp 1800w"
+              sizes="(max-width: 600px) 480px, 800px, 1800px"
             />
           </div>
           <div class="discover-content">
