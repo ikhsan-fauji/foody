@@ -10,15 +10,16 @@ class MenuCard extends HTMLElement {
   _prepareTemplate(menu) {
     const { id, name, rating, city, picture } = menu;
     const fixedRating = rating.toFixed(1);
-    const thumbnail = picture || './images/heros/hero.webp';
 
     const template = `
       <article class="card menu">
         <img
-          class="card-image menu-thumbnail lazyload"
-          data-src="${thumbnail}"
-          data-sizes="auto"
           alt="Picture of ${name}"
+          class="card-image menu-thumbnail lazyload"
+          data-sizes="auto"
+          data-src="./images/menus/${picture}-small.webp 480w, ./images/menus/${picture}-large.webp 800w"
+          srcset="./images/menus/${picture}-small.webp 480w, ./images/menus/${picture}-large.webp 800w"
+          sizes="(max-width: 600px) 480px, 800px"
         />
         <div class="card-body menu-content">
           <h1 class="menu-title">
