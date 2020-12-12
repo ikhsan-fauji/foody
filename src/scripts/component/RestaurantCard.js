@@ -18,7 +18,7 @@ class RestaurantCard extends HTMLElement {
 
     const template = `
       <article class="card restaurant">
-        <p class="restaurant-place" tabindex="0" aria-label="Restaurant in ${city}"><span class="material-icons place-icon"> place </span>${city}</p>
+        <p class="restaurant-place" tabindex="0" aria-label="Restaurant in ${city}"><i class="fa fa-map-marker-alt place-icon"></i>${city}</p>
         <img
           class="card-image restaurant-thumbnail lazyload"
           data-src="${restaurantImage}"
@@ -30,13 +30,7 @@ class RestaurantCard extends HTMLElement {
             <a href="#/restaurant/${id}">${name}</a>
           </h1>
           <div class="restaurant-rating">
-            <span
-              id="rating-icon${id}"
-              class="material-icons rating-icon"
-              aria-label="Star icon for restaurant rating"
-            >
-              grade
-            </span>
+            <i id="rating-icon${id}" class="fa fa-star rating-icon"></i>
             <label
               for="rating-icon${id}"
               tabindex="0"

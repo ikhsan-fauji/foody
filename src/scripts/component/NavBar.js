@@ -7,7 +7,7 @@ class NavBar extends HTMLElement {
     return `
       <div class="brand-logo">
         <button id="drawer-menu">
-          <span class="material-icons" aria-label="Burger Menu"> menu </span>
+          <i aria-label="Burger Menu" class="fa fa-bars"></i>
         </button>
         <a class="brand-link" href="/">Foody</a>
       </div>

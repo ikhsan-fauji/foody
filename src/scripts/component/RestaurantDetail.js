@@ -1,6 +1,6 @@
 import './MenuList';
 import './ReviewForm';
-import './ConsumerReviews';
+import './consumer-reviews';
 import restaurantApi from '../globals/api';
 import {
   restaurantDetailMenusTemplate,
@@ -37,21 +37,14 @@ class RestaurantDetail extends HTMLElement {
           ${detail.name}
           </h2>
           <div class="restaurant-info">
-            <span
-              id="rating-icon${detail.id}"
-              class="material-icons rating-icon"
-            >
-              grade
-            </span>
+            <i id="rating-icon${detail.id}" class="fa fa-star rating-icon"></i>
             <label
               for="rating-icon${detail.id}"
               tabindex="0"
               aria-label="Restaurant rating point is ${fixedRating}"
             >${fixedRating}</label>
-            <span
-              id="place-icon${detail.id}"
-              class="material-icons rating-icon"
-              >place</span>
+            <i id="place-icon${detail.id}"
+            class="fa fa-map-marker-alt rating-icon"></i>
             <label
               for="place-icon${detail.id}"
               tabindex="0"
