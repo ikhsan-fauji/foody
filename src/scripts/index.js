@@ -2,6 +2,8 @@ import 'regenerator-runtime';
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 import '../styles/main.scss';
+import './component/skeleton';
+import './component/hero-breadcrumb';
 
 import CONFIG from './globals/config';
 import swRegister from './utils/service-worker-register';
