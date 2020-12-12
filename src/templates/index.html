@@ -15,13 +15,18 @@
     <meta name="apple-mobile-web-app-status-bar" content="yes" />
     <link rel="apple-touch-icon" href="./images/icons/app-icon.png" />
   </head>
+
   <body>
     <a href="#main-content" class="skip-link">Skip to content</a>
     <header>
       <nav-bar></nav-bar>
-      <div id="header-content"></div>
+      <div id="header-content">
+        <hero-breadcrumb></hero-breadcrumb>
+      </div>
     </header>
-    <main id="main-content"></main>
+    <main id="main-content">
+      <skeleton-loader></skeleton-loader>
+    </main>
     <footer>
       <div class="footer-copyright">
         <div class="container">Copyright © 2020 - Foody</div>
