@@ -3,13 +3,11 @@ import '../../component/MenuCard';
 import dummy from '../../data/DATA.json';
 import Restaurant from '../../data/restaurant';
 import handleError from '../../helper/error-helper';
-import { hero } from '../templates/header-template';
 import { renderList } from '../templates/restaurant-template';
 import { restaurantCard } from '../templates/skeleton-template';
 
 const HomePage = {
   render() {
-    hero();
     return `
       <section id="explore">
         <div class="container">
