@@ -6,8 +6,8 @@ class NavBar extends HTMLElement {
   _brandLogo() {
     return `
       <div class="brand-logo">
-        <button id="drawer-menu">
-          <i aria-label="Burger Menu" class="fa fa-bars"></i>
+        <button id="burger-menu">
+          <i aria-label="Burger Menu" class="fa fa-bars burger-menu"></i>
         </button>
         <a class="brand-link" href="/">Foody</a>
       </div>
@@ -43,12 +43,10 @@ class NavBar extends HTMLElement {
 
   _menuBar() {
     return `
-      <div id="menu-bar">
-        <div class="container">
-          ${this._brandLogo()}
-          ${this._navBar()}
-        </div>
-      </div>
+    <div class="container">
+      ${this._brandLogo()}
+      ${this._navBar()}
+    </div>
     `;
   }
 
