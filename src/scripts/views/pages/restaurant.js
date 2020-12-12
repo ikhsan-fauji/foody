@@ -1,13 +1,11 @@
 import '../../component/RestaurantCard';
 import Restaurant from '../../data/restaurant';
 import handleError from '../../helper/error-helper';
-import { breadCrumb } from '../templates/header-template';
 import { renderList } from '../templates/restaurant-template';
 import { restaurantCard } from '../templates/skeleton-template';
 
 const RestaurantPage = {
   render() {
-    breadCrumb('Restaurants');
     return `
       <section id="restaurant">
         <div class="container restaurants">

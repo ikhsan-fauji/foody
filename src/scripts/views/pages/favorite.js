@@ -1,13 +1,11 @@
 import '../../component/RestaurantCard';
 import FavoriteRestaurant from '../../data/favorite-restaurant';
 import handleError from '../../helper/error-helper';
-import { breadCrumb } from '../templates/header-template';
 import { renderList } from '../templates/restaurant-template';
 import { restaurantCard } from '../templates/skeleton-template';
 
 const FavoritePage = {
   async render() {
-    breadCrumb('Favorites');
     return `
       <section id="favorite">
         <div class="container restaurants">

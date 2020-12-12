@@ -4,13 +4,11 @@ import Restaurant from '../../data/restaurant';
 import FavoriteRestaurant from '../../data/favorite-restaurant';
 import LikeButtonPresenter from '../../utils/like-button-presenter';
 import handleError from '../../helper/error-helper';
-import { breadCrumb } from '../templates/header-template';
 import noDataTemplate from '../templates/nodata-template';
 import { restaurantDetail } from '../templates/skeleton-template';
 
 const RestaurantDetailPage = {
   render() {
-    breadCrumb('Restaurant Detail');
     return `
       <section id="restaurant-content">
         ${restaurantDetail()}
