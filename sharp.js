@@ -56,5 +56,4 @@ const resizeImages = (originPath, targetPath) => {
 };
 
 resizeImages('src/public/images/heros', 'src/public/images/heros');
-resizeImages('src/public/images/icons', 'src/public/images/icons');
 resizeImages('src/public/images/menus', 'src/public/images/menus');
