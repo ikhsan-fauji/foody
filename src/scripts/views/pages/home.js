@@ -35,7 +35,6 @@ const HomePage = {
               class="lazyload"
               data-sizes="auto"
               data-src="./images/heros/discover.webp"
-              srcset="./images/heros/discover.webp"
             />
           </div>
           <div class="discover-content">

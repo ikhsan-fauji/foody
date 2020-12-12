@@ -74,7 +74,7 @@ class HeroBreadcrumb extends HTMLElement {
           />
         </div>
         <div class="form-icon right-icon">
-          <button class="search-button" type="button">
+          <button class="search-button" type="button" aria-label="search-button">
             <i class="fa fa-search search-icon"></i>
           </button>
         </div>

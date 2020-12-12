@@ -1,12 +1,12 @@
 const likeButtonTemplate = () => `
   <button id="like-button" class="like" aria-label="like this restaurant">
-     <span class="material-icons" aria-hidden="true">favorite_border</span>
+     <i class="far fa-heart" aria-hidden="true"></i>
   </button>
 `;
 
 const unLikeButtonTemplate = () => `
   <button id="un-like-button" class="like" aria-label="unlike this restaurant">
-     <span class="material-icons" aria-hidden="true">favorite</span>
+     <i class="fa fa-heart" aria-hidden="true"></i>
   </button>
 `;
 

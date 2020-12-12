@@ -15,21 +15,20 @@ class MenuCard extends HTMLElement {
       <article class="card menu">
         <img
           alt="Picture of ${name}"
-          class="card-image menu-thumbnail lazyload"
+          class="card-image lazyload"
           data-sizes="auto"
           data-src="./images/menus/${picture}.webp"
-          srcset="./images/menus/${picture}.webp"
         />
-        <div class="card-body menu-content">
-          <h1 class="menu-title">
-            <a href="#">${name}</a>
+        <div class="card-body">
+          <h1 class="card-title">
+            <a class="card-link" href="#">${name}</a>
           </h1>
-          <div class="menu-info">
-            <div class="menu-info__rating">
+          <div class="card-info">
+            <div class="card-info__rating">
               <i id="rating-icon${id}" class="fa fa-star rating-icon" aria-label="Star icon for rating"></i>
               <label for="rating-icon${id}" tabindex="0" aria-label="Rating point is ${fixedRating}"> ${fixedRating} </label>
             </div>
-            <div class="menu-info__place">
+            <div class="card-info__place">
               <i id="place-icon${id}" class="fa fa-map-marker-alt place-icon" aria-label="Place icon"></i>
               <label for="place-icon${id}" tabindex="0">${city}</label>
             </div>
