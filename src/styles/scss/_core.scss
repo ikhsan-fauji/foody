@@ -156,10 +156,10 @@ footer {
   width: 44px;
   height: 44px;
 
-  span {
+  i {
     font-size: 44px;
     position: relative;
-    top: 9px;
+    top: 6px;
   }
 }
 
@@ -291,8 +291,8 @@ footer {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 
-  span {
-    padding-top: 12px;
+  i {
+    padding-top: 15px;
   }
 }
 
@@ -324,6 +324,10 @@ footer {
   &:hover {
     color: $white-color;
     background-color: #df9100;
+  }
+
+  i {
+    font-size: 20px;
   }
 }
 
