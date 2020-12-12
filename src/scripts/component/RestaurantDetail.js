@@ -29,9 +29,11 @@ class RestaurantDetail extends HTMLElement {
       <div class="container">
         <section class="restaurant-detail">
           <img
-            class="restaurant-image"
-            src="${restaurantImage}"
+            class="restaurant-image lazyload"
+            data-src="${restaurantImage}"
+            data-sizes="auto"
             alt="restaurant ${detail.name}"
+            srcset="${restaurantImage}"
           />
           <h2 class="restaurant-name primary-text" tabindex="0">
           ${detail.name}

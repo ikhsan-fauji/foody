@@ -24,6 +24,7 @@ class RestaurantCard extends HTMLElement {
           data-src="${restaurantImage}"
           data-sizes="auto"
           alt="${name} Restaurant"
+          srcset="${restaurantImage}"
         />
         <div class="card-body restaurant-content">
           <h1 class="restaurant-title">
