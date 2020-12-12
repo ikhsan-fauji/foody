@@ -44,8 +44,6 @@
     "karma-webpack": "^4.0.2",
     "prettier": "^2.1.1",
     "puppeteer": "^5.5.0",
-    "sass": "^1.26.10",
-    "sass-loader": "^10.0.2",
     "sharp": "^0.26.3",
     "style-loader": "^1.2.1",
     "uglifyjs-webpack-plugin": "^2.2.0",
