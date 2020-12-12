@@ -15,7 +15,7 @@ const resizeImages = (originPath, targetPath) => {
     const isSmall = image.includes('small');
     const isLarge = image.includes('large');
     const isXl = image.includes('xl');
-    const needToResize = (!isSmall && !isLarge && !isXl);
+    const needToResize = !isSmall && !isLarge && !isXl;
     if (needToResize) {
       // mengubah ukuran gambar dengan lebar 800px, dengan prefix -large.webp
       sharp(`${target}/${image}`)
@@ -23,8 +23,11 @@ const resizeImages = (originPath, targetPath) => {
         .toFile(
           path.resolve(
             __dirname,
-            `${destination}/${image.split('.').slice(0, -1).join('.')}-large.webp`,
-          ),
+            `${destination}/${image
+              .split('.')
+              .slice(0, -1)
+              .join('.')}-large.webp`
+          )
         );
 
       // mengubah ukuran gambar dengan lebar 480px, dengan prefix -small.webp
@@ -33,14 +36,20 @@ const resizeImages = (originPath, targetPath) => {
         .toFile(
           path.resolve(
             __dirname,
-            `${destination}/${image.split('.').slice(0, -1).join('.')}-small.webp`,
-          ),
+            `${destination}/${image
+              .split('.')
+              .slice(0, -1)
+              .join('.')}-small.webp`
+          )
         );
 
       sharp(`${target}/${image}`)
         .resize(1800)
         .toFile(
-          path.resolve(__dirname, `${destination}/${image.split('.').slice(0, -1).join('.')}-xl.webp`),
+          path.resolve(
+            __dirname,
+            `${destination}/${image.split('.').slice(0, -1).join('.')}-xl.webp`
+          )
         );
     }
   });
