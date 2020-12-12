@@ -1,0 +1,178 @@
+/* small screen */
+@media screen and (min-width: 476px) {
+  .restaurants,
+  .menus {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+/* medium screen */
+@media screen and (min-width: 768px) {
+  #drawer {
+    width: 320px;
+    left: -325px;
+  }
+
+  .hero {
+    height: 322px;
+  }
+
+  .hero-gradient,
+  .hero-image {
+    height: 322px;
+  }
+
+  .hero-content {
+    padding-top: 90px;
+  }
+
+  .hero-tagline {
+    font-size: 16px !important;
+  }
+  .hero-title {
+    font-size: 32px;
+    margin-bottom: 15px;
+  }
+
+  .search-form {
+    grid-template-columns: 4fr 8fr;
+    width: 520px;
+    height: 44px;
+  }
+
+  .left-group {
+    display: grid;
+  }
+
+  .right-group {
+    display: grid;
+  }
+
+  .right-group .form-input input {
+    border-radius: unset;
+  }
+
+  .restaurants,
+  .menus {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* large screen */
+@media screen and (min-width: 960px) {
+  #burger-menu {
+    display: none;
+  }
+
+  #navbar {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .navbar-container {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+  }
+
+  .brand-logo {
+    max-width: 200px;
+    align-self: flex-start;
+  }
+
+  #drawer {
+    position: initial;
+    height: auto;
+    width: 100%;
+    box-shadow: none;
+    background-color: transparent;
+    display: flex;
+    justify-content: flex-end;
+    align-self: flex-end;
+  }
+
+  .nav-item {
+    display: inline-block;
+    line-height: 72px;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 0 16px;
+    color: var(--fifthly-color);
+  }
+
+  #navbar.sticky {
+    position: fixed !important;
+    background-color: var(--fifthly-color);
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.25);
+  }
+
+  .sticky .nav-link {
+    color: var(--fourthly-color) !important;
+  }
+
+  .hero {
+    height: 640px;
+    margin-top: 0;
+  }
+
+  .hero-gradient,
+  .hero-image {
+    height: 640px;
+    top: 0;
+  }
+
+  .hero-content {
+    padding-top: 250px;
+  }
+
+  .hero-tagline {
+    font-size: 18px !important;
+  }
+  .hero-title {
+    font-size: 42px;
+    line-height: 52px !important;
+    margin-bottom: 20px;
+  }
+
+  .search-form {
+    width: 580px;
+    height: 52px;
+  }
+
+  .restaurants,
+  .menus {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  #discover-restaurant {
+    padding: 58px 0;
+  }
+
+  .discover {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 0 100px;
+  }
+
+  .discover-content {
+    padding-top: 0;
+    margin-left: 20px;
+  }
+
+  .discover-title {
+    font-size: 28px;
+  }
+}
+
+/* extra large screen */
+@media screen and (min-width: 1200px) {
+  .container {
+    width: 1200px !important;
+  }
+
+  .discover-content {
+    padding-top: 12% !important;
+  }
+}
