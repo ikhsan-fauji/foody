@@ -16,8 +16,6 @@ const aDay = 24 * 60 * 60;
 const aMonth = 30 * 24 * 60 * 60;
 const aYear = 365 * 24 * 60 * 60;
 
-const webManifest = self.__WB_MANIFEST || [];
-
 skipWaiting();
 clientsClaim();
 
@@ -27,10 +25,20 @@ setCacheNameDetails({
   runtime: 'runtime'
 });
 
-precacheAndRoute(webManifest, {
-  ignoreUrlParameterMatching: [/.*/],
-  maxAgeSeconds: aMonth
-});
+precacheAndRoute(
+  [
+    ...self.__WB_MANIFEST,
+    {
+      url:
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css',
+      revision: 1
+    }
+  ],
+  {
+    ignoreUrlParameterMatching: [/.*/],
+    maxAgeSeconds: aMonth
+  }
+);
 
 registerRoute(
   ({ url }) => url.origin === 'https://fonts.googleapis.com',
