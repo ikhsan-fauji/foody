@@ -19,7 +19,7 @@ const resizeImages = (originPath, targetPath) => {
     if (needToResize) {
       // mengubah ukuran gambar dengan lebar 800px, dengan prefix -large.webp
       sharp(`${target}/${image}`)
-        .resize(800)
+        .resize(900)
         .toFile(
           path.resolve(
             __dirname,
@@ -32,7 +32,7 @@ const resizeImages = (originPath, targetPath) => {
 
       // mengubah ukuran gambar dengan lebar 480px, dengan prefix -small.webp
       sharp(`${target}/${image}`)
-        .resize(480)
+        .resize(400)
         .toFile(
           path.resolve(
             __dirname,
