@@ -3,15 +3,15 @@ const restaurantCard = (count = 1) => {
   for (let index = 1; index <= count; index++) {
     template += `
       <article class="card restaurant">
-        <div class="card-image restaurant-thumbnail skeleton-10 skeleton-loading"></div>
+        <div class="card-image skeleton-10 skeleton-loading"></div>
         <div class="card-body restaurant-content">
-        <div class="restaurant-title skeleton-7 skeleton-loading"></div>
-        <div class="restaurant-title skeleton-3 skeleton-loading"></div>
+          <div class="restaurant-title skeleton-7 sk-default skeleton-loading"></div>
+          <div class="restaurant-title skeleton-3 sk-default skeleton-loading"></div>
 
-        <div class="restaurant-description card-text skeleton-8 skeleton-loading"></div>
-        <div class="restaurant-description card-text skeleton-10 skeleton-loading"></div>
-        <div class="restaurant-description card-text skeleton-8 skeleton-loading"></div>
-      </div>
+          <div class="restaurant-description card-text skeleton-8 sk-default skeleton-loading"></div>
+          <div class="restaurant-description card-text skeleton-10 sk-default skeleton-loading"></div>
+          <div class="restaurant-description card-text skeleton-8 sk-default skeleton-loading"></div>
+        </div>
       </article>
     `;
   }
