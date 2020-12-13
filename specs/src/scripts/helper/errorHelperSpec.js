@@ -1,4 +1,4 @@
-import handleError from '../../../../src/scripts/helper/error-helper';
+import { handleError } from '../../../../src/scripts/helper/error-helper';
 
 describe('Error Helper #handleError', () => {
   const createWrapper = () => {
