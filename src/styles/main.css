@@ -378,6 +378,7 @@ a {
 }
 
 .card-image {
+  height: 180px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
