@@ -1,5 +1,3 @@
-import '../component/RestaurantCard';
-import '../component/RestaurantDetail';
 import restaurantApi from '../globals/api';
 import request from '../helper/request-helper';
 import descendingByRating from '../helper/sorter-helper';
