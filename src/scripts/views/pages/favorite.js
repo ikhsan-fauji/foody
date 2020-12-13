@@ -1,5 +1,5 @@
 import FavoriteRestaurant from '../../data/favorite-restaurant';
-import handleError from '../../helper/error-helper';
+import { handleError } from '../../helper/error-helper';
 import { renderList } from '../templates/restaurant-template';
 import { restaurantCard } from '../templates/skeleton-template';
 

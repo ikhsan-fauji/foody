@@ -3,7 +3,7 @@ import UrlParser from '../../routes/url-parser';
 import Restaurant from '../../data/restaurant';
 import FavoriteRestaurant from '../../data/favorite-restaurant';
 import LikeButtonPresenter from '../../utils/like-button-presenter';
-import handleError from '../../helper/error-helper';
+import { handleError } from '../../helper/error-helper';
 import noDataTemplate from '../templates/nodata-template';
 import { restaurantDetail } from '../templates/skeleton-template';
 

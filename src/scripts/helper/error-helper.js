@@ -11,4 +11,5 @@ const handleError = ({ elementId, functionName, error }) => {
   console.error(functionName, error);
 };
 
-export default handleError;
+/* eslint-disable import/prefer-default-export */
+export { handleError };
