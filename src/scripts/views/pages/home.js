@@ -1,9 +1,10 @@
-import '../../component/RestaurantCard';
-import '../../component/MenuCard';
 import dummy from '../../data/DATA.json';
 import Restaurant from '../../data/restaurant';
 import handleError from '../../helper/error-helper';
-import { renderList } from '../templates/restaurant-template';
+import {
+  renderList,
+  renderPopularMenus
+} from '../templates/restaurant-template';
 import { restaurantCard } from '../templates/skeleton-template';
 
 const HomePage = {
@@ -78,13 +79,7 @@ const HomePage = {
 
   _renderPopularMenus() {
     const { popularMenus } = dummy;
-    const popularMenusElement = document.querySelector('.menus');
-    popularMenusElement.innerHTML = '';
-    popularMenus.forEach((menu) => {
-      const menuCard = document.createElement('menu-card');
-      menuCard.menu = menu;
-      popularMenusElement.appendChild(menuCard);
-    });
+    renderPopularMenus(popularMenus);
   }
 };
 

@@ -1,4 +1,3 @@
-import '../../component/RestaurantCard';
 import FavoriteRestaurant from '../../data/favorite-restaurant';
 import handleError from '../../helper/error-helper';
 import { renderList } from '../templates/restaurant-template';
