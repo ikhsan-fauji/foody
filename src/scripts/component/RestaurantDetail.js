@@ -1,10 +1,10 @@
-import './MenuList';
 import './ReviewForm';
-import './consumer-reviews';
 import restaurantApi from '../globals/api';
 import {
   restaurantDetailMenusTemplate,
-  restaurantReviewsTemplate
+  restaurantReviewsTemplate,
+  listMenus,
+  consumerReviews
 } from '../views/templates/restaurant-template';
 
 class RestaurantDetail extends HTMLElement {
@@ -95,17 +95,13 @@ class RestaurantDetail extends HTMLElement {
   }
 
   _renderListMenus(id, menus) {
-    const listMenus = document.createElement('menu-list');
-    listMenus.list = menus;
-    document.querySelector(id).appendChild(listMenus);
+    const listContainer = document.querySelector(id);
+    listContainer.innerHTML += listMenus(menus);
   }
 
   _initReviews(reviews) {
-    const consumerReviews = document.createElement('consumer-reviews');
-    consumerReviews.reviews = reviews;
     const reviewsElement = document.querySelector('#reviews');
-    reviewsElement.innerHTML = '';
-    reviewsElement.appendChild(consumerReviews);
+    reviewsElement.innerHTML = consumerReviews(reviews);
   }
 
   _initReviewForm() {
