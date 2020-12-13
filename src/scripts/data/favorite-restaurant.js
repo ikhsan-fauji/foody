@@ -1,7 +1,17 @@
+import { openDB } from 'idb';
 import CONFIG from '../globals/config';
-import idb from '../utils/idb';
 
-const { STORE_NAME } = CONFIG;
+const { DB_NAME, DB_VERSION, STORE_NAME } = CONFIG;
+
+const _dbPromise = openDB(DB_NAME, DB_VERSION, {
+  upgrade(db) {
+    if (!db.objectStoreNames.contains(STORE_NAME)) {
+      db.createObjectStore(STORE_NAME, {
+        keyPath: 'id'
+      }).createIndex('id', 'id', { unique: true });
+    }
+  }
+});
 
 const FavoriteRestaurant = {
   _idbChecking() {
@@ -12,7 +22,7 @@ const FavoriteRestaurant = {
   async getAll() {
     this._idbChecking();
 
-    return (await idb).getAll(STORE_NAME);
+    return (await _dbPromise).getAll(STORE_NAME);
   },
 
   async getByKey(key) {
@@ -20,7 +30,7 @@ const FavoriteRestaurant = {
 
     if (!key) throw Error('Please provide key');
 
-    return (await idb).get(STORE_NAME, key);
+    return (await _dbPromise).get(STORE_NAME, key);
   },
 
   async like(data) {
@@ -32,7 +42,7 @@ const FavoriteRestaurant = {
     newData.createdAt = new Date();
     newData.updatedAt = null;
 
-    return (await idb).add(STORE_NAME, newData);
+    return (await _dbPromise).add(STORE_NAME, newData);
   },
 
   async unlike(key) {
@@ -40,7 +50,7 @@ const FavoriteRestaurant = {
 
     if (!key) throw Error('Please provide key');
 
-    return (await idb).delete(STORE_NAME, key);
+    return (await _dbPromise).delete(STORE_NAME, key);
   }
 };
 
