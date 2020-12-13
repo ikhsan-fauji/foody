@@ -47,9 +47,7 @@
 .skeleton-10 {
   position: relative;
   background-color: #f1f1f1;
-  height: 14px;
   margin-bottom: 8px;
-  border-radius: 2px;
   overflow: hidden;
 }
 
@@ -111,6 +109,11 @@
 
 .skeleton-h-10 {
   height: 100% !important;
+}
+
+.sk-default {
+  height: 14px;
+  border-radius: 2px;
 }
 
 @keyframes skeleton {
