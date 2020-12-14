@@ -47,11 +47,14 @@ footer {
 img {
   width: 100%;
   height: auto;
-  display: block;
   object-fit: cover;
 }
 img:empty {
   background-color: rgb(213, 213, 213);
+}
+
+.res-image {
+  border-radius: 5px;
 }
 
 a {
@@ -305,7 +308,7 @@ a {
 */
 
 #breadcrumb {
-  background-image: url('/images/heros/breadcrumb.webp');
+  background-image: url('/images/heros/breadcrumb.jpg');
   height: 220px;
 }
 
@@ -379,6 +382,7 @@ a {
 
 .card-image {
   height: 180px;
+  width: 100%;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
@@ -563,8 +567,7 @@ a {
 
 .restaurant-image {
   width: 100%;
-  height: 450px !important;
-  object-fit: cover;
+  height: 450px;
   margin-bottom: 20px;
 }
 
@@ -577,15 +580,6 @@ a {
 .restaurant-info {
   display: inline;
   font-size: 16px;
-
-  /* .material-icons {
-    color: $primary-color;
-    font-size: 18px;
-  }
-
-  label {
-    margin-right: 5px;
-  } */
 }
 
 .restaurant-menus {

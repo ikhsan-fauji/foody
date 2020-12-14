@@ -34,8 +34,10 @@ const HomePage = {
             <img
               alt="Chef in the kitchen"
               class="lazyload"
-              data-sizes="auto"
-              data-src="./images/heros/discover.webp"
+              data-src="./images/heros/discover-small.jpg 400w, ./images/heros/discover-large.jpg 800w"
+              src="./images/heros/discover-large.jpg"
+              srcset="./images/heros/discover-small.jpg 400w, ./images/heros/discover-large.jpg 800w"
+              sizes="(max-width: 600px) 400px, 800px"
             />
           </div>
           <div class="discover-content">

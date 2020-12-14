@@ -28,21 +28,22 @@ const restaurantReviewsTemplate = () => `
 const _restaurantCard = (restaurant) => {
   const { id, name, city, pictureId, rating, description } = restaurant;
   const fixedRating = rating.toFixed(1);
-  const defaultThumbnail = './images/heros/hero.webp';
+  const defaultThumbnail = './images/heros/hero.jpg';
   const thumbnail = pictureId || defaultThumbnail;
   const restaurantImage = `${restaurantApi.smallPicture}${thumbnail}`;
 
   const template = `
     <article class="card restaurant">
       <p class="card-badge" tabindex="0" aria-label="Restaurant in ${city}"><i class="fa fa-map-marker-alt badge-icon"></i>${city}</p>
-      <img
-        class="card-image lazyload"
-        data-src="${restaurantImage}"
-        data-sizes="auto"
-        alt="${name} Restaurant"
-        src="${restaurantImage}"
-        srcset="${restaurantImage}"
-      />
+      <div class="card-image">
+        <img
+          alt="${name} Restaurant"
+          class="res-image lazyload"
+          data-src="${restaurantImage}"
+          src="${restaurantImage}"
+          crossorigin="anonymus"
+        />
+      </div>
       <div class="card-body">
         <h1 class="card-title">
           <a class="card-link" href="#/restaurant/${id}">${name}</a>
@@ -87,15 +88,15 @@ const _menuCard = (menu) => {
 
   const template = `
     <article class="card menu">
-      <img
-        class="card-image lazyload"
-        alt="${name}"
-        data-src="./images/menus/${picture}-small.webp 480w, ./images/menus/${picture}-large.webp 800w"
-        src="./images/menus/${picture}-large.webp"
-        srcset="./images/menus/${picture}-small.webp 480w, ./images/menus/${picture}-large.webp 800w"
-        sizes="(max-width: 600px) 480px, 800px"
-        crossorigin="anonymous"
-      />
+      <div class="card-image">
+        <img
+          alt="${name}"
+          class="lazyload"
+          data-src="./images/menus/${picture}-small.jpg"
+          src="./images/menus/${picture}-small.jpg"
+          srcset="./images/menus/${picture}-small.jpg"
+        />
+      </div>
       <div class="card-body">
         <h1 class="card-title">
           <a class="card-link" href="#">${name}</a>

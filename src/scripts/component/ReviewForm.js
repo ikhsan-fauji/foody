@@ -1,5 +1,5 @@
+import CONFIG from '../globals/config';
 import restaurantApi from '../globals/api';
-import request from '../helper/request-helper';
 import alert from '../helper/alert-helper';
 
 class ReviewForm extends HTMLElement {
@@ -86,7 +86,7 @@ class ReviewForm extends HTMLElement {
         const id = this._restaurantId;
         const reviewData = { id, name, review };
         this._disableButton(element);
-        const response = await request.post(restaurantApi.review, reviewData);
+        const response = await this._post(restaurantApi.review, reviewData);
         if (response.error) {
           throw Error(response.message);
         } else if (!this._callback) {
@@ -104,6 +104,21 @@ class ReviewForm extends HTMLElement {
       console.error('_submitForm', error.message);
       alert.error('Failed', 'Something went wrong.');
     }
+  }
+
+  async _post(url, data) {
+    const postConfig = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Auth-Token': CONFIG.API_KEY
+      },
+      referrerPolicy: 'no-referrer',
+      body: JSON.stringify(data)
+    };
+
+    const response = await fetch(url, postConfig);
+    return response.json();
   }
 
   _disableButton(element) {

@@ -1,10 +1,14 @@
 import restaurantApi from '../globals/api';
-import request from '../helper/request-helper';
 import descendingByRating from '../helper/sorter-helper';
 
 class Restaurant {
+  static async _get(url) {
+    const response = await fetch(url);
+    return response.json();
+  }
+
   static async _fetchRestaurants() {
-    let response = await request.get(restaurantApi.list);
+    let response = await this._get(restaurantApi.list);
     if (response.error) {
       throw Error(response.message);
     } else {
@@ -26,7 +30,7 @@ class Restaurant {
   }
 
   static async detail(id) {
-    const response = await request.get(`${restaurantApi.detail}${id}`);
+    const response = await this._get(`${restaurantApi.detail}${id}`);
     if (response.error) {
       throw Error(response.message);
     } else {

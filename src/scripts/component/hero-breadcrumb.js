@@ -33,9 +33,10 @@ class HeroBreadcrumb extends HTMLElement {
       <img
         alt="Hero Image"
         class="hero-image lazyload"
-        data-sizes="auto"
-        data-src="./images/heros/hero.webp"
-        srcset="./images/heros/hero.webp"
+        data-src="./images/heros/hero-small.jpg 400w, ./images/heros/hero-large.jpg 800w"
+        src="./images/heros/hero-large.jpg"
+        srcset="./images/heros/hero-small.jpg 400w, ./images/heros/hero-large.jpg 800w"
+        sizes="(max-width: 600px) 400px, 800px"
       />
       <div class="hero-content container">
         <p class="hero-tagline" tabindex="0">
