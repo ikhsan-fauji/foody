@@ -34,6 +34,7 @@ const HomePage = {
             <img
               alt="Chef in the kitchen"
               class="lazyload"
+              crossorigin="anonymous"
               data-src="./images/heros/discover-small.jpg 400w, ./images/heros/discover-large.jpg 800w"
               src="./images/heros/discover-large.jpg"
               srcset="./images/heros/discover-small.jpg 400w, ./images/heros/discover-large.jpg 800w"

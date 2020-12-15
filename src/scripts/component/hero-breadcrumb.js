@@ -33,6 +33,7 @@ class HeroBreadcrumb extends HTMLElement {
       <img
         alt="Hero Image"
         class="hero__image lazyload"
+        crossorigin="anonymous"
         data-src="./images/heros/hero-small.jpg 400w, ./images/heros/hero-large.jpg 800w"
         src="./images/heros/hero-large.jpg"
         srcset="./images/heros/hero-small.jpg 400w, ./images/heros/hero-large.jpg 800w"

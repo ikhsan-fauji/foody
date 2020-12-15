@@ -40,6 +40,7 @@ const _restaurantCard = (restaurant) => {
           alt="${name} Restaurant"
           class="res-image lazyload"
           data-src="${restaurantImage}"
+          data-sizes="auto"
           src="${restaurantImage}"
           crossorigin="anonymus"
         />
@@ -92,9 +93,11 @@ const _menuCard = (menu) => {
         <img
           alt="${name}"
           class="lazyload"
-          data-src="./images/menus/${picture}-small.jpg"
+          crossorigin="anonymous"
+          data-src="./images/menus/${picture}-small.jpg 480w, ./images/menus/${picture}-large.jpg 800w"
           src="./images/menus/${picture}-small.jpg"
-          srcset="./images/menus/${picture}-small.jpg"
+          srcset="./images/menus/${picture}-small.jpg 480w, ./images/menus/${picture}-large.jpg 800w"
+          sizes="(max-width: 600px) 480px, 800px"
         />
       </div>
       <div class="card__body">
