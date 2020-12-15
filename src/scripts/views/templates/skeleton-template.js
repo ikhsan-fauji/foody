@@ -3,14 +3,14 @@ const restaurantCard = (count = 1) => {
   for (let index = 1; index <= count; index++) {
     template += `
       <article class="card restaurant">
-        <div class="card-image skeleton-10 skeleton-loading"></div>
-        <div class="card-body restaurant-content">
-          <div class="restaurant-title skeleton-7 sk-default skeleton-loading"></div>
-          <div class="restaurant-title skeleton-3 sk-default skeleton-loading"></div>
+        <div class="card__image skeleton-10 skeleton-loading"></div>
+        <div class="card__body restaurant__content">
+          <div class="restaurant__title skeleton-7 sk-default skeleton-loading"></div>
+          <div class="restaurant__title skeleton-3 sk-default skeleton-loading"></div>
 
-          <div class="restaurant-description card-text skeleton-8 sk-default skeleton-loading"></div>
-          <div class="restaurant-description card-text skeleton-10 sk-default skeleton-loading"></div>
-          <div class="restaurant-description card-text skeleton-8 sk-default skeleton-loading"></div>
+          <div class="restaurant__description card__text skeleton-8 sk-default skeleton-loading"></div>
+          <div class="restaurant__description card__text skeleton-10 sk-default skeleton-loading"></div>
+          <div class="restaurant__description card__text skeleton-8 sk-default skeleton-loading"></div>
         </div>
       </article>
     `;
@@ -21,15 +21,15 @@ const restaurantCard = (count = 1) => {
 const restaurantDetail = () => {
   return `
   <div class="container">
-    <section class="restaurant-detail">
-      <div class="restaurant-image skeleton-10 skeleton-loading"></div>
-      <div class="restaurant-name skeleton-5 skeleton-loading"></div>
-      <div class="restaurant-info skeleton-7 skeleton-loading"></div>
-      <div class="restaurant-description card-text skeleton-8 skeleton-loading"></div>
-      <div class="restaurant-description card-text skeleton-10 skeleton-loading"></div>
-      <div class="restaurant-description card-text skeleton-8 skeleton-loading"></div>
+    <section class="restaurant__detail">
+      <div class="restaurant__image skeleton-10 skeleton-loading"></div>
+      <div class="restaurant__name skeleton-5 skeleton-loading"></div>
+      <div class="restaurant__info skeleton-7 skeleton-loading"></div>
+      <div class="restaurant__description card__text skeleton-8 skeleton-loading"></div>
+      <div class="restaurant__description card__text skeleton-10 skeleton-loading"></div>
+      <div class="restaurant__description card__text skeleton-8 skeleton-loading"></div>
 
-      <section class="restaurant-menus">
+      <section class="restaurant__menus">
         <div class="foods">
           <div id="food-list">
             <div class="skeleton-10 skeleton-loading"></div>

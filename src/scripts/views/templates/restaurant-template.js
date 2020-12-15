@@ -2,21 +2,21 @@ import restaurantApi from '../../globals/api';
 import noDataTemplate from './nodata-template';
 
 const restaurantDetailMenusTemplate = () => `
-  <section class="restaurant-menus">
+  <section class="restaurant__menus">
     <div class="foods">
-      <h3 class="h-3 primary-text">Foods</h3>
+      <h2 class="h-3 primary-text">Foods</h2>
       <div id="food-list"></div>
     </div>
 
     <div class="drinks">
-      <h3 class="h-3 primary-text">Drinks</h3>
+      <h2 class="h-3 primary-text">Drinks</h2>
       <div id="drink-list"></div>
     </div>
   </section>
 `;
 
 const restaurantReviewsTemplate = () => `
-  <section class="restaurant-review">
+  <section class="restaurant__review">
     <h2 class="primary-text text-center">Consumer Reviews</h2>
     <div id="reviews"></div>
 
@@ -34,8 +34,8 @@ const _restaurantCard = (restaurant) => {
 
   const template = `
     <article class="card restaurant">
-      <p class="card-badge" tabindex="0" aria-label="Restaurant in ${city}"><i class="fa fa-map-marker-alt badge-icon"></i>${city}</p>
-      <div class="card-image">
+      <p class="card__badge" tabindex="0" aria-label="Restaurant in ${city}"><i class="fa fa-map-marker-alt badge-icon"></i>${city}</p>
+      <div class="card__image">
         <img
           alt="${name} Restaurant"
           class="res-image lazyload"
@@ -44,11 +44,11 @@ const _restaurantCard = (restaurant) => {
           crossorigin="anonymus"
         />
       </div>
-      <div class="card-body">
-        <h1 class="card-title">
-          <a class="card-link" href="#/restaurant/${id}">${name}</a>
+      <div class="card__body">
+        <h1 class="card__title">
+          <a class="card__link" href="#/restaurant/${id}">${name}</a>
         </h1>
-        <div class="card-rating">
+        <div class="card__rating">
           <i id="rating-icon${id}" class="fa fa-star rating-icon"></i>
           <label
             for="rating-icon${id}"
@@ -58,7 +58,7 @@ const _restaurantCard = (restaurant) => {
           ${fixedRating}
           </label>
         </div>
-        <p class="card-description card-text">
+        <p class="card__description card__text">
           ${description}
         </p>
       </div>
@@ -88,7 +88,7 @@ const _menuCard = (menu) => {
 
   const template = `
     <article class="card menu">
-      <div class="card-image">
+      <div class="card__image">
         <img
           alt="${name}"
           class="lazyload"
@@ -97,16 +97,16 @@ const _menuCard = (menu) => {
           srcset="./images/menus/${picture}-small.jpg"
         />
       </div>
-      <div class="card-body">
-        <h1 class="card-title">
-          <a class="card-link" href="#">${name}</a>
+      <div class="card__body">
+        <h1 class="card__title">
+          <a class="card__link" href="#">${name}</a>
         </h1>
-        <div class="card-info">
-          <div class="card-info__rating">
+        <div class="card__info">
+          <div class="card__info__rating">
             <i id="rating-icon${id}" class="fa fa-star rating-icon" aria-label="Star icon for rating"></i>
             <label for="rating-icon${id}" tabindex="0" aria-label="Rating point is ${fixedRating}"> ${fixedRating} </label>
           </div>
-          <div class="card-info__place">
+          <div class="card__info__place">
             <i id="place-icon${id}" class="fa fa-map-marker-alt place-icon" aria-label="Place icon"></i>
             <label for="place-icon${id}" tabindex="0">${city}</label>
           </div>

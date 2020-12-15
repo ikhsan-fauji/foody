@@ -13,7 +13,7 @@ const HomePage = {
       <section id="explore">
         <div class="container">
           <div class="section-header">
-            <h2 class="section-title" tabindex="0">Explore Restaurant</h2>
+            <h1 class="section-title" tabindex="0">Explore Restaurant</h1>
           </div>
           <div class="restaurants">${restaurantCard(4)}</div>
         </div>
@@ -22,7 +22,7 @@ const HomePage = {
       <section id="popular-menus">
         <div class="container">
           <div class="section-header">
-            <h2 class="section-title" tabindex="0">Popular Menus</h2>
+            <h1 class="section-title" tabindex="0">Popular Menus</h1>
           </div>
           <div class="menus">${restaurantCard(4)}</div>
         </div>

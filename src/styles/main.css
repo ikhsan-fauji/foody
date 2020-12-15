@@ -113,7 +113,7 @@ a {
   transition: ease-in 0.2s !important;
 }
 
-#burger-menu {
+#burger {
   background-color: transparent;
   border: none;
   color: var(--primary-color);
@@ -121,7 +121,7 @@ a {
   width: 44px;
   height: 44px;
 }
-.burger-menu {
+.burger__menu {
   font-size: 40px;
   position: relative;
   top: 3px;
@@ -150,13 +150,13 @@ a {
   background-color: var(--primary-color);
 }
 
-.nav-item {
+.nav__item {
   display: block;
   text-align: center;
   line-height: 72px;
   transition: ease-in 2s;
 }
-.nav-item:hover::after {
+.nav__item:hover::after {
   content: '';
   display: block;
   position: relative;
@@ -167,7 +167,7 @@ a {
   background-color: var(--primary-color);
 }
 
-.nav-link {
+.nav__link {
   display: block;
   padding: 0 16px;
   color: var(--fourthly-color);
@@ -182,15 +182,15 @@ a {
   margin-top: 72px;
 }
 
-.hero-gradient,
-.hero-image {
+.hero__gradient,
+.hero__image {
   top: 72px;
   width: 100%;
   height: 222px;
   position: absolute;
 }
 
-.hero-gradient {
+.hero__gradient {
   background-image: linear-gradient(
     to right,
     rgba(0, 0, 0, 0.9),
@@ -199,11 +199,11 @@ a {
   z-index: -4;
 }
 
-.hero-image {
+.hero__image {
   z-index: -6;
 }
 
-.hero-content {
+.hero__content {
   color: var(--fifthly-color);
   text-align: center;
   line-height: 32px;
@@ -211,12 +211,12 @@ a {
   padding-top: 32px;
 }
 
-.hero-tagline {
+.hero__tagline {
   font-size: 14px;
   line-height: 30px;
 }
 
-.hero-title {
+.hero__title {
   font-size: 26px;
   line-height: 32px !important;
   font-weight: 400;
@@ -380,14 +380,14 @@ a {
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.25);
 }
 
-.card-image {
+.card__image {
   height: 180px;
   width: 100%;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
 
-.card-body {
+.card__body {
   background-color: var(--fifthly-color);
   border-radius: 5px;
   padding: 15px;
@@ -395,14 +395,14 @@ a {
   top: -10px;
 }
 
-.card-description {
+.card__description {
   clear: both;
   font-size: 14px;
   line-height: 16px;
   margin-top: 5px;
 }
 
-.card-text {
+.card__text {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -410,30 +410,30 @@ a {
   -webkit-box-orient: vertical;
 }
 
-.card-outline {
+.card__outline {
   border: 1px solid var(--primary-color);
   border-radius: 3px;
   padding: 10px 15px;
   text-align: center;
 }
 
-.card-title {
+.card__title {
   font-size: 18px;
   font-family: var(--poppins-family);
   margin-bottom: 4px;
   display: block;
 }
 
-.card-link {
+.card__link {
   color: var(--fourthly-color);
   display: block;
   width: 100%;
 }
-.card-link:hover {
+.card__link:hover {
   color: var(--primary-color);
 }
 
-.card-badge {
+.card__badge {
   position: absolute;
   margin-top: 10px;
   color: var(--fifthly-color);
@@ -452,11 +452,11 @@ a {
   margin-right: 5px;
 }
 
-.card-rating {
+.card__rating {
   display: inline;
   font-size: 14px;
 }
-.card-rating label {
+.card__rating label {
   margin-left: 5px;
   position: relative;
   top: -2px;
@@ -467,20 +467,20 @@ a {
   font-size: 16px;
 }
 
-.card-info {
+.card__info {
   margin-top: 4px;
 }
-.card-info label {
+.card__info label {
   color: var(--fourthly-color);
   font-size: 12px;
   position: relative;
   top: -2px;
 }
 
-.card-info__rating {
+.card__info__rating {
   margin-right: 10px;
 }
-.card-info__place .place-icon {
+.card__info__place .place-icon {
   font-size: 16px;
   color: var(--fourthly-color);
   opacity: 0.6;
@@ -560,35 +560,35 @@ a {
   gap: 20px;
 }
 
-.restaurant-description {
+.restaurant__description {
   margin: 15px 0;
   line-height: 18px !important;
 }
 
-.restaurant-image {
+.restaurant__image {
   width: 100%;
   height: 450px;
   margin-bottom: 20px;
 }
 
-.restaurant-name {
+.restaurant__name {
   font-family: var(--poppins-family);
   font-size: 26px;
   font-weight: 500;
 }
 
-.restaurant-info {
+.restaurant__info {
   display: inline;
   font-size: 16px;
 }
 
-.restaurant-menus {
+.restaurant__menus {
   display: grid;
   grid-template-columns: repeat(2, 6fr);
   gap: 30px;
 }
 
-.restaurant-review {
+.restaurant__review {
   margin-top: 20px;
 }
 

@@ -27,18 +27,18 @@ class RestaurantDetail extends HTMLElement {
     const fixedRating = detail.rating.toFixed(1);
     const template = `
       <div class="container">
-        <section class="restaurant-detail">
+        <section class="restaurant__detail">
           <img
             alt="restaurant ${detail.name}"
-            class="restaurant-image lazyload"
+            class="restaurant__image lazyload"
             data-src="${restaurantImage}"
             src="${restaurantImage}"
             srcset="${restaurantImage}"
           />
-          <h2 class="restaurant-name primary-text" tabindex="0">
+          <h1 class="restaurant__name primary-text" tabindex="0">
           ${detail.name}
-          </h2>
-          <div class="restaurant-info">
+          </h1>
+          <div class="restaurant__info">
             <i id="rating-icon${detail.id}" class="fa fa-star rating-icon"></i>
             <label
               for="rating-icon${detail.id}"
@@ -56,7 +56,7 @@ class RestaurantDetail extends HTMLElement {
             </label>
             ${this._categories(detail.categories)}
           </div>
-          <p class="restaurant-description">${detail.description}</p>
+          <p class="restaurant__description">${detail.description}</p>
         </section>
 
         ${restaurantDetailMenusTemplate()}
