@@ -29,16 +29,6 @@ class HeroBreadcrumb extends HTMLElement {
   _hero() {
     return `
     <section class="hero">
-      <div class="hero__gradient"></div>
-      <img
-        alt="Hero Image"
-        class="hero__image lazyload"
-        crossorigin="anonymous"
-        data-src="./images/heros/hero-small.jpg 400w, ./images/heros/hero-large.jpg 800w"
-        src="./images/heros/hero-large.jpg"
-        srcset="./images/heros/hero-small.jpg 400w, ./images/heros/hero-large.jpg 800w"
-        sizes="(max-width: 600px) 400px, 800px"
-      />
       <div class="hero__content container">
         <p class="hero__tagline" tabindex="0">
           Discover the great places to eat around you!

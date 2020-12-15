@@ -18,11 +18,6 @@
     height: 322px;
   }
 
-  .hero__gradient,
-  .hero__image {
-    height: 322px;
-  }
-
   .hero__content {
     padding-top: 90px;
   }
@@ -131,12 +126,7 @@
   .hero {
     height: 640px;
     margin-top: 0;
-  }
-
-  .hero__gradient,
-  .hero__image {
-    height: 640px;
-    top: 0;
+    background: var(--hero-gradient), url('/images/heros/hero-large.jpg');
   }
 
   .hero__content {
@@ -190,6 +180,10 @@
 @media screen and (min-width: 1200px) {
   .container {
     width: 1200px !important;
+  }
+
+  .hero {
+    background: var(--hero-gradient), url('/images/heros/hero-xl.jpg');
   }
 
   .discover-content {
