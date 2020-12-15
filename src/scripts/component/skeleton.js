@@ -1,6 +1,7 @@
 import {
   restaurantCard,
-  restaurantDetail
+  restaurantDetail,
+  discoverRestaurant
 } from '../views/templates/skeleton-template';
 
 class Skeleton extends HTMLElement {
@@ -67,6 +68,10 @@ class Skeleton extends HTMLElement {
         </div>
         <div class="menus">${restaurantCard(4)}</div>
       </div>
+    </section>
+
+    <section id="discover-restaurant">
+      <div class="container discover">${discoverRestaurant()}</div>
     </section>
     `;
   }
