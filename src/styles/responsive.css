@@ -57,6 +57,22 @@
   .menus {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .restaurant__image {
+    height: 350px;
+  }
+
+  .restaurant__menus {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .reviews {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .review-form {
+    width: 60%;
+  }
 }
 
 /* large screen */
@@ -144,6 +160,10 @@
   .restaurants,
   .menus {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .restaurant__image {
+    height: 450px;
   }
 
   #discover-restaurant {

@@ -3,7 +3,7 @@
   --poppins-family: 'Poppins', sans-serif;
   /* --primary-color: #ffa600; */
   --primary-color: rgb(26 136 50);
-  --secondary-color: #fbc914;
+  --secondary-color: #ffa600;
   --tertiary-color: #f8f9fa;
   --fourthly-color: #2f2f2f;
   --fifthly-color: #ffffff;
@@ -67,6 +67,7 @@ a {
 }
 
 .primary-text {
+  font-weight: 600;
   color: var(--primary-color);
 }
 
@@ -398,7 +399,7 @@ a {
 .card__description {
   clear: both;
   font-size: 14px;
-  line-height: 16px;
+  line-height: 20px;
   margin-top: 5px;
 }
 
@@ -459,11 +460,10 @@ a {
 .card__rating label {
   margin-left: 5px;
   position: relative;
-  top: -2px;
 }
 
 .rating-icon {
-  color: var(--primary-color);
+  color: var(--secondary-color);
   font-size: 16px;
 }
 
@@ -562,12 +562,12 @@ a {
 
 .restaurant__description {
   margin: 15px 0;
-  line-height: 18px !important;
+  line-height: 22px !important;
 }
 
 .restaurant__image {
   width: 100%;
-  height: 450px;
+  height: 250px;
   margin-bottom: 20px;
 }
 
@@ -584,7 +584,7 @@ a {
 
 .restaurant__menus {
   display: grid;
-  grid-template-columns: repeat(2, 6fr);
+  grid-template-columns: 1fr;
   gap: 30px;
 }
 
@@ -612,7 +612,7 @@ a {
 
 .reviews {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 20px;
 }
 
@@ -638,7 +638,7 @@ a {
 }
 
 .review-form {
-  width: 50%;
+  width: 90%;
   margin: 0 auto;
 }
 .review-form input,
@@ -647,6 +647,19 @@ a {
   width: 100%;
   margin: 15px 0;
   padding: 10px;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--fifthly-color);
+  padding: 10px 24px;
+  cursor: pointer;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.25);
+}
+.btn-primary:hover {
+  background-color: var(--primary-color);
 }
 
 .btn-submit {
