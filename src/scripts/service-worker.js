@@ -35,8 +35,7 @@ precacheAndRoute(
     }
   ],
   {
-    ignoreUrlParameterMatching: [/.*/],
-    maxAgeSeconds: aMonth
+    ignoreUrlParameterMatching: [/.*/]
   }
 );
 
@@ -96,7 +95,7 @@ registerRoute(
     plugins: [
       new ExpirationPlugin({
         maxAgeSeconds: aMonth,
-        maxEntries: 60
+        maxEntries: 100
       })
     ]
   })
