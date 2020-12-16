@@ -1,8 +1,4 @@
 class NavBar extends HTMLElement {
-  constructor() {
-    super();
-  }
-
   _brandLogo() {
     return `
       <div class="brand-logo">

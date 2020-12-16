@@ -8,10 +8,6 @@ import {
 } from '../views/templates/restaurant-template';
 
 class RestaurantDetail extends HTMLElement {
-  constructor() {
-    super();
-  }
-
   _categories(categories = []) {
     let template = `<label for="rating-icon" tabindex="0"> | Categories: </label>`;
     if (categories.length > 0) {

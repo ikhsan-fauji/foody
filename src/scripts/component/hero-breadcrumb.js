@@ -1,8 +1,4 @@
 class HeroBreadcrumb extends HTMLElement {
-  constructor() {
-    super();
-  }
-
   connectedCallback() {
     this.render();
   }

@@ -5,10 +5,6 @@ import {
 } from '../views/templates/skeleton-template';
 
 class Skeleton extends HTMLElement {
-  constructor() {
-    super();
-  }
-
   connectedCallback() {
     this.render();
   }
