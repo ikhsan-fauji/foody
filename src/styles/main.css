@@ -56,7 +56,7 @@ img {
   object-position: center;
 }
 img:empty {
-  background-color: rgb(213, 213, 213);
+  background-color: rgb(213, 213, 213) !important;
 }
 
 .res-image {
