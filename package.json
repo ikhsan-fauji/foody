@@ -9,7 +9,7 @@
     "bundle-report": "webpack-bundle-analyzer --port 4200 dist/stats.json",
     "dev": "webpack-dev-server --config webpack.dev.js --open",
     "test": "karma start",
-    "e2e": "codeceptjs run --steps",
+    "e2e": "codeceptjs run",
     "lint": "eslint --ignore-path .gitignore . --fix"
   },
   "keywords": [],
