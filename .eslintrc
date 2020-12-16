@@ -13,9 +13,11 @@
     "it": true,
     "true": true
   },
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 2018,
-    "sourceType": "module"
+    "sourceType": "module",
+    "allowImportExportEverywhere": true
   },
   "ignorePatterns": ["dist", "lib"],
   "rules": {
