@@ -47,7 +47,9 @@ describe('Like Restaurant', () => {
   });
 
   it('should not render like or unlike button when id is undefined', async () => {
-    await TestFactories.createLikeButtonPresenterWithRestaurant({});
+    expect(
+      await TestFactories.createLikeButtonPresenterWithRestaurant({})
+    ).toThrow(new Error('Please provide key'));
     expect(document.querySelector('#like-button')).toBeFalsy();
     expect(document.querySelector('#un-like-button')).toBeFalsy();
   });
