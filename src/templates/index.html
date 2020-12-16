@@ -18,10 +18,38 @@
     <link
       rel="preload"
       crossorigin="anonymous"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+      font-display="optional"
+    />
+    <link
+      rel="preload"
+      crossorigin="anonymous"
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+      font-display="optional"
+    />
+    <link
+      rel="preload"
+      crossorigin="anonymous"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      />
+    </noscript>
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      />
+    </noscript>
     <noscript>
       <link
         rel="stylesheet"
@@ -33,9 +61,18 @@
   <body>
     <a href="#main-content" class="skip-link">Skip to content</a>
     <header>
-      <nav-bar id="navbar"></nav-bar>
+      <nav-bar id="navbar">
+        <div class="container navbar-container">
+          <div class="brand-logo">
+            <button id="burger" aria-label="burger-button"></button>
+            <a class="brand-link" href="#">Foody</a>
+          </div>
+        </div>
+      </nav-bar>
       <div id="header-content">
-        <hero-breadcrumb></hero-breadcrumb>
+        <hero-breadcrumb>
+          <section class="hero"></section>
+        </hero-breadcrumb>
       </div>
     </header>
     <main id="main-content">
