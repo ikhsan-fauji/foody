@@ -1,5 +1,3 @@
-import NotificationHelper from '../helper/notification-helper';
-
 let webSocket;
 const WebSocketInitiator = {
   init(url) {
@@ -11,7 +9,7 @@ const WebSocketInitiator = {
 
   _onOpen() {
     console.log('CONNECTED');
-    // NotificationHelper.sendNotification({
+    // this._sendNotification({
     //   title: `websocket.org`,
     //   options: {
     //     body:
@@ -38,7 +36,7 @@ const WebSocketInitiator = {
 
   _onMessageHandler(event) {
     console.log('RECEIVED: ', event.data);
-    NotificationHelper.sendNotification({
+    this._sendNotification({
       title: `websocket.org`,
       options: {
         body: event.data
@@ -48,12 +46,18 @@ const WebSocketInitiator = {
 
   _onClose() {
     console.log('DISCONNECTED');
-    // NotificationHelper.sendNotification({
+    // this._sendNotification({
     //   title: `websocket.org`,
     //   options: {
     //     body: 'WebSocket was disconnected'
     //   }
     // });
+  },
+
+  _sendNotification({ title, options }) {
+    import('../helper/notification-helper')
+      .then((module) => module.default)
+      .then((helper) => helper.sendNotification({ title, options }));
   }
 };
 export default WebSocketInitiator;
