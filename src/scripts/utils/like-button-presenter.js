@@ -2,7 +2,6 @@ import {
   likeButtonTemplate,
   unLikeButtonTemplate
 } from '../views/templates/like-button-template';
-import alert from '../helper/alert-helper';
 
 const LikeButtonPresenter = {
   async init({ likeButtonContainer, favoriteRestaurant, restaurant }) {
@@ -57,9 +56,17 @@ const LikeButtonPresenter = {
   async _likeRestaurant(restaurantData) {
     try {
       await this._favoriteRestaurant.like(restaurantData);
-      alert.success('Awesome', 'Success to like this restaurant');
+      this._alert({
+        type: 'success',
+        title: 'Awesome',
+        message: 'Success to like this restaurant'
+      });
     } catch (error) {
-      alert.error('Sorry', 'Failed to like this restaurant');
+      this._alert({
+        type: 'error',
+        title: 'Sorry',
+        message: 'Failed to like this restaurant'
+      });
       console.error('_likeRestaurant', error);
     }
   },
@@ -67,11 +74,29 @@ const LikeButtonPresenter = {
   async _unLikeRestaurant(key) {
     try {
       await this._favoriteRestaurant.unlike(key);
-      alert.success('Awesome', 'Success to unlike this restaurant');
+      this._alert({
+        type: 'success',
+        title: 'Awesome',
+        message: 'Success to unlike this restaurant'
+      });
     } catch (error) {
-      alert.error('Sorry', 'Failed to unlike this restaurant');
+      this._alert({
+        type: 'error',
+        title: 'Sorry',
+        message: 'Failed to unlike this restaurant'
+      });
       console.error('_unLikeRestaurant', error);
     }
+  },
+
+  _alert({
+    type = 'error',
+    title = 'Error',
+    message = `Something wen't wrong`
+  }) {
+    import('../helper/alert-helper')
+      .then((module) => module.default)
+      .then((alert) => alert[type](title, message));
   }
 };
 

@@ -1,12 +1,7 @@
 import CONFIG from '../globals/config';
 import restaurantApi from '../globals/api';
-import alert from '../helper/alert-helper';
 
 class ReviewForm extends HTMLElement {
-  constructor() {
-    super();
-  }
-
   _formTemplate() {
     return `
       <form action="#" class="review-form">
@@ -92,7 +87,9 @@ class ReviewForm extends HTMLElement {
         } else if (!this._callback) {
           throw Error('please provide callback');
         } else {
-          alert.success('Success', 'Review success');
+          import('../helper/alert-helper')
+            .then((module) => module.default)
+            .then((alert) => alert.error('Success', 'Review success'));
           this._callback(response.customerReviews);
           this._resetForm();
           this._enableButton(element);
@@ -102,7 +99,9 @@ class ReviewForm extends HTMLElement {
     } catch (error) {
       this._enableButton(element);
       console.error('_submitForm', error.message);
-      alert.error('Failed', 'Something went wrong.');
+      import('../helper/alert-helper')
+        .then((module) => module.default)
+        .then((alert) => alert.error('Failed', 'Something went wrong.'));
     }
   }
 
