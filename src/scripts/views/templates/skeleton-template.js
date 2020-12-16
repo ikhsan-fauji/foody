@@ -57,7 +57,7 @@ const restaurantDetail = () => {
 
 const discoverRestaurant = () => {
   return `
-    <div class="discover-banner skeleton-10 skeleton-loading"></div>
+    <div class="discover-banner skeleton-10 skeleton-loading skeleton-h-10"></div>
     <div class="discover-content">
       <div class="discover-title skeleton-5 skeleton-loading sk-default"></div>
       <div class="discover-text skeleton-8 skeleton-loading sk-default"></div>

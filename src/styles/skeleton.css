@@ -59,14 +59,14 @@
     from(transparent),
     color-stop(rgba(255, 255, 255, 0.2)),
     to(transparent)
-  );
+  ) !important;
 
   background: linear-gradient(
     90deg,
     transparent,
     rgba(255, 255, 255, 0.2),
     transparent
-  );
+  ) !important;
 
   animation: skeleton 0.8s infinite;
   overflow: hidden;

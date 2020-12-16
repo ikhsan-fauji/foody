@@ -14,9 +14,6 @@
   );
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
 /*
 ** Global
 */
@@ -121,12 +118,17 @@ a {
 }
 
 #burger {
-  background-color: transparent;
+  background-color: var(--fifthly-color);
   border: none;
   color: var(--primary-color);
   margin-top: 12px;
   width: 44px;
   height: 44px;
+}
+#burger:empty {
+  background-color: var(--primary-color);
+  position: relative;
+  top: 8;
 }
 .burger__menu {
   font-size: 40px;
@@ -190,6 +192,9 @@ a {
   background: var(--hero-gradient), url('/images/heros/hero-small.jpg');
   background-size: cover;
   background-position: center;
+}
+.hero:empty {
+  background-color: var(--tertiary-color);
 }
 
 .hero__content {
@@ -364,7 +369,7 @@ a {
 */
 
 .card {
-  background-color: var(--fifthly-color);
+  background-color: rgba(255, 255, 255, 0.2);
   border-radius: 5px;
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.25);
 }
@@ -381,7 +386,6 @@ a {
   border-radius: 5px;
   padding: 15px;
   position: relative;
-  top: -10px;
 }
 
 .card__description {
@@ -497,6 +501,7 @@ a {
 
 .discover-banner {
   width: 100%;
+  min-height: 191px;
 }
 
 .discover-content {
