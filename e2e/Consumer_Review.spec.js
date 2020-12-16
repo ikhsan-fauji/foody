@@ -7,8 +7,8 @@ Before(({ I }) => {
 
 Scenario('showing the review form', async ({ I }) => {
   I.amOnPage('/#/restaurant');
-  I.seeElement('.restaurant-title a');
-  const card = locate('.restaurant-title').first();
+  I.seeElement('.card__link');
+  const card = locate('.card__title').first();
   const cardTitle = await I.grabTextFrom(card);
   I.click(cardTitle);
 
@@ -20,8 +20,8 @@ Scenario('showing the review form', async ({ I }) => {
 
 Scenario('validate fields if all empty', async ({ I }) => {
   I.amOnPage('/#/restaurant');
-  I.seeElement('.restaurant-title a');
-  const card = locate('.restaurant-title').first();
+  I.seeElement('.card__link');
+  const card = locate('.card__title').first();
   const cardTitle = await I.grabTextFrom(card);
   I.click(cardTitle);
 
@@ -36,8 +36,8 @@ Scenario('validate fields if all empty', async ({ I }) => {
 
 Scenario('validate review field if empty', async ({ I }) => {
   I.amOnPage('/#/restaurant');
-  I.seeElement('.restaurant-title a');
-  const card = locate('.restaurant-title').first();
+  I.seeElement('.card__link');
+  const card = locate('.card__title').first();
   const cardTitle = await I.grabTextFrom(card);
   I.click(cardTitle);
 
@@ -53,8 +53,8 @@ Scenario('validate review field if empty', async ({ I }) => {
 
 Scenario('validate name field if empty', async ({ I }) => {
   I.amOnPage('/#/restaurant');
-  I.seeElement('.restaurant-title a');
-  const card = locate('.restaurant-title').first();
+  I.seeElement('.card__link');
+  const card = locate('.card__title').first();
   const cardTitle = await I.grabTextFrom(card);
   I.click(cardTitle);
 
@@ -70,8 +70,8 @@ Scenario('validate name field if empty', async ({ I }) => {
 
 Scenario('submit the review input', async ({ I }) => {
   I.amOnPage('/#/restaurant');
-  I.seeElement('.restaurant-title a');
-  const card = locate('.restaurant-title').first();
+  I.seeElement('.card__link');
+  const card = locate('.card__title').first();
   const cardTitle = await I.grabTextFrom(card);
   I.click(cardTitle);
 

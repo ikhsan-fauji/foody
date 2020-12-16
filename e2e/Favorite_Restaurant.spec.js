@@ -17,8 +17,8 @@ Scenario('liking the restaurant from the restaurant page', async ({ I }) => {
   I.see('Data not found.');
 
   I.amOnPage('/#/restaurant');
-  I.seeElement('.restaurant-title a');
-  const firstCard = locate('.restaurant-title').first();
+  I.seeElement('.card__link');
+  const firstCard = locate('.card__title').first();
   const firstCardTitle = await I.grabTextFrom(firstCard);
   I.click(firstCardTitle);
 
@@ -29,7 +29,7 @@ Scenario('liking the restaurant from the restaurant page', async ({ I }) => {
 
   I.amOnPage('/#/favorite');
   I.seeElement('.restaurant');
-  const likedCardTitle = await I.grabTextFrom('.restaurant-title');
+  const likedCardTitle = await I.grabTextFrom('.card__title');
 
   assert.strictEqual(firstCardTitle, likedCardTitle);
 });
@@ -39,8 +39,8 @@ Scenario('unliking the restaurant from restaurant page', async ({ I }) => {
   I.see('Data not found.');
 
   I.amOnPage('/#/restaurant');
-  I.seeElement('.restaurant-title a');
-  const firstCard = locate('.restaurant-title').first();
+  I.seeElement('.card__link');
+  const firstCard = locate('.card__title').first();
   const firstCardTitle = await I.grabTextFrom(firstCard);
   I.click(firstCardTitle);
 
@@ -64,8 +64,8 @@ Scenario('unliking the restaurant from favorite page', async ({ I }) => {
   I.see('Data not found.');
 
   I.amOnPage('/#/restaurant');
-  I.seeElement('.restaurant-title a');
-  const firstCard = locate('.restaurant-title').first();
+  I.seeElement('.card__link');
+  const firstCard = locate('.card__title').first();
   const firstCardTitle = await I.grabTextFrom(firstCard);
   I.click(firstCardTitle);
 
@@ -75,8 +75,8 @@ Scenario('unliking the restaurant from favorite page', async ({ I }) => {
   I.seeElement('#un-like-button', '#like-btn-container');
 
   I.amOnPage('/#/favorite');
-  I.seeElement('.restaurant-title a');
-  const firstLikedCard = locate('.restaurant-title').first();
+  I.seeElement('.card__link');
+  const firstLikedCard = locate('.card__title').first();
   const firstLikedCardTitle = await I.grabTextFrom(firstLikedCard);
   assert.strictEqual(firstCardTitle, firstLikedCardTitle);
 
@@ -100,8 +100,8 @@ Scenario(
     I.see('Data not found.');
 
     I.amOnPage('/#/restaurant');
-    I.seeElement('.restaurant-title a');
-    const firstCard = locate('.restaurant-title').first();
+    I.seeElement('.card__link');
+    const firstCard = locate('.card__title').first();
     const firstCardTitle = await I.grabTextFrom(firstCard);
     I.click(firstCardTitle);
 
@@ -111,8 +111,8 @@ Scenario(
     I.seeElement('#un-like-button', '#like-btn-container');
 
     I.amOnPage('/#/favorite');
-    I.seeElement('.restaurant-title a');
-    const firstLikedCard = locate('.restaurant-title').first();
+    I.seeElement('.card__link');
+    const firstLikedCard = locate('.card__title').first();
     const firstLikedCardTitle = await I.grabTextFrom(firstLikedCard);
     assert.strictEqual(firstCardTitle, firstLikedCardTitle);
 
@@ -129,7 +129,7 @@ Scenario(
 
     I.amOnPage('/#/favorite');
     I.seeElement('.restaurant');
-    const likedCardTitle = await I.grabTextFrom('.restaurant-title');
+    const likedCardTitle = await I.grabTextFrom('.card__title');
 
     assert.strictEqual(firstCardTitle, likedCardTitle);
   }
