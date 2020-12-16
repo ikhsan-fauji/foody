@@ -4,7 +4,7 @@ import { renderList } from '../templates/restaurant-template';
 import { restaurantCard } from '../templates/skeleton-template';
 
 const RestaurantPage = {
-  render() {
+  async render() {
     return `
       <section id="restaurant">
         <div class="container restaurants">

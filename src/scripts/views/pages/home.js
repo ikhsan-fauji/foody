@@ -8,7 +8,7 @@ import {
 import { restaurantCard } from '../templates/skeleton-template';
 
 const HomePage = {
-  render() {
+  async render() {
     return `
       <section id="explore">
         <div class="container">
@@ -35,9 +35,9 @@ const HomePage = {
               alt="Chef in the kitchen"
               class="lazyload"
               crossorigin="anonymous"
-              data-src="./images/heros/discover-small.jpg 400w, ./images/heros/discover-large.jpg 800w"
-              src="./images/heros/discover-large.jpg"
-              srcset="./images/heros/discover-small.jpg 400w, ./images/heros/discover-large.jpg 800w"
+              data-src="./images/heros/discover-small.webp 400w, ./images/heros/discover-large.webp 800w"
+              src="./images/heros/discover.jpg"
+              srcset="./images/heros/discover-small.webp 400w, ./images/heros/discover-large.webp 800w"
               sizes="(max-width: 600px) 400px, 800px"
             />
           </div>

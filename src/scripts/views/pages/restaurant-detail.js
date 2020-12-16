@@ -8,7 +8,7 @@ import noDataTemplate from '../templates/nodata-template';
 import { restaurantDetail } from '../templates/skeleton-template';
 
 const RestaurantDetailPage = {
-  render() {
+  async render() {
     return `
       <section id="restaurant-content">
         ${restaurantDetail()}
