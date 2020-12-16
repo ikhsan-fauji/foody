@@ -10,7 +10,6 @@ import './component/hero-breadcrumb';
 
 import CONFIG from './globals/config';
 import swRegister from './utils/service-worker-register';
-import WebSocketInitiator from './utils/websocket-initiator';
 import App from './views/app';
 
 // application init
@@ -27,5 +26,7 @@ window.addEventListener('hashchange', () => {
 window.addEventListener('load', () => {
   app.renderPage();
   swRegister();
-  WebSocketInitiator.init(CONFIG.WEB_SOCKET_SERVER);
+  import('./utils/websocket-initiator')
+    .then((module) => module.default)
+    .then((websocket) => websocket.init(CONFIG.WEB_SOCKET_SERVER));
 });
