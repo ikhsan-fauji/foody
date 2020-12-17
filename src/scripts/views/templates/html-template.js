@@ -1,4 +1,4 @@
-const restaurantCard = (count = 1) => {
+const cardSkeleton = (count = 1) => {
   let template = '';
   for (let index = 1; index <= count; index++) {
     template += `
@@ -18,7 +18,7 @@ const restaurantCard = (count = 1) => {
   return template;
 };
 
-const restaurantDetail = () => {
+const detailSkeleton = () => {
   return `
   <div class="container">
     <section class="restaurant__detail">
@@ -55,7 +55,7 @@ const restaurantDetail = () => {
   `;
 };
 
-const discoverRestaurant = () => {
+const discoverSkeleton = () => {
   return `
     <div class="discover-banner skeleton-10 skeleton-loading skeleton-h-10"></div>
     <div class="discover-content">
@@ -69,4 +69,34 @@ const discoverRestaurant = () => {
   `;
 };
 
-export { restaurantCard, restaurantDetail, discoverRestaurant };
+const noDataTemplate = (message = 'Data not found.') => {
+  return `
+    <div class="no-data">
+      <div class="no-data__container">
+        <h1>Oops!!!</h1>
+        <p class="error-message">${message}</p>
+      </div>
+    </div>
+  `;
+};
+
+const notFoundTemplate = () => {
+  return `
+    <div class="container">
+      <div id="not-found">
+        <div class="not-found__container">
+          <h2 class="not-found__title">Are you lost?</h2>
+          <p class="not-found__link">404!!! Page not found. <a class="not-found__link" href="/">Back to home page.</a></p>
+        </div>
+      </div>
+    </div>
+  `;
+};
+
+export {
+  cardSkeleton,
+  detailSkeleton,
+  discoverSkeleton,
+  noDataTemplate,
+  notFoundTemplate
+};
