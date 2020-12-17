@@ -34,7 +34,7 @@ Scenario('liking the restaurant from the restaurant page', async ({ I }) => {
   assert.strictEqual(firstCardTitle, likedCardTitle);
 });
 
-Scenario('unliking the restaurant from restaurant page', async ({ I }) => {
+Scenario('disliking the restaurant from restaurant page', async ({ I }) => {
   I.see('Oops!!!');
   I.see('Data not found.');
 
@@ -59,7 +59,7 @@ Scenario('unliking the restaurant from restaurant page', async ({ I }) => {
   I.see('Data not found.');
 });
 
-Scenario('unliking the restaurant from favorite page', async ({ I }) => {
+Scenario('disliking the restaurant from favorite page', async ({ I }) => {
   I.see('Oops!!!');
   I.see('Data not found.');
 
