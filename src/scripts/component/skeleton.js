@@ -1,8 +1,8 @@
 import {
-  restaurantCard,
-  restaurantDetail,
-  discoverRestaurant
-} from '../views/templates/skeleton-template';
+  cardSkeleton,
+  detailSkeleton,
+  discoverSkeleton
+} from '../views/templates/html-template';
 
 class Skeleton extends HTMLElement {
   connectedCallback() {
@@ -31,7 +31,7 @@ class Skeleton extends HTMLElement {
   _detailSkeleton() {
     return `
     <section id="restaurant-content">
-      ${restaurantDetail()}
+      ${detailSkeleton()}
     </section>
     `;
   }
@@ -40,7 +40,7 @@ class Skeleton extends HTMLElement {
     return `
       <section id="restaurant">
         <div class="container restaurants">
-          ${restaurantCard(8)}
+          ${cardSkeleton(8)}
         </div>
       </section>
     `;
@@ -53,7 +53,7 @@ class Skeleton extends HTMLElement {
         <div class="section-header">
           <h2 class="section-title" tabindex="0">Explore Restaurant</h2>
         </div>
-        <div class="restaurants">${restaurantCard(4)}</div>
+        <div class="restaurants">${cardSkeleton(4)}</div>
       </div>
     </section>
 
@@ -62,12 +62,12 @@ class Skeleton extends HTMLElement {
         <div class="section-header">
           <h2 class="section-title" tabindex="0">Popular Menus</h2>
         </div>
-        <div class="menus">${restaurantCard(4)}</div>
+        <div class="menus">${cardSkeleton(4)}</div>
       </div>
     </section>
 
     <section id="discover-restaurant">
-      <div class="container discover">${discoverRestaurant()}</div>
+      <div class="container discover">${discoverSkeleton()}</div>
     </section>
     `;
   }
