@@ -3,6 +3,7 @@ const _sendNotification = ({ title, options }) => {
     .then((module) => module.default)
     .then((helper) => helper.sendNotification({ title, options }));
 };
+
 let webSocket;
 const WebSocketInitiator = {
   init(url) {
