@@ -1,8 +1,8 @@
-import '../component/NavBar';
+import '../component/foody-navbar';
 import routers from '../routes/routers';
 import UrlParser from '../routes/url-parser';
 import Drawer from '../utils/drawer-initiator';
-import NotFoundTemplate from './templates/not-found-template';
+import { notFoundTemplate } from './templates/html-template';
 
 class App {
   constructor({ menuBar, button, drawer, content }) {
@@ -44,7 +44,7 @@ class App {
 
   _notFound() {
     const body = this._body();
-    body.innerHTML = NotFoundTemplate();
+    body.innerHTML = notFoundTemplate();
   }
 }
 

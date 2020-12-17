@@ -1,17 +1,16 @@
-import '../../component/RestaurantDetail';
+import '../../component/restaurant-detail';
 import UrlParser from '../../routes/url-parser';
 import Restaurant from '../../data/restaurant';
 import FavoriteRestaurant from '../../data/favorite-restaurant';
 import LikeButtonPresenter from '../../utils/like-button-presenter';
 import { handleError } from '../../helper/error-helper';
-import noDataTemplate from '../templates/nodata-template';
-import { restaurantDetail } from '../templates/skeleton-template';
+import { noDataTemplate, detailSkeleton } from '../templates/html-template';
 
 const RestaurantDetailPage = {
   async render() {
     return `
       <section id="restaurant-content">
-        ${restaurantDetail()}
+        ${detailSkeleton()}
       </section>
       <div id="like-btn-container"></div>
     `;
@@ -33,6 +32,7 @@ const RestaurantDetailPage = {
       handleError({
         error,
         elementId,
+        noDataTemplate,
         functionName: 'afterRendered'
       });
     }

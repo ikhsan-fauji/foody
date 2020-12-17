@@ -1,5 +1,5 @@
 import restaurantApi from '../../globals/api';
-import noDataTemplate from './nodata-template';
+import { noDataTemplate } from './html-template';
 
 const restaurantDetailMenusTemplate = () => `
   <section class="restaurant__menus">

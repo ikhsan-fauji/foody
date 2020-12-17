@@ -1,14 +1,14 @@
 import Restaurant from '../../data/restaurant';
 import { handleError } from '../../helper/error-helper';
 import { renderList } from '../templates/restaurant-template';
-import { restaurantCard } from '../templates/skeleton-template';
+import { cardSkeleton, noDataTemplate } from '../templates/html-template';
 
 const RestaurantPage = {
   async render() {
     return `
       <section id="restaurant">
         <div class="container restaurants">
-          ${restaurantCard(8)}
+          ${cardSkeleton(8)}
         </div>
       </section>
     `;
@@ -27,6 +27,7 @@ const RestaurantPage = {
       handleError({
         error,
         elementId,
+        noDataTemplate,
         functionName: '_renderRestaurants'
       });
     }

@@ -1,14 +1,14 @@
 import FavoriteRestaurant from '../../data/favorite-restaurant';
 import { handleError } from '../../helper/error-helper';
 import { renderList } from '../templates/restaurant-template';
-import { restaurantCard } from '../templates/skeleton-template';
+import { cardSkeleton, noDataTemplate } from '../templates/html-template';
 
 const FavoritePage = {
   async render() {
     return `
       <section id="favorite">
         <div class="container restaurants">
-          ${restaurantCard(8)}
+          ${cardSkeleton(8)}
         </div>
       </section>
     `;
@@ -27,6 +27,7 @@ const FavoritePage = {
       handleError({
         error,
         elementId,
+        noDataTemplate,
         functionName: '_renderFavoriteRestaurants'
       });
     }

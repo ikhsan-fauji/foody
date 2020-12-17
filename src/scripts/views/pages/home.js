@@ -5,7 +5,7 @@ import {
   renderList,
   renderPopularMenus
 } from '../templates/restaurant-template';
-import { restaurantCard } from '../templates/skeleton-template';
+import { cardSkeleton, noDataTemplate } from '../templates/html-template';
 
 const HomePage = {
   async render() {
@@ -15,7 +15,7 @@ const HomePage = {
           <div class="section-header">
             <h1 class="section-title" tabindex="0">Explore Restaurant</h1>
           </div>
-          <div class="restaurants">${restaurantCard(4)}</div>
+          <div class="restaurants">${cardSkeleton(4)}</div>
         </div>
       </section>
 
@@ -24,7 +24,7 @@ const HomePage = {
           <div class="section-header">
             <h1 class="section-title" tabindex="0">Popular Menus</h1>
           </div>
-          <div class="menus">${restaurantCard(4)}</div>
+          <div class="menus">${cardSkeleton(4)}</div>
         </div>
       </section>
 
@@ -75,6 +75,7 @@ const HomePage = {
       handleError({
         error,
         elementId,
+        noDataTemplate,
         functionName: '_renderRecommendedRestaurant'
       });
     }
