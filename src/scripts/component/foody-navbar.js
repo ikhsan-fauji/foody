@@ -1,4 +1,4 @@
-class NavBar extends HTMLElement {
+class FoodyNavbar extends HTMLElement {
   _brandLogo() {
     return `
       <div class="brand-logo">
@@ -75,4 +75,4 @@ class NavBar extends HTMLElement {
   }
 }
 
-customElements.define('nav-bar', NavBar);
+customElements.define('foody-navbar', FoodyNavbar);

@@ -1,4 +1,4 @@
-import './ReviewForm';
+import './review-form';
 import restaurantApi from '../globals/api';
 import {
   restaurantDetailMenusTemplate,
