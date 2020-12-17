@@ -1,7 +1,6 @@
 :root {
   --roboto-family: 'Roboto', sans-serif;
   --poppins-family: 'Poppins', sans-serif;
-  /* --primary-color: #ffa600; */
   --primary-color: rgb(26 136 50);
   --secondary-color: #ffa600;
   --tertiary-color: #f8f9fa;
@@ -304,6 +303,8 @@ a {
 #breadcrumb {
   background-image: url('/images/heros/breadcrumb.jpg');
   height: 220px;
+  background-position: center;
+  background-size: cover;
 }
 
 #breadcrumb::after {
