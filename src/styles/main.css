@@ -188,7 +188,7 @@ a {
 .hero {
   height: 222px;
   margin-top: 72px;
-  background: var(--hero-gradient), url('/images/heros/hero-small.jpg');
+  background: var(--hero-gradient), url('/images/hero-small.webp');
   background-size: cover;
   background-position: center;
 }
@@ -301,7 +301,7 @@ a {
 */
 
 #breadcrumb {
-  background-image: url('/images/heros/breadcrumb.jpg');
+  background-image: url('/images/breadcrumb-small.webp');
   height: 220px;
   background-position: center;
   background-size: cover;

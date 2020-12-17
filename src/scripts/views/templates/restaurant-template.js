@@ -94,9 +94,9 @@ const _menuCard = (menu) => {
           alt="${name}"
           class="lazyload"
           crossorigin="anonymous"
-          data-src="./images/menus/${picture}-small.webp 480w, ./images/menus/${picture}-large.webp 800w"
-          src="./images/menus/${picture}.jpg"
-          srcset="./images/menus/${picture}-small.webp 480w, ./images/menus/${picture}-large.webp 800w"
+          data-src="./images/${picture}-small.webp 480w, ./images/${picture}-large.webp 800w"
+          src="./images/${picture}-large.webp"
+          srcset="./images/${picture}-small.webp 480w, ./images/${picture}-large.webp 800w"
           sizes="(max-width: 600px) 480px, 800px"
         />
       </div>

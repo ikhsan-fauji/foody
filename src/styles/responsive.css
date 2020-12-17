@@ -126,7 +126,7 @@
   .hero {
     height: 640px;
     margin-top: 0;
-    background: var(--hero-gradient), url('/images/heros/hero-large.jpg');
+    background: var(--hero-gradient), url('/images/heros/hero-large.webp');
   }
 
   .hero__content {
@@ -140,6 +140,10 @@
     font-size: 42px;
     line-height: 52px !important;
     margin-bottom: 20px;
+  }
+
+  #breadcrumb {
+    background-image: url('/images/breadcrumb-large.webp');
   }
 
   .search-form {
@@ -183,7 +187,11 @@
   }
 
   .hero {
-    background: var(--hero-gradient), url('/images/heros/hero-xl.jpg');
+    background: var(--hero-gradient), url('/images/hero-xl.webp');
+  }
+
+  #breadcrumb {
+    background-image: url('/images/breadcrumb-xl.webp');
   }
 
   .discover-content {

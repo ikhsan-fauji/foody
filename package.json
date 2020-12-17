@@ -4,7 +4,7 @@
   "description": "Restaurant catalogue apps",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack.prod.js",
+    "build": "webpack --config webpack.prod.js && node sharp.js",
     "build-image": "node sharp.js",
     "bundle-report": "webpack-bundle-analyzer --port 4200 dist/stats.json",
     "dev": "node sharp.js && webpack-dev-server --config webpack.dev.js --open",
