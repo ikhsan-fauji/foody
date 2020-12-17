@@ -1,6 +1,6 @@
 import {
   likeButtonTemplate,
-  unLikeButtonTemplate
+  dislikeButtonTemplate
 } from '../views/templates/like-button-template';
 
 const LikeButtonPresenter = {
@@ -15,12 +15,12 @@ const LikeButtonPresenter = {
   async _render() {
     const isExist = await this._isExist(this._restaurant.id);
     if (isExist) {
-      this._likeButtonContainer.innerHTML = unLikeButtonTemplate();
+      this._likeButtonContainer.innerHTML = dislikeButtonTemplate();
       await this._clickEvent({
         data: this._restaurant,
-        button: '#un-like-button',
+        button: '#dislike-button',
         callback: async (data) => {
-          await this._unLikeRestaurant(data.id);
+          await this._dislikeRestaurant(data.id);
         }
       });
     } else {
@@ -36,8 +36,12 @@ const LikeButtonPresenter = {
   },
 
   async _isExist(id) {
-    const savedData = await this._favoriteRestaurant.getByKey(id);
-    return !!savedData;
+    try {
+      const savedData = await this._favoriteRestaurant.getByKey(id);
+      return !!savedData;
+    } catch (error) {
+      return false;
+    }
   },
 
   async _clickEvent({ button, callback, data }) {
@@ -71,21 +75,21 @@ const LikeButtonPresenter = {
     }
   },
 
-  async _unLikeRestaurant(key) {
+  async _dislikeRestaurant(key) {
     try {
-      await this._favoriteRestaurant.unlike(key);
+      await this._favoriteRestaurant.dislike(key);
       this._alert({
         type: 'success',
         title: 'Awesome',
-        message: 'Success to unlike this restaurant'
+        message: 'Success to dislike this restaurant'
       });
     } catch (error) {
       this._alert({
         type: 'error',
         title: 'Sorry',
-        message: 'Failed to unlike this restaurant'
+        message: 'Failed to dislike this restaurant'
       });
-      console.error('_unLikeRestaurant', error);
+      console.error('_dislikeRestaurant', error);
     }
   },
 

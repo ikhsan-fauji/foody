@@ -1,4 +1,5 @@
 import { handleError } from '../../../../src/scripts/helper/error-helper';
+import { noDataTemplate } from '../../../../src/scripts/views/templates/html-template';
 
 describe('Error Helper #handleError', () => {
   const createWrapper = () => {
@@ -14,6 +15,7 @@ describe('Error Helper #handleError', () => {
 
   it('should render default error message', () => {
     const params = {
+      noDataTemplate,
       elementId: '#wrapper',
       functionName: 'testFunction',
       error: new Error('Error')
@@ -29,6 +31,7 @@ describe('Error Helper #handleError', () => {
 
   it('should render connection error message', () => {
     const params = {
+      noDataTemplate,
       elementId: '#wrapper',
       functionName: 'testFunction',
       error: new Error('Failed to fetch')
@@ -43,6 +46,7 @@ describe('Error Helper #handleError', () => {
 
   it('must not to be defined', () => {
     const params = {
+      noDataTemplate,
       elementId: '#wrapperX',
       functionName: 'testFunction',
       error: new Error('Error')

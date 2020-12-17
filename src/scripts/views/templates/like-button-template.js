@@ -4,10 +4,10 @@ const likeButtonTemplate = () => `
   </button>
 `;
 
-const unLikeButtonTemplate = () => `
-  <button id="un-like-button" class="like" aria-label="unlike this restaurant">
+const dislikeButtonTemplate = () => `
+  <button id="dislike-button" class="like" aria-label="dislike this restaurant">
      <i class="fa fa-heart" aria-hidden="true"></i>
   </button>
 `;
 
-export { likeButtonTemplate, unLikeButtonTemplate };
+export { likeButtonTemplate, dislikeButtonTemplate };

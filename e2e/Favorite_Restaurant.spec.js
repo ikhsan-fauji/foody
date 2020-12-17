@@ -25,7 +25,7 @@ Scenario('liking the restaurant from the restaurant page', async ({ I }) => {
   I.seeElement('#like-button', '#like-btn-container');
   I.click('#like-button', '#like-btn-container');
   I.see('Success to like this restaurant', '#alert-container');
-  I.seeElement('#un-like-button', '#like-btn-container');
+  I.seeElement('#dislike-button', '#like-btn-container');
 
   I.amOnPage('/#/favorite');
   I.seeElement('.restaurant');
@@ -49,9 +49,9 @@ Scenario('unliking the restaurant from restaurant page', async ({ I }) => {
   I.see('Success to like this restaurant', '#alert-container');
 
   I.wait(3);
-  I.seeElement('#un-like-button', '#like-btn-container');
-  I.click('#un-like-button', '#like-btn-container');
-  I.see('Success to unlike this restaurant', '#alert-container');
+  I.seeElement('#dislike-button', '#like-btn-container');
+  I.click('#dislike-button', '#like-btn-container');
+  I.see('Success to dislike this restaurant', '#alert-container');
   I.seeElement('#like-button', '#like-btn-container');
 
   I.amOnPage('/#/favorite');
@@ -72,7 +72,7 @@ Scenario('unliking the restaurant from favorite page', async ({ I }) => {
   I.seeElement('#like-button', '#like-btn-container');
   I.click('#like-button', '#like-btn-container');
   I.see('Success to like this restaurant', '#alert-container');
-  I.seeElement('#un-like-button', '#like-btn-container');
+  I.seeElement('#dislike-button', '#like-btn-container');
 
   I.amOnPage('/#/favorite');
   I.seeElement('.card__link');
@@ -83,9 +83,9 @@ Scenario('unliking the restaurant from favorite page', async ({ I }) => {
   I.click(firstLikedCardTitle);
 
   I.wait(3);
-  I.seeElement('#un-like-button', '#like-btn-container');
-  I.click('#un-like-button', '#like-btn-container');
-  I.see('Success to unlike this restaurant', '#alert-container');
+  I.seeElement('#dislike-button', '#like-btn-container');
+  I.click('#dislike-button', '#like-btn-container');
+  I.see('Success to dislike this restaurant', '#alert-container');
   I.seeElement('#like-button', '#like-btn-container');
 
   I.amOnPage('/#/favorite');
@@ -108,7 +108,7 @@ Scenario(
     I.seeElement('#like-button', '#like-btn-container');
     I.click('#like-button', '#like-btn-container');
     I.see('Success to like this restaurant', '#alert-container');
-    I.seeElement('#un-like-button', '#like-btn-container');
+    I.seeElement('#dislike-button', '#like-btn-container');
 
     I.amOnPage('/#/favorite');
     I.seeElement('.card__link');
@@ -119,9 +119,9 @@ Scenario(
     I.click(firstLikedCardTitle);
 
     I.wait(3);
-    I.seeElement('#un-like-button', '#like-btn-container');
-    I.click('#un-like-button', '#like-btn-container');
-    I.see('Success to unlike this restaurant', '#alert-container');
+    I.seeElement('#dislike-button', '#like-btn-container');
+    I.click('#dislike-button', '#like-btn-container');
+    I.see('Success to dislike this restaurant', '#alert-container');
     I.wait(3);
     I.seeElement('#like-button', '#like-btn-container');
     I.click('#like-button', '#like-btn-container');

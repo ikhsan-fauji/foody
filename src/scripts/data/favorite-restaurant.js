@@ -45,7 +45,7 @@ const FavoriteRestaurant = {
     return (await _dbPromise).add(STORE_NAME, newData);
   },
 
-  async unlike(key) {
+  async dislike(key) {
     this._idbChecking();
 
     if (!key) throw Error('Please provide key');

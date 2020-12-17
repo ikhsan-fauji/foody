@@ -19,9 +19,9 @@ describe('Like Restaurant', () => {
     expect(document.querySelector('#like-button')).toBeTruthy();
   });
 
-  it('should not render the unlike button when the restaurant has not liked before', async () => {
+  it('should not render the dislike button when the restaurant has not liked before', async () => {
     await TestFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
-    expect(document.querySelector('#un-like-button')).toBeFalsy();
+    expect(document.querySelector('#dislike-button')).toBeFalsy();
   });
 
   it('should be able to like the restaurant when the restaurant has not liked before', async () => {
@@ -31,7 +31,7 @@ describe('Like Restaurant', () => {
     const restaurant = await FavoriteRestaurant.getByKey(1);
 
     expect(restaurant.id).toEqual(1);
-    await FavoriteRestaurant.unlike(1);
+    await FavoriteRestaurant.dislike(1);
   });
 
   it('should not add the same restaurant if already liked before', async () => {
@@ -42,15 +42,13 @@ describe('Like Restaurant', () => {
     expect(restaurants.length).toEqual(1);
     expect(restaurants[0].id).toEqual(1);
     expect(document.querySelector('#like-button')).toBeFalsy();
-    expect(document.querySelector('#un-like-button')).toBeTruthy();
-    await FavoriteRestaurant.unlike(1);
+    expect(document.querySelector('#dislike-button')).toBeTruthy();
+    await FavoriteRestaurant.dislike(1);
   });
 
-  it('should not render like or unlike button when id is undefined', async () => {
-    expect(
-      await TestFactories.createLikeButtonPresenterWithRestaurant({})
-    ).toThrow(new Error('Please provide key'));
-    expect(document.querySelector('#like-button')).toBeFalsy();
-    expect(document.querySelector('#un-like-button')).toBeFalsy();
+  it('should not render like or dislike button when id is undefined', async () => {
+    await TestFactories.createLikeButtonPresenterWithRestaurant({});
+    expect(document.querySelector('#like-button')).toBeTruthy();
+    expect(document.querySelector('#dislike-button')).toBeFalsy();
   });
 });
