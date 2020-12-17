@@ -36,7 +36,7 @@ const NotificationHelper = {
 
   async _showNotification({ title, options }) {
     const serviceWorkerRegistration = await navigator.serviceWorker.ready;
-    serviceWorkerRegistration.showNotification(title, options);
+    await serviceWorkerRegistration.showNotification(title, options);
   }
 };
 
