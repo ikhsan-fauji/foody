@@ -1,0 +1,36 @@
+{
+  "popularMenus": [
+    {
+      "id": 1,
+      "restaurantId": "fe8bbxoazddkcowlqdz",
+      "name": "The God Pangsit",
+      "rating": 5.0,
+      "city": "Ternate",
+      "picture": "pangsit"
+    },
+    {
+      "id": 2,
+      "restaurantId": "cpl5jpsnuqkkcowlqdz",
+      "name": "Mendoan",
+      "rating": 4.9,
+      "city": "Malang",
+      "picture": "mendoan"
+    },
+    {
+      "id": 3,
+      "restaurantId": "6c7bqjgi84kcowlqdz",
+      "name": "Original Macchiato",
+      "rating": 4.8,
+      "city": "Medan",
+      "picture": "macchiato"
+    },
+    {
+      "id": 4,
+      "restaurantId": "ik1zljmlf68kcowlqdz",
+      "name": "Sweet Ducky",
+      "rating": 4.7,
+      "city": "Malang",
+      "picture": "ducky"
+    }
+  ]
+}
