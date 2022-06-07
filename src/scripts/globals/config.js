@@ -1,5 +1,5 @@
 const CONFIG = {
-  API_URL: 'https://restaurant-api.dev',
+  API_URL: 'https://restaurant-api.dicoding.dev',
   API_KEY: 12345,
   DB_NAME: 'foody_db',
   DB_VERSION: 1,
